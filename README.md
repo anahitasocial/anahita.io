@@ -16,10 +16,7 @@ built yet.
 
 ## Anahita
 
-Anahita is an open-source social network for schools, newsrooms, libraries,
-research groups and non-profits leaving Meta and X. It speaks ActivityPub
-and the AT Protocol natively. Its default feed is chronological, and nobody
-is tracked. It has groups, events, articles and custom feeds.
+Anahita is an open-source social network designed for schools, newsrooms, libraries, research groups, and non-profits.  It offers a platform free from the control of tech oligarchs.  Anahita natively supports ActivityPub and the AT Protocol, providing a chronological default feed without any tracking.  Users can create groups, events, articles, and customize their feeds.
 
 | Repository | What it is |
 | --- | --- |
