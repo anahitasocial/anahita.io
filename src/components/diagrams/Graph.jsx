@@ -1,4 +1,9 @@
 import Box from '@mui/material/Box';
+import EventOutlined from '@mui/icons-material/EventOutlined';
+import GroupsOutlined from '@mui/icons-material/GroupsOutlined';
+import NotesOutlined from '@mui/icons-material/NotesOutlined';
+import PersonOutlined from '@mui/icons-material/PersonOutlined';
+import ReplyOutlined from '@mui/icons-material/ReplyOutlined';
 import { Caption, Diagram, Link, Node } from './parts';
 
 const label =
@@ -10,11 +15,11 @@ export default function Graph() {
   return (
     <Box data-pagefind-ignore sx={{ maxWidth: 600 }}>
       <Diagram label={label} viewBox="0 0 560 330">
-        <Node x={10} y={30} w={160} h={56} title="Ana" lines={['a person']} accent />
-        <Node x={390} y={30} w={160} h={56} title="Physics club" lines={['a group']} />
-        <Node x={200} y={137} w={160} h={56} title="A note" lines={['a post']} />
-        <Node x={10} y={250} w={160} h={56} title="Open day" lines={['an event']} />
-        <Node x={370} y={250} w={180} h={56} title="A reply" lines={['from mastodon.social']} />
+        <Node x={10} y={30} w={160} h={56} icon={PersonOutlined} title="Ana" lines={['a person']} accent />
+        <Node x={390} y={30} w={160} h={56} icon={GroupsOutlined} title="Physics club" lines={['a group']} />
+        <Node x={200} y={137} w={160} h={56} icon={NotesOutlined} title="A note" lines={['a post']} />
+        <Node x={10} y={250} w={160} h={56} icon={EventOutlined} title="Open day" lines={['an event']} />
+        <Node x={370} y={250} w={180} h={56} icon={ReplyOutlined} title="A reply" lines={['from mastodon.social']} />
 
         <Link d="M170 58 L386 58" />
         <Caption x={278} y={50}>follows</Caption>
