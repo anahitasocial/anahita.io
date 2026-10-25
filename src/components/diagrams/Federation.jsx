@@ -1,6 +1,6 @@
 import Box from '@mui/material/Box';
-import CloudOutlined from '@mui/icons-material/CloudOutlined';
 import DnsOutlined from '@mui/icons-material/DnsOutlined';
+import { BlueskyMark } from './marks';
 import { Caption, Diagram, Link, Node, Overline } from './parts';
 
 const label =
@@ -23,7 +23,7 @@ function Wide() {
       <Overline x={740} y={24}>BLUESKY · AS AN APP</Overline>
       <Link d="M590 150 L736 150" both dashed />
       <Caption x={663} y={176} size={12}>for who connects it</Caption>
-      <Node x={740} y={122} w={220} h={56} icon={CloudOutlined} title="Bluesky" lines={['their own account']} />
+      <Node x={740} y={122} w={220} h={56} icon={BlueskyMark} mark title="Bluesky" lines={['their own account']} />
 
       <Caption x={480} y={286}>Only public posts, and only for those who turn it on.</Caption>
     </Diagram>
@@ -45,7 +45,7 @@ function Narrow() {
       <Link d="M180 320 L180 390" both dashed />
       <Caption x={192} y={360} anchor="start" size={12}>for who connects it</Caption>
       <Overline x={0} y={384}>BLUESKY · AS AN APP</Overline>
-      <Node x={60} y={394} w={240} h={56} icon={CloudOutlined} title="Bluesky" lines={['their own account']} size={14} />
+      <Node x={60} y={394} w={240} h={56} icon={BlueskyMark} mark title="Bluesky" lines={['their own account']} size={14} />
 
       <Caption x={180} y={490}>Only public posts, and only</Caption>
       <Caption x={180} y={508}>for those who turn it on.</Caption>

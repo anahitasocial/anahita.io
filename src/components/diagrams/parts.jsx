@@ -42,17 +42,21 @@ export function Diagram({ label, viewBox, children, sx }) {
 // A MUI icon at a point of a diagram. Drawn inside a foreignObject, as
 // HTML, so that MUI's own sizing applies: as an <svg> inside the diagram's
 // <svg>, it loses it and fills the drawing.
-export function DiagramIcon({ icon: IconComponent, x, y, size = 20 }) {
+// The networks Anahita speaks to (`mark`: Bluesky's butterfly, the
+// fediverse's hub) are drawn in black, or white in dark mode, as Bluesky asks
+// of its mark; Anahita's own in the theme's primary colour.
+export function DiagramIcon({ icon: IconComponent, x, y, size = 20, mark }) {
+  const tone = mark ? { color: 'common.black', '.dark &': { color: 'common.white' } } : { color: 'primary.main' };
   return (
     <foreignObject x={x} y={y} width={size} height={size}>
-      <IconComponent color="primary" sx={{ fontSize: size, display: 'block' }} />
+      <IconComponent sx={{ fontSize: size, display: 'block', ...tone }} />
     </foreignObject>
   );
 }
 
 // A box with a title and up to two lines under it. With an icon (a MUI
 // icon component), the icon sits at the left and the words beside it.
-export function Node({ x, y, w, h, title, lines = [], accent, icon: IconComponent, size = 15 }) {
+export function Node({ x, y, w, h, title, lines = [], accent, icon: IconComponent, mark, size = 15 }) {
   const cx = IconComponent ? x + 44 : x + w / 2;
   const anchor = IconComponent ? 'start' : 'middle';
   const top = y + h / 2 - (lines.length * (size - 2)) / 2 + 4;
@@ -66,7 +70,7 @@ export function Node({ x, y, w, h, title, lines = [], accent, icon: IconComponen
         rx={12}
         style={{ fill: color.paper, stroke: accent ? color.primary : color.border, strokeWidth: accent ? 1.5 : 1 }}
       />
-      {IconComponent && <DiagramIcon icon={IconComponent} x={x + 14} y={y + h / 2 - 10} />}
+      {IconComponent && <DiagramIcon icon={IconComponent} x={x + 14} y={y + h / 2 - 10} mark={mark} />}
       <text x={cx} y={top} textAnchor={anchor} style={{ fill: color.text, fontSize: size, fontWeight: 500 }}>
         {title}
       </text>

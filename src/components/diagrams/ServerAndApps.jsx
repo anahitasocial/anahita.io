@@ -1,5 +1,4 @@
 import Box from '@mui/material/Box';
-import CloudOutlined from '@mui/icons-material/CloudOutlined';
 import DnsOutlined from '@mui/icons-material/DnsOutlined';
 import HubOutlined from '@mui/icons-material/HubOutlined';
 import LanguageOutlined from '@mui/icons-material/LanguageOutlined';
@@ -7,6 +6,7 @@ import PhoneIphoneOutlined from '@mui/icons-material/PhoneIphoneOutlined';
 import TerminalOutlined from '@mui/icons-material/TerminalOutlined';
 
 import { groups } from '../../data/services';
+import { BlueskyMark } from './marks';
 import { Caption, Diagram, DiagramIcon, Link, Node, Overline, color } from './parts';
 
 const label =
@@ -58,7 +58,7 @@ function Server({ x, y, w, width }) {
             {line}
           </text>
         ))}
-        <Node x={inner.x} y={data} w={inner.w} h={52} title="Data, events and files" lines={['MySQL, Redis, RabbitMQ, S3']} size={14} />
+        <Node x={inner.x} y={data} w={inner.w} h={52} title="Data, events and files" lines={['MySQL, Redis, RabbitMQ, object storage']} size={14} />
       </g>
     ),
   };
@@ -87,8 +87,8 @@ function Wide() {
       {server.drawn}
 
       <Overline x={780} y={28}>THE OPEN SOCIAL WEB</Overline>
-      <Node x={780} y={mid - 100} w={180} h={80} icon={HubOutlined} title="The fediverse" lines={['ActivityPub', 'Mastodon, Pixelfed…']} size={14} />
-      <Node x={780} y={mid + 20} w={180} h={80} icon={CloudOutlined} title="Bluesky" lines={['AT Protocol']} size={14} />
+      <Node x={780} y={mid - 100} w={180} h={80} icon={HubOutlined} mark title="The fediverse" lines={['ActivityPub']} size={14} />
+      <Node x={780} y={mid + 20} w={180} h={80} icon={BlueskyMark} mark title="Bluesky" lines={['AT Protocol']} size={14} />
       <Link d={`M732 ${mid - 60} L776 ${mid - 60}`} both />
       <Link d={`M732 ${mid + 60} L776 ${mid + 60}`} both />
     </Diagram>
@@ -117,8 +117,8 @@ function Narrow() {
 
       <Link d={`M85 ${bottom + 2} L85 ${bottom + 58}`} both />
       <Link d={`M275 ${bottom + 2} L275 ${bottom + 58}`} both />
-      <Node x={0} y={bottom + 62} w={170} h={80} icon={HubOutlined} title="The fediverse" lines={['ActivityPub']} size={14} />
-      <Node x={190} y={bottom + 62} w={170} h={80} icon={CloudOutlined} title="Bluesky" lines={['AT Protocol']} size={14} />
+      <Node x={0} y={bottom + 62} w={170} h={80} icon={HubOutlined} mark title="The fediverse" lines={['ActivityPub']} size={14} />
+      <Node x={190} y={bottom + 62} w={170} h={80} icon={BlueskyMark} mark title="Bluesky" lines={['AT Protocol']} size={14} />
     </Diagram>
   );
 }
