@@ -1,0 +1,16 @@
+# Anahita
+
+> Open-source social software that an organisation runs for its own community: people, groups, events, articles, photos, videos, custom feeds and websites, in a chronological feed with no tracking. It speaks ActivityPub (the fediverse) and the AT Protocol (Bluesky). Federation is opt-in for each profile.
+
+Anahita is made for schools, newsrooms, libraries, research groups and non-profits leaving mainstream platforms. It is two codebases: anahita-services, Go services behind one API (OpenAPI 3.1), run with Docker Compose locally and Kubernetes live; and anahita-web, the React and Material UI web app. Maintained and developed by rmd Studio.
+
+## Docs
+
+- [Docs](https://www.anahita.io/docs/): where every part of the documentation lives
+- [anahita-web docs](https://github.com/anahitasocial/anahita-web/tree/main/docs): getting started, configuration, customising, architecture
+
+## Site
+
+- [Home](https://www.anahita.io/): what Anahita is and who it is for
+- [Blog](https://www.anahita.io/blog/): news; Atom feed at https://www.anahita.io/blog/feed.xml
+- [Donate](https://www.anahita.io/donate/): how to support it
