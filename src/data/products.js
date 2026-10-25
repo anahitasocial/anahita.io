@@ -6,7 +6,7 @@ export const server = {
   repo: 'anahita-services',
   text: 'The server: what you run, on your own machines or in your cloud. It holds everyone’s profiles and posts, keeps them safe, and speaks to the fediverse and Bluesky.',
   facts: [
-    'About thirty small services written in Go, each doing one thing, behind one gateway',
+    'A collection of small services written in Go, each doing one thing, behind one gateway',
     'One open API, described in OpenAPI 3.1 made from the code',
     'Docker Compose on your own machine; Kubernetes when you go live, on any cloud',
     'MySQL, Redis, RabbitMQ and any S3-compatible object storage',
