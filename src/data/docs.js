@@ -4,25 +4,25 @@
 
 export const waysIn = [
   {
-    icon: 'rocket',
+    icon: 'install',
     title: 'Setting up',
     text: 'The pages to read, in order, to put an Anahita instance on the web: run it on your own machine, then live.',
     slug: 'setting-up',
   },
   {
-    icon: 'palette',
+    icon: 'tune',
     title: 'Customising',
     text: 'Its name and look, languages, legal texts, who may join, and how long things are kept, without changing the code.',
     slug: 'customising',
   },
   {
-    icon: 'monitor',
+    icon: 'manage',
     title: 'Operating',
     text: 'Upgrades, backups, storage, accounts, reports and federation, from day to day.',
     slug: 'operating',
   },
   {
-    icon: 'build',
+    icon: 'code',
     title: 'Developing',
     text: 'The API, signing in with OAuth, the events on the bus, and writing your own client or service.',
     slug: 'developing',
@@ -37,7 +37,7 @@ export const webApp = [
     slug: 'getting-started',
   },
   {
-    icon: 'tune',
+    icon: 'settings',
     title: 'Configuration',
     text: 'Every setting Anahita Web reads, and what it does.',
     slug: 'configuration',

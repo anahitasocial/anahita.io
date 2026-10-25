@@ -2,8 +2,8 @@ import AccountTreeOutlined from '@mui/icons-material/AccountTreeOutlined';
 import ApiOutlined from '@mui/icons-material/ApiOutlined';
 import ArticleOutlined from '@mui/icons-material/ArticleOutlined';
 import BrushOutlined from '@mui/icons-material/BrushOutlined';
-import BuildOutlined from '@mui/icons-material/BuildOutlined';
 import BusinessCenterOutlined from '@mui/icons-material/BusinessCenterOutlined';
+import CodeOutlined from '@mui/icons-material/CodeOutlined';
 import DescriptionOutlined from '@mui/icons-material/DescriptionOutlined';
 import DynamicFeedOutlined from '@mui/icons-material/DynamicFeedOutlined';
 import EventOutlined from '@mui/icons-material/EventOutlined';
@@ -12,14 +12,14 @@ import GitHub from '@mui/icons-material/GitHub';
 import GroupsOutlined from '@mui/icons-material/GroupsOutlined';
 import HomeOutlined from '@mui/icons-material/HomeOutlined';
 import HubOutlined from '@mui/icons-material/HubOutlined';
+import InstallDesktopOutlined from '@mui/icons-material/InstallDesktopOutlined';
 import LanguageOutlined from '@mui/icons-material/LanguageOutlined';
-import MonitorHeartOutlined from '@mui/icons-material/MonitorHeartOutlined';
-import PaletteOutlined from '@mui/icons-material/PaletteOutlined';
+import ManageHistoryOutlined from '@mui/icons-material/ManageHistoryOutlined';
 import PersonOutlined from '@mui/icons-material/PersonOutlined';
 import PhoneIphoneOutlined from '@mui/icons-material/PhoneIphoneOutlined';
 import PhotoOutlined from '@mui/icons-material/PhotoOutlined';
 import PlayCircleOutlined from '@mui/icons-material/PlayCircleOutlined';
-import RocketLaunchOutlined from '@mui/icons-material/RocketLaunchOutlined';
+import SettingsOutlined from '@mui/icons-material/SettingsOutlined';
 import SmartToyOutlined from '@mui/icons-material/SmartToyOutlined';
 import SpaOutlined from '@mui/icons-material/SpaOutlined';
 import TerminalOutlined from '@mui/icons-material/TerminalOutlined';
@@ -33,8 +33,8 @@ const icons = {
   api: ApiOutlined,
   article: ArticleOutlined,
   brush: BrushOutlined,
-  build: BuildOutlined,
   business: BusinessCenterOutlined,
+  code: CodeOutlined,
   description: DescriptionOutlined,
   event: EventOutlined,
   favorite: FavoriteBorderOutlined,
@@ -43,13 +43,13 @@ const icons = {
   groups: GroupsOutlined,
   home: HomeOutlined,
   hub: HubOutlined,
-  monitor: MonitorHeartOutlined,
-  palette: PaletteOutlined,
+  install: InstallDesktopOutlined,
+  manage: ManageHistoryOutlined,
   person: PersonOutlined,
   phone: PhoneIphoneOutlined,
   photo: PhotoOutlined,
   play: PlayCircleOutlined,
-  rocket: RocketLaunchOutlined,
+  settings: SettingsOutlined,
   smart_toy: SmartToyOutlined,
   spa: SpaOutlined,
   terminal: TerminalOutlined,

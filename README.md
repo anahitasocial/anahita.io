@@ -33,9 +33,15 @@ yarn install
 yarn dev
 ```
 
-The site is then at <http://localhost:4000>. `yarn build` makes the static
-site in `out/`, which is not committed; GitHub Actions builds and publishes
-it to GitHub Pages on every push to `main`.
+The site is then at <http://localhost:4000>. Anahita Services' docs are left
+out until its repository is public; to see them, read a local checkout:
+
+```sh
+DOCS_SERVICES_PATH=../go/src/github.com/purplerat/anahita-services yarn dev
+```
+
+`yarn build` makes the static site in `out/`, which is not committed; GitHub
+Actions builds and publishes it to GitHub Pages on every push to `main`.
 
 ## Licences
 
