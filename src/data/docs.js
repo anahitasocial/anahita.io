@@ -6,7 +6,7 @@ export const waysIn = [
   {
     icon: 'rocket',
     title: 'Setting up a site',
-    text: 'The pages to read, in order, to put an Anahita site on the web: run it on your own machine, then live.',
+    text: 'The pages to read, in order, to put an Anahita instance on the web: run it on your own machine, then live.',
     slug: 'setting-up',
   },
   {
@@ -33,13 +33,13 @@ export const webApp = [
   {
     icon: 'play',
     title: 'Getting started',
-    text: 'Run the web app against the services on your own machine.',
+    text: 'Run Anahita Web against Anahita Services on your own machine.',
     slug: 'getting-started',
   },
   {
     icon: 'tune',
     title: 'Configuration',
-    text: 'Every setting the web app reads, and what it does.',
+    text: 'Every setting Anahita Web reads, and what it does.',
     slug: 'configuration',
   },
   {

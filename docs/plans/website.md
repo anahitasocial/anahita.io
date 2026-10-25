@@ -75,6 +75,10 @@ Ticked as the work lands.
    is public. The site is rebuilt every night to keep them current.
 8. **The blog** is written as Markdown files and published by pushing to
    `main`.
+9. **The products are named** Anahita Services, Anahita Web, Anahita Mobile
+   and Anahita CLI, as titles everywhere on the site (Products, Docs, the
+   sidebar). The lowercase repository names (`anahita-web`) only where the
+   code itself is meant. What an operator runs is an **instance**.
 
 ## Who writes what
 
@@ -104,7 +108,7 @@ Ticked as the work lands.
 | Home | `/` | Headline, the three promises, what's inside, who it is for, federation, a call to action |
 | Products | `/products/` | anahita-services, anahita-web, anahita-mobile (coming soon), anahita-cli (coming soon) |
 | Services | `/products/services/` | Every service: its name, what it does, whether it is optional, its doc |
-| Docs | `/docs/` | The four ways in, the web app's docs, the API reference, the MCP server (coming soon), `llms.txt` |
+| Docs | `/docs/` | The four ways in (Running an instance), Anahita Web's docs, the API reference, the MCP server (coming soon), `llms.txt` |
 | A repository's docs | `/docs/web/`, `/docs/web/<page>/` | Its README, then each page, with a sidebar and "On this page" |
 | API reference | `/api/` | A copy of anahita-services' `docs/api/index.html` |
 | FAQ | `/faq/` | Numbered questions: the fediverse, a server, the AT Protocol, how Anahita differs, federation is opt-in, the graph, the chronological feed, tracking, what it takes to run, who makes it, the licences |

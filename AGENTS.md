@@ -22,11 +22,14 @@ anybody changing it, a person or an agent.
    (`AGENTS.md` there): calm and restrained, short labels, one main action,
    lists of more than three numbered, 8-pixel spacing; a group has
    followers; "profile", "location".
-2. Material UI questions are answered from the MUI MCP server (`.mcp.json`),
+2. The products are Anahita Services, Anahita Web, Anahita Mobile and
+   Anahita CLI; `anahita-web` and the like only for the repositories. What
+   an operator runs is an instance.
+3. Material UI questions are answered from the MUI MCP server (`.mcp.json`),
    not from memory.
-3. Nothing is said about Anahita that the code does not do. Check a claim
+4. Nothing is said about Anahita that the code does not do. Check a claim
    against anahita-services or anahita-web before it goes on a page.
-4. The site makes no request to anybody else's server: no analytics, no
+5. The site makes no request to anybody else's server: no analytics, no
    cookies, no fonts or scripts from a CDN.
-5. Check every change in headless Chrome at 1280×900 and 390×844, in light
+6. Check every change in headless Chrome at 1280×900 and 390×844, in light
    and dark, and look at the screenshots.

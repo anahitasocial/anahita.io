@@ -8,7 +8,7 @@
 export const docSources = [
   {
     key: 'web',
-    title: 'Web app',
+    title: 'Anahita Web',
     repo: 'anahitasocial/anahita-web',
     branch: 'main',
     aliases: [],
@@ -17,7 +17,7 @@ export const docSources = [
   },
   {
     key: 'services',
-    title: 'Services',
+    title: 'Anahita Services',
     // Private until the public release. Set to 'anahitasocial/anahita-services'
     // then, and its docs and the API reference appear on the site.
     repo: null,

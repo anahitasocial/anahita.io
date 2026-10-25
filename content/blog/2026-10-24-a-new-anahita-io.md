@@ -11,8 +11,8 @@ place.
 
 ## What Anahita is now
 
-Anahita has been rebuilt. Since March 2023 it has been a set of services
-written in Go, with a web app in React, and it speaks two languages of the
+Anahita has been rebuilt. Since March 2023 it has been Anahita Services,
+written in Go, and Anahita Web, a web app in React, and it speaks two languages of the
 open social web: ActivityPub, which Mastodon and Pixelfed speak, and the AT
 Protocol of Bluesky.
 
@@ -34,7 +34,7 @@ in your browser.
 
 ## What comes next
 
-The services will be published as open source, and the docs and the API
+Anahita Services will be published as open source, and the docs and the API
 reference will open with them. After that comes banu.io, a public Anahita
 site.
 

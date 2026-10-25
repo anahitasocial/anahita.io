@@ -39,16 +39,16 @@ export default function Docs() {
     <>
       <PageHeader
         title="Docs"
-        subtitle="How to set up an Anahita site, keep it running, make it your own, and build on it. The docs live with the code, so they change when it does."
+        subtitle="How to set up an Anahita instance, keep it running, make it your own, and build on it. The docs live with the code, so they change when it does."
       />
       <Section
         small
-        title="Running a site"
-        subtitle="The services and the API. Four ways in, each a list of pages to read in order. They open with the public release of anahita-services."
+        title="Running an instance"
+        subtitle="Anahita Services and its API. Four ways in, each a list of pages to read in order. They open with its public release."
       >
         <Cards items={link(waysIn, 'services')} quiet />
       </Section>
-      <Section small title="The web app" subtitle="anahita-web, the React app people use.">
+      <Section small title="Anahita Web" subtitle="The web app people use, in React and Material UI.">
         <Cards items={link(webApp, 'web')} />
       </Section>
       <Section small title="For builders" subtitle="For your own apps, services and agents.">
