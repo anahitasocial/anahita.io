@@ -24,9 +24,9 @@ waits on the user; the **Needs** column names them where they hold work up.
 | 9 | ✅ | Staging: kept out of search engines (`site.hidden`), `CNAME` to staging.anahita.io | — |
 | 10 | ✅ | A nightly build, so the docs stay current | — |
 | 11 | ✅ | The products by name, grouped as Server and Apps | — |
-| **M2. Explaining Anahita** | ⬜ | | |
-| 12 | ⬜ | Products: Anahita Services (Server); Anahita Web, Mobile and CLI (Apps) | — |
-| 13 | ⬜ | The services catalogue, `/products/services/` | — |
+| **M2. Explaining Anahita** | 🚧 | | |
+| 12 | ✅ | Products: Anahita Services (Server); Anahita Web, Mobile and CLI (Apps) | — |
+| 13 | ✅ | The services catalogue, `/products/services/` | — |
 | 14 | ⬜ | FAQ | — |
 | 15 | ⬜ | Diagrams, drawn as SVG: the architecture, Server and Apps, how federation works | — |
 | **M3. The story** | ⬜ | | |

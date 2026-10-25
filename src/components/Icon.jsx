@@ -16,11 +16,13 @@ import LanguageOutlined from '@mui/icons-material/LanguageOutlined';
 import MonitorHeartOutlined from '@mui/icons-material/MonitorHeartOutlined';
 import PaletteOutlined from '@mui/icons-material/PaletteOutlined';
 import PersonOutlined from '@mui/icons-material/PersonOutlined';
+import PhoneIphoneOutlined from '@mui/icons-material/PhoneIphoneOutlined';
 import PhotoOutlined from '@mui/icons-material/PhotoOutlined';
 import PlayCircleOutlined from '@mui/icons-material/PlayCircleOutlined';
 import RocketLaunchOutlined from '@mui/icons-material/RocketLaunchOutlined';
 import SmartToyOutlined from '@mui/icons-material/SmartToyOutlined';
 import SpaOutlined from '@mui/icons-material/SpaOutlined';
+import TerminalOutlined from '@mui/icons-material/TerminalOutlined';
 import TuneOutlined from '@mui/icons-material/TuneOutlined';
 import VideocamOutlined from '@mui/icons-material/VideocamOutlined';
 import VolunteerActivismOutlined from '@mui/icons-material/VolunteerActivismOutlined';
@@ -44,11 +46,13 @@ const icons = {
   monitor: MonitorHeartOutlined,
   palette: PaletteOutlined,
   person: PersonOutlined,
+  phone: PhoneIphoneOutlined,
   photo: PhotoOutlined,
   play: PlayCircleOutlined,
   rocket: RocketLaunchOutlined,
   smart_toy: SmartToyOutlined,
   spa: SpaOutlined,
+  terminal: TerminalOutlined,
   tune: TuneOutlined,
   video: VideocamOutlined,
   volunteer: VolunteerActivismOutlined,
