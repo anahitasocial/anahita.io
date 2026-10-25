@@ -3,3 +3,8 @@ node_modules/
 .next/
 out/
 next-env.d.ts
+
+# Docs fetched from the other repositories at build time
+.docs-src/
+public/docs-assets/
+public/api/

@@ -4,6 +4,7 @@ import LinkCard from '../../components/LinkCard';
 import PageHeader from '../../components/PageHeader';
 import Section from '../../components/Section';
 import { builders, waysIn, webApp } from '../../data/docs';
+import { getSource } from '../../lib/docs';
 
 export const metadata = {
   title: 'Docs',
@@ -22,7 +23,18 @@ function Cards({ items, md = 3, quiet }) {
   );
 }
 
+// A card links to its page once its source is fetched; until then it waits.
+function link(items, key) {
+  const fetched = Boolean(getSource(key));
+  return items.map(({ slug, ...item }) => ({ ...item, href: fetched ? `/docs/${key}/${slug}/` : null }));
+}
+
 export default function Docs() {
+  const tools = builders.map(({ needs, href, ...item }) => ({
+    ...item,
+    href: needs && !getSource(needs) ? null : href,
+  }));
+
   return (
     <>
       <PageHeader
@@ -34,13 +46,13 @@ export default function Docs() {
         title="Running a site"
         subtitle="The services and the API. Four ways in, each a list of pages to read in order. They open with the public release of anahita-services."
       >
-        <Cards items={waysIn} quiet />
+        <Cards items={link(waysIn, 'services')} quiet />
       </Section>
       <Section small title="The web app" subtitle="anahita-web, the React app people use.">
-        <Cards items={webApp} />
+        <Cards items={link(webApp, 'web')} />
       </Section>
       <Section small title="For builders" subtitle="For your own apps, services and agents.">
-        <Cards items={builders} md={4} />
+        <Cards items={tools} md={4} />
       </Section>
     </>
   );

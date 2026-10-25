@@ -5,9 +5,10 @@
   "description": "The website of Anahita, at https://www.anahita.io",
   "license": "MIT",
   "scripts": {
-    "dev": "NEXT_TELEMETRY_DISABLED=1 next dev --port 4000",
-    "build": "NEXT_TELEMETRY_DISABLED=1 next build && pagefind --site out --glob '{index.html,[!_4]*/**/index.html}'",
-    "serve": "npx --yes serve out --listen 4000"
+    "dev": "node scripts/fetch-docs.mjs && NEXT_TELEMETRY_DISABLED=1 next dev --port 4000",
+    "build": "node scripts/fetch-docs.mjs --force && NEXT_TELEMETRY_DISABLED=1 next build && pagefind --site out --glob '{index.html,[!_4]*/**/index.html}'",
+    "serve": "npx --yes serve out --listen 4000",
+    "docs": "node scripts/fetch-docs.mjs --force"
   },
   "dependencies": {
     "@emotion/cache": "^11.14.0",
@@ -25,7 +26,8 @@
     "remark-gfm": "^4.0.1",
     "remark-parse": "^11.0.0",
     "remark-rehype": "^11.1.2",
-    "unified": "^11.0.5"
+    "unified": "^11.0.5",
+    "unist-util-visit": "^5.2.0"
   },
   "devDependencies": {
     "pagefind": "^1.5.2"

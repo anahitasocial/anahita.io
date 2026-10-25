@@ -1,4 +1,6 @@
-# Builds the site and publishes it to GitHub Pages on every push to main.
+# Builds the site and publishes it to GitHub Pages on every push to main,
+# every night (so the docs, read from the other repositories, stay current),
+# and from the "Run workflow" button.
 # In the repository's settings, Pages' source must be "GitHub Actions" and
 # the custom domain www.anahita.io.
 name: Pages
@@ -6,6 +8,8 @@ name: Pages
 on:
   push:
     branches: [main]
+  schedule:
+    - cron: '0 8 * * *'
   workflow_dispatch:
 
 permissions:

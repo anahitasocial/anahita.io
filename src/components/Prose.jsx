@@ -40,6 +40,27 @@ export default function Prose({ html }) {
           pl: 2,
         },
         '& img': { maxWidth: '100%', borderRadius: 2 },
+        // Wide tables scroll inside the page rather than widening it.
+        '& table': {
+          display: 'block',
+          overflowX: 'auto',
+          borderCollapse: 'collapse',
+          my: 3,
+          ...theme.typography.body2,
+        },
+        '& th, & td': {
+          borderBottom: 1,
+          borderColor: 'divider',
+          textAlign: 'left',
+          verticalAlign: 'top',
+          px: 1.5,
+          py: 1,
+        },
+        '& th': { fontWeight: 500 },
+        // Long names (REACT_APP_…) break, so the column beside them keeps its room.
+        '& td code': { overflowWrap: 'anywhere' },
+        '& td:first-of-type': { minWidth: 120 },
+        '& h2, & h3': { scrollMarginTop: 88 },
       })}
     />
   );
