@@ -16,7 +16,63 @@ function random(seed) {
   };
 }
 
-function network({ seed = 11 }) {
+// Where the instances sit, and how many people each has. The first is the
+// home page's; the others give each page a variation of it.
+const layouts = [
+  [
+    { x: 330, y: 300, people: 42, spread: 120 },
+    { x: 660, y: 260, people: 36, spread: 110 },
+    { x: 520, y: 560, people: 38, spread: 115 },
+    { x: 860, y: 520, people: 10, spread: 60 },
+    { x: 170, y: 560, people: 9, spread: 55 },
+  ],
+  // Two large instances side by side, a small one between them.
+  [
+    { x: 260, y: 380, people: 46, spread: 130 },
+    { x: 760, y: 340, people: 44, spread: 125 },
+    { x: 520, y: 620, people: 12, spread: 60 },
+    { x: 520, y: 110, people: 8, spread: 50 },
+  ],
+  // A row of four, rising and falling.
+  [
+    { x: 150, y: 420, people: 26, spread: 95 },
+    { x: 420, y: 280, people: 34, spread: 110 },
+    { x: 690, y: 450, people: 30, spread: 105 },
+    { x: 940, y: 300, people: 22, spread: 90 },
+  ],
+  // One large instance, with smaller ones around it.
+  [
+    { x: 500, y: 380, people: 56, spread: 150 },
+    { x: 150, y: 200, people: 12, spread: 60 },
+    { x: 860, y: 190, people: 14, spread: 65 },
+    { x: 840, y: 620, people: 10, spread: 55 },
+    { x: 170, y: 610, people: 11, spread: 58 },
+  ],
+  // A triangle, close together.
+  [
+    { x: 330, y: 260, people: 38, spread: 115 },
+    { x: 700, y: 300, people: 38, spread: 115 },
+    { x: 500, y: 600, people: 38, spread: 115 },
+  ],
+  // Three rising on a diagonal, a small one beside each end.
+  [
+    { x: 200, y: 560, people: 30, spread: 105 },
+    { x: 500, y: 380, people: 36, spread: 115 },
+    { x: 800, y: 200, people: 30, spread: 105 },
+    { x: 860, y: 520, people: 9, spread: 50 },
+    { x: 150, y: 220, people: 8, spread: 50 },
+  ],
+  // A ring of small instances.
+  [
+    { x: 500, y: 150, people: 18, spread: 75 },
+    { x: 800, y: 300, people: 18, spread: 75 },
+    { x: 720, y: 600, people: 18, spread: 75 },
+    { x: 280, y: 600, people: 18, spread: 75 },
+    { x: 200, y: 300, people: 18, spread: 75 },
+  ],
+];
+
+function network({ seed = 11, layout = 0 }) {
   const rand = random(seed);
   const gauss = () => (rand() + rand() + rand() - 1.5) / 1.5;
   const nodes = [];
@@ -38,13 +94,7 @@ function network({ seed = 11 }) {
   // Instances: a server at the heart of each, its people around it, most tied
   // to it and to a neighbour or two. Three large ones, and two small ones at
   // the edges, so the network is larger than what is drawn.
-  const instances = [
-    { x: 330, y: 300, people: 42, spread: 120 },
-    { x: 660, y: 260, people: 36, spread: 110 },
-    { x: 520, y: 560, people: 38, spread: 115 },
-    { x: 860, y: 520, people: 10, spread: 60 },
-    { x: 170, y: 560, people: 9, spread: 55 },
-  ].map((instance) => {
+  const instances = layouts[layout % layouts.length].map((instance) => {
     const hub = add(instance.x, instance.y, true);
     const people = Array.from({ length: instance.people }, () => {
       const angle = rand() * Math.PI * 2;
@@ -107,9 +157,9 @@ function network({ seed = 11 }) {
   return { nodes, curves, viewBox };
 }
 
-const { nodes, curves, viewBox } = network({});
-
-export default function Network({ sx }) {
+// The same seed draws the same network, so each page can have its own.
+export default function Network({ seed = 11, layout = 0, sx }) {
+  const { nodes, curves, viewBox } = network({ seed, layout });
   return (
     <Box
       aria-hidden="true"
