@@ -12,6 +12,7 @@ import Icon from '../components/Icon';
 import Link from '../components/Link';
 import Section from '../components/Section';
 import Graph from '../components/diagrams/Graph';
+import Network from '../components/diagrams/Network';
 import { audiences, features, graph, promises, start } from '../data/home';
 import { getSource } from '../lib/docs';
 import { site } from '../data/site';
@@ -45,22 +46,24 @@ export default function Home() {
   const servicesDocs = Boolean(getSource('services'));
   return (
     <>
-      <Container component="section" sx={{ pt: { xs: 10, md: 16 } }}>
-        <Box sx={{ maxWidth: 760 }}>
+      <Container
+        component="section"
+        sx={{ pt: { xs: 10, md: 16 }, display: 'flex', alignItems: 'center', gap: { md: 6 } }}
+      >
+        <Box sx={{ maxWidth: 680, flex: '1 1 600px' }}>
           <Typography
             variant="h1"
             sx={{ fontSize: { xs: '2.5rem', md: '3.75rem' } }}
           >
-            A social network your organisation owns.
+            Connect your people, here and everywhere.
           </Typography>
           <Typography
             variant="body1"
             color="text.secondary"
             sx={{ mt: 3, fontSize: { xs: '1.125rem', md: '1.25rem' }, maxWidth: 640 }}
           >
-            Anahita is open-source social software for your own community:
-            people, groups, events, articles, photos and videos, in a calm,
-            chronological feed. It connects to the fediverse and to Bluesky.
+            The open-source social network your organisation hosts itself: a
+            home for your community, open to the fediverse and Bluesky.
           </Typography>
           <Stack direction="row" spacing={2} sx={{ mt: 5 }} data-pagefind-ignore>
             <Button href="#start" variant="contained" size="large">
@@ -71,6 +74,8 @@ export default function Home() {
             </Button>
           </Stack>
         </Box>
+        {/* A network beside the words, on screens wide enough for both. */}
+        <Network sx={{ display: { xs: 'none', md: 'block' }, flex: '1 1 420px', maxWidth: 440, minWidth: 0 }} />
       </Container>
 
       <Section>
