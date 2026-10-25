@@ -1,8 +1,8 @@
 // Copies the docs of each repository in src/data/docSources.mjs into
 // .docs-src/<key>/, for the site to render, with the commit they came from.
 // The working notes in docs/plans/ are left behind. Images go to
-// public/docs-assets/<key>/, and anahita-services' API reference to
-// public/api/.
+// public/docs-assets/<key>/, and anahita-services' API reference and its
+// OpenAPI document (anahita.json) to public/api/.
 //
 //   node scripts/fetch-docs.mjs          fetch what is missing
 //   node scripts/fetch-docs.mjs --force  fetch everything again
@@ -51,7 +51,8 @@ for (const source of docSources) {
   fs.writeFileSync(
     path.join(target, '.meta.json'),
     JSON.stringify({
-      repo: source.repo,
+      // Read locally before the repository is public: its future name.
+      repo: source.repo ?? source.aliases.at(-1),
       commit: git(['rev-parse', 'HEAD'], checkout),
       date: git(['log', '-1', '--format=%cs'], checkout),
     }),
@@ -67,7 +68,13 @@ for (const source of docSources) {
   const api = path.join(checkout, 'docs', 'api', 'index.html');
   if (source.key === 'services' && fs.existsSync(api)) {
     fs.mkdirSync(path.join(root, 'public', 'api'), { recursive: true });
-    fs.copyFileSync(api, path.join(root, 'public', 'api', 'index.html'));
+    // Its links back to the docs (../feeds.md#…) lead to their pages here.
+    const html = fs
+      .readFileSync(api, 'utf8')
+      .replace(/href="\.\.\/([\w-]+)\.md(#[^"]*)?"/g, (_, page, hash = '') => `href="/docs/${source.key}/${page}/${hash}"`);
+    fs.writeFileSync(path.join(root, 'public', 'api', 'index.html'), html);
+    // The OpenAPI document it is made from, for builders' own tools.
+    fs.copyFileSync(path.join(checkout, 'docs', 'api', 'anahita.json'), path.join(root, 'public', 'api', 'anahita.json'));
   }
 
   if (temporary) fs.rmSync(temporary, { recursive: true, force: true });

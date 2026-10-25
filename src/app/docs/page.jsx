@@ -46,7 +46,7 @@ export default function Docs() {
         small
         overline="Server"
         title="Anahita Services"
-        subtitle="What you run, on your own machines or in your cloud: it holds everyone's posts and speaks to the fediverse and Bluesky. Four ways in, each a list of pages to read in order. They open with its public release."
+        subtitle={`What you run, on your own machines or in your cloud: it holds everyone's posts and speaks to the fediverse and Bluesky. Four ways in, each a list of pages to read in order.${getSource('services') ? '' : ' They open with its public release.'}`}
       >
         <Cards items={link(waysIn, 'services')} quiet />
       </Section>

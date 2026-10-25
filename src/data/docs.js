@@ -5,27 +5,27 @@
 export const waysIn = [
   {
     icon: 'rocket',
-    title: 'Setting up a site',
+    title: 'Setting up',
     text: 'The pages to read, in order, to put an Anahita instance on the web: run it on your own machine, then live.',
     slug: 'setting-up',
   },
   {
     icon: 'palette',
-    title: 'Making it your own',
+    title: 'Customising',
     text: 'Its name and look, languages, legal texts, who may join, and how long things are kept, without changing the code.',
-    slug: 'making-it-your-own',
+    slug: 'customising',
   },
   {
     icon: 'monitor',
-    title: 'Keeping it running',
+    title: 'Operating',
     text: 'Upgrades, backups, storage, accounts, reports and federation, from day to day.',
-    slug: 'keeping-it-running',
+    slug: 'operating',
   },
   {
     icon: 'build',
-    title: 'Building on it',
+    title: 'Developing',
     text: 'The API, signing in with OAuth, the events on the bus, and writing your own client or service.',
-    slug: 'building-on-it',
+    slug: 'developing',
   },
 ];
 

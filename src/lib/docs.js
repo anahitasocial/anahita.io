@@ -36,22 +36,26 @@ function readFile(key, slug) {
   return fs.existsSync(file) ? fs.readFileSync(file, 'utf8') : null;
 }
 
-// Every page of a source, in the order its README's numbered contents give,
-// then any page the README leaves out.
+// Every page of a source, in the order its README first links to them (the
+// ways in, then its contents), then any page the README leaves out. Each is
+// called by its own first heading.
 export function getPages(key) {
-  const readme = readFile(key, 'README');
-  const listed = [...readme.matchAll(/^\d+\.\s+\[([^\]]+)\]\(([\w-]+)\.md\)(?::\s*(.*))?$/gm)].map(
-    ([, title, slug, description]) => ({ slug, title, description: description?.trim() }),
-  );
-  const seen = new Set(listed.map(({ slug }) => slug));
-  const rest = fs
+  const readme = withoutSections(readFile(key, 'README'), ['Plans']);
+  const slugs = [...readme.matchAll(/\]\(([\w-]+)\.md(?:#[^)]*)?\)/g)].map(([, slug]) => slug);
+  const files = fs
     .readdirSync(path.join(folder, key))
-    .filter((file) => file.endsWith('.md') && file !== 'README.md' && !seen.has(file.slice(0, -3)))
-    .map((file) => {
-      const slug = file.slice(0, -3);
-      return { slug, title: readTitle(readFile(key, slug)) || slug };
-    });
-  return [...listed, ...rest];
+    .filter((file) => file.endsWith('.md') && file !== 'README.md')
+    .map((file) => file.slice(0, -3));
+  const order = [...new Set([...slugs.filter((slug) => files.includes(slug)), ...files])];
+  return order.map((slug) => ({ slug, title: readTitle(readFile(key, slug)) || slug }));
+}
+
+// What a README holds for its own repository and not for this site: its
+// contents list, which is the sidebar here, and its plans, which are work
+// notes and stay in the repository with docs/plans/.
+function withoutSections(markdown, names = ['Contents', 'Plans']) {
+  const heading = new RegExp(`^## (${names.join('|')})\\n[\\s\\S]*?(?=^## |(?![\\s\\S]))`, 'gm');
+  return markdown.replace(heading, '');
 }
 
 function readTitle(markdown) {
@@ -64,9 +68,7 @@ function split(markdown) {
   const title = readTitle(markdown);
   const body = markdown
     .replace(/^#\s+.+$/m, '')
-    .replace(/^\[Documentation\]\(README\.md\).*$/m, '')
-    // The README's contents list is the sidebar on this site.
-    .replace(/^## Contents\n[\s\S]*?(?=^## |(?![\s\S]))/m, '');
+    .replace(/^\[Documentation\]\(README\.md\).*$/m, '');
   return { title, body };
 }
 
@@ -74,7 +76,8 @@ export async function getDoc(key, slug) {
   const markdown = readFile(key, slug);
   if (markdown === null) return null;
   const source = getSource(key);
-  const { title, body } = split(markdown);
+  // A page's own contents list repeats "On this page" beside it.
+  const { title, body } = split(withoutSections(markdown, slug === 'README' ? undefined : ['Contents']));
   const headings = [];
   const html = String(
     await unified()
@@ -109,6 +112,10 @@ export function resolveHref(href, { source, slug }) {
   const page = resolved.match(/^docs\/([\w-]+)\.md$/);
   if (page && readFile(source.key, page[1]) !== null) {
     return docHref(source.key, page[1], hash && `#${hash}`);
+  }
+  // The API reference is served at /api/ when its source is on the site.
+  if (source.key === 'services' && /^docs\/api\/(index\.html)?$/.test(resolved)) {
+    return `/api/${hash && `#${hash}`}`;
   }
   if (resolved.startsWith('docs/images/')) {
     return `/docs-assets/${source.key}/${resolved.slice('docs/'.length)}`;
