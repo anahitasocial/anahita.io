@@ -61,7 +61,7 @@ export default function Docs() {
           Anahita Mobile, for phones, and Anahita CLI, for the terminal, are on their way.
         </Typography>
       </Section>
-      <Section small title="For builders" subtitle="For your own apps, services and agents.">
+      <Section small id="for-builders" title="For builders" subtitle="For your own apps, services and agents.">
         <Cards items={tools} md={4} />
       </Section>
     </>

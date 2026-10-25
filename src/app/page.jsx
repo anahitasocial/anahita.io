@@ -1,6 +1,7 @@
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Chip from '@mui/material/Chip';
 import Container from '@mui/material/Container';
@@ -11,7 +12,8 @@ import Icon from '../components/Icon';
 import Link from '../components/Link';
 import Section from '../components/Section';
 import Graph from '../components/diagrams/Graph';
-import { audiences, features, graph, promises } from '../data/home';
+import { audiences, features, graph, promises, start } from '../data/home';
+import { getSource } from '../lib/docs';
 import { site } from '../data/site';
 
 // A word that matters in a line of grey text: in the text's own colour, bold.
@@ -39,6 +41,8 @@ function TileText({ text }) {
 }
 
 export default function Home() {
+  // The ways to start lead to Anahita Services' docs once they are on the site.
+  const servicesDocs = Boolean(getSource('services'));
   return (
     <>
       <Container component="section" sx={{ pt: { xs: 10, md: 16 } }}>
@@ -59,7 +63,7 @@ export default function Home() {
             chronological feed. It connects to the fediverse and to Bluesky.
           </Typography>
           <Stack direction="row" spacing={2} sx={{ mt: 5 }} data-pagefind-ignore>
-            <Button component={Link} href="/docs/" variant="contained" size="large">
+            <Button href="#start" variant="contained" size="large">
               Get started
             </Button>
             <Button href={site.github} variant="outlined" size="large">
@@ -86,8 +90,28 @@ export default function Home() {
       </Section>
 
       <Section
-        title="Everything a community needs"
-        subtitle="One install, not a different server for each kind of post."
+        title="Digital sovereignty"
+        subtitle="For organisations moving off mainstream, centralised platforms: a place of their own, under their own rules, with a voice on the open web."
+      >
+        <Grid container spacing={3}>
+          {audiences.map(({ title, text }) => (
+            <Grid key={title} size={{ xs: 12, sm: 6, md: 'grow' }}>
+              <Box sx={{ borderTop: 2, borderColor: 'primary.main', pt: 2 }}>
+                <Typography variant="subtitle1" component="h3" sx={{ fontWeight: 500 }}>
+                  {title}
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  {text}
+                </Typography>
+              </Box>
+            </Grid>
+          ))}
+        </Grid>
+      </Section>
+
+      <Section
+        title="One complete platform"
+        subtitle="A complete set of services and features for your community to connect with each other, and with the world outside."
       >
         <Grid container spacing={2}>
           {features.map(({ icon, title, text, wide, chips }) => (
@@ -116,6 +140,21 @@ export default function Home() {
       </Section>
 
       <Section
+        title="Fediverse ready"
+        subtitle={
+          <>
+            Through <Strong>ActivityPub</Strong>, your instance joins the fediverse as an equal; through
+            the <Strong>AT Protocol</Strong>, it reaches Bluesky. Each profile chooses whether to take part, and
+            nothing leaves without consent.
+          </>
+        }
+      >
+        <Button component={Link} href="/faq/" variant="outlined" data-pagefind-ignore>
+          Read the FAQ
+        </Button>
+      </Section>
+
+      <Section
         title="Built on a graph"
         subtitle="Under everything Anahita does is one graph of nodes and edges. It is how search ranks, how recommendations are found, and how one rule of who may see what holds everywhere."
       >
@@ -141,52 +180,36 @@ export default function Home() {
       </Section>
 
       <Section
-        title="Digital sovereignty"
-        subtitle="For organisations moving off mainstream, centralised platforms: a place of their own, under their own rules, with a voice on the open web."
+        id="start"
+        title="Start your own instance"
+        subtitle="Everything you need is here, and free: the code, the docs, and guides to running it."
       >
-        <Grid container spacing={3}>
-          {audiences.map(({ title, text }) => (
-            <Grid key={title} size={{ xs: 12, sm: 6, md: 'grow' }}>
-              <Box sx={{ borderTop: 2, borderColor: 'primary.main', pt: 2 }}>
-                <Typography variant="subtitle1" component="h3" sx={{ fontWeight: 500 }}>
-                  {title}
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  {text}
-                </Typography>
-              </Box>
+        <Grid container spacing={2}>
+          {start.map(({ icon, title, text, action, doc, href }) => (
+            <Grid key={title} size={{ xs: 12, md: 4 }}>
+              <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
+                <CardContent sx={{ flexGrow: 1 }}>
+                  <Icon name={icon} />
+                  <Typography variant="subtitle1" component="h3" sx={{ mt: 1, fontWeight: 500 }}>
+                    {title}
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    {text}
+                  </Typography>
+                </CardContent>
+                <CardActions sx={{ px: 2, pb: 2, justifyContent: 'flex-end' }} data-pagefind-ignore>
+                  <Button
+                    component={Link}
+                    href={href || (servicesDocs ? `/docs/services/${doc}/` : '/docs/')}
+                    variant={title === 'Try it first' ? 'contained' : 'outlined'}
+                  >
+                    {action}
+                  </Button>
+                </CardActions>
+              </Card>
             </Grid>
           ))}
         </Grid>
-      </Section>
-
-      <Section
-        title="Fediverse ready"
-        subtitle={
-          <>
-            Through <Strong>ActivityPub</Strong>, your instance joins the fediverse as an equal; through
-            the <Strong>AT Protocol</Strong>, it reaches Bluesky. Each profile chooses whether to take part, and
-            nothing leaves without consent.
-          </>
-        }
-      >
-        <Button component={Link} href="/faq/" variant="outlined" data-pagefind-ignore>
-          Read the FAQ
-        </Button>
-      </Section>
-
-      <Section>
-        <Card sx={{ p: { xs: 3, md: 6 }, textAlign: 'center' }}>
-          <Typography variant="h2" component="h2">
-            Run your own.
-          </Typography>
-          <Typography variant="body1" color="text.secondary" sx={{ mt: 2, mb: 4 }}>
-            Docker Compose on a laptop, Kubernetes when you go live.
-          </Typography>
-          <Button component={Link} href="/docs/" variant="contained" size="large" data-pagefind-ignore>
-            Get started
-          </Button>
-        </Card>
       </Section>
     </>
   );

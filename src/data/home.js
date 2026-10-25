@@ -4,19 +4,19 @@
 
 export const promises = [
   {
-    icon: 'home',
-    title: 'Yours',
-    text: 'You run it, on your own servers or in your own cloud. Your members’ posts stay with you, and each profile chooses whether to federate.',
+    icon: 'dns',
+    title: 'Self-hosted',
+    text: 'Open source, on your own servers or in your own cloud. Your community’s posts stay with you, under your rules.',
   },
   {
-    icon: 'hub',
-    title: 'Open',
-    text: 'ActivityPub and the AT Protocol, built in. An open API anybody can build on. Open source under the Apache 2.0 and MIT licences.',
+    icon: 'public',
+    title: 'Globally connected',
+    text: 'ActivityPub and the AT Protocol are built in: your instance reaches the fediverse and Bluesky, and each person chooses whether to take part.',
   },
   {
-    icon: 'spa',
-    title: 'Calm',
-    text: 'A chronological feed, with no tracking and no ads. Old posts that are still useful count as much as new ones.',
+    icon: 'schedule',
+    title: 'Chronological',
+    text: 'Every feed, including the ones people build, shows posts in the order they were posted. Nothing is ranked to keep you scrolling.',
   },
 ];
 
@@ -82,4 +82,30 @@ export const audiences = [
   { title: 'Libraries', text: 'Events, reading groups and collections that stay findable.' },
   { title: 'Research groups', text: 'Share work in progress, and keep what was learned.' },
   { title: 'Non-profits', text: 'Reach your community without renting it from a centralised platform.' },
+];
+
+// "Start your own instance": the ways to begin. `doc` is a page of Anahita
+// Services' docs, linked once those are on the site; the Docs page until then.
+export const start = [
+  {
+    icon: 'install',
+    title: 'Try it first',
+    text: 'Run the whole stack on your own computer with Docker, and see Anahita working before you commit.',
+    action: 'Setting up',
+    doc: 'setting-up',
+  },
+  {
+    icon: 'manage',
+    title: 'Go live',
+    text: 'Deploy on Kubernetes, on your own servers or in any cloud, with guides to upgrading, backups and storage.',
+    action: 'Operating',
+    doc: 'operating',
+  },
+  {
+    icon: 'smart_toy',
+    title: 'Work with an agent',
+    text: 'The docs are written for people and AI agents alike. Point your coding assistant at them, and set up and run your instance together.',
+    action: 'For agents',
+    href: '/docs/#for-builders',
+  },
 ];

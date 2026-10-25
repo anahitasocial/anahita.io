@@ -7,7 +7,6 @@ export const site = {
     'Open-source social software that an organisation runs for its own community, connected to the fediverse and Bluesky.',
   github: 'https://github.com/anahitasocial',
   rmdStudio: 'https://www.rmdstudio.com',
-  contact: 'https://www.rmdstudio.com/contact',
   // While the site is on staging.anahita.io, search engines are asked to stay
   // away (robots.txt, and noindex on every page). At launch: false, and
   // public/CNAME becomes www.anahita.io.
@@ -26,5 +25,4 @@ export const footer = [
   { label: 'History', href: '/history/' },
   { label: 'Brand', href: '/brand/' },
   { label: 'rmd Studio', href: site.rmdStudio },
-  { label: 'Contact', href: site.contact },
 ];
