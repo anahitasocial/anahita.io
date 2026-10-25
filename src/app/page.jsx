@@ -12,6 +12,7 @@ import Icon from '../components/Icon';
 import Link from '../components/Link';
 import Section from '../components/Section';
 import Graph from '../components/diagrams/Graph';
+import HeroBackground from '../components/HeroBackground';
 import Network from '../components/diagrams/Network';
 import { BlueskyMark } from '../components/diagrams/marks';
 import HubOutlined from '@mui/icons-material/HubOutlined';
@@ -48,37 +49,36 @@ export default function Home() {
   const servicesDocs = Boolean(getSource('services'));
   return (
     <>
-      <Container
-        component="section"
-        sx={{ pt: { xs: 10, md: 16 }, display: 'flex', alignItems: 'center', gap: { md: 6 } }}
-      >
-        <Box sx={{ maxWidth: 680, flex: '1 1 600px' }}>
-          <Typography
-            variant="h1"
-            sx={{ fontSize: { xs: '2.5rem', md: '3.75rem' } }}
-          >
-            Connect your people, here and everywhere.
-          </Typography>
-          <Typography
-            variant="body1"
-            color="text.secondary"
-            sx={{ mt: 3, fontSize: { xs: '1.125rem', md: '1.25rem' }, maxWidth: 640 }}
-          >
-            The self-hosted social network for your community, open to the
-            fediverse and Bluesky.
-          </Typography>
-          <Stack direction="row" spacing={2} sx={{ mt: 5 }} data-pagefind-ignore>
-            <Button href="#start" variant="contained" size="large">
-              Get started
-            </Button>
-            <Button href={site.github} variant="outlined" size="large">
-              GitHub
-            </Button>
-          </Stack>
-        </Box>
-        {/* A network beside the words, on screens wide enough for both. */}
-        <Network sx={{ display: { xs: 'none', md: 'block' }, flex: '1 1 420px', maxWidth: 440, minWidth: 0 }} />
-      </Container>
+      <HeroBackground component="section">
+        <Container sx={{ pt: { xs: 10, md: 16 }, display: 'flex', alignItems: 'center', gap: { md: 6 } }}>
+          <Box sx={{ maxWidth: 680, flex: '1 1 600px' }}>
+            <Typography
+              variant="h1"
+              sx={{ fontSize: { xs: '2.5rem', md: '3.75rem' } }}
+            >
+              Connect your people, here and everywhere.
+            </Typography>
+            <Typography
+              variant="body1"
+              color="text.secondary"
+              sx={{ mt: 3, fontSize: { xs: '1.125rem', md: '1.25rem' }, maxWidth: 640 }}
+            >
+              The self-hosted social network for your community, open to the
+              fediverse and Bluesky.
+            </Typography>
+            <Stack direction="row" spacing={2} sx={{ mt: 5 }} data-pagefind-ignore>
+              <Button href="#start" variant="contained" size="large">
+                Get started
+              </Button>
+              <Button href={site.github} variant="outlined" size="large">
+                GitHub
+              </Button>
+            </Stack>
+          </Box>
+          {/* A network beside the words, on screens wide enough for both. */}
+          <Network sx={{ display: { xs: 'none', md: 'block' }, flex: '1 1 420px', maxWidth: 440, minWidth: 0 }} />
+        </Container>
+      </HeroBackground>
 
       <Section>
         <Grid container spacing={3}>
