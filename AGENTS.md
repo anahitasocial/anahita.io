@@ -26,11 +26,13 @@ anybody changing it, a person or an agent.
    Anahita CLI; `anahita-web` and the like only for the repositories. What
    an operator runs is an instance. Anahita Services is the **Server**;
    Web, Mobile and CLI are the **Apps**.
-3. Material UI questions are answered from the MUI MCP server (`.mcp.json`),
+3. **Object storage** for where files are kept, and "S3-compatible object
+   storage" where it is explained once; never "S3" alone, which is AWS's.
+4. Material UI questions are answered from the MUI MCP server (`.mcp.json`),
    not from memory.
-4. Nothing is said about Anahita that the code does not do. Check a claim
+5. Nothing is said about Anahita that the code does not do. Check a claim
    against anahita-services or anahita-web before it goes on a page.
-5. The site makes no request to anybody else's server: no analytics, no
+6. The site makes no request to anybody else's server: no analytics, no
    cookies, no fonts or scripts from a CDN.
-6. Check every change in headless Chrome at 1280×900 and 390×844, in light
+7. Check every change in headless Chrome at 1280×900 and 390×844, in light
    and dark, and look at the screenshots.

@@ -50,7 +50,7 @@ export const questions = [
   {
     id: 'running',
     question: 'What does it take to run?',
-    answer: `To try it, a computer with Docker: one command starts everything. To run it live, Kubernetes on any cloud or on your own machines, with MySQL, Redis, RabbitMQ and S3-compatible storage, each of which can be a managed service; and a domain of your own. The [docs](/docs/) go through it in order.`,
+    answer: `To try it, a computer with Docker: one command starts everything. To run it live, Kubernetes on any cloud or on your own machines, with MySQL, Redis, RabbitMQ and S3-compatible object storage, each of which can be a managed service; and a domain of your own. The [docs](/docs/) go through it in order.`,
   },
   {
     id: 'who',

@@ -15,7 +15,7 @@ export const metadata = {
 };
 
 // A service's name is set as code; what lies underneath (MySQL) is not.
-function Row({ number, name, text, optional, href, code = true }) {
+function Row({ number, name, text, details, optional, href, code = true }) {
   return (
     <Box sx={{ display: 'flex', gap: 2, py: 2 }}>
       {number && (
@@ -43,6 +43,14 @@ function Row({ number, name, text, optional, href, code = true }) {
         <Typography variant="body2" color="text.secondary">
           {text}
         </Typography>
+        {details?.map(([lead, line]) => (
+          <Typography key={lead} variant="body2" color="text.secondary" sx={{ mt: 1 }}>
+            <Box component="span" sx={{ color: 'text.primary', fontWeight: 500 }}>
+              {lead}:
+            </Box>{' '}
+            {line}
+          </Typography>
+        ))}
       </Box>
     </Box>
   );

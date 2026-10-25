@@ -1,19 +1,44 @@
 // Anahita Services, one by one, from anahita-services' docs/architecture.md
 // ("Services"). `doc` is the page of its docs that describes it; `optional`
-// marks what an instance may leave out.
+// marks what an instance may leave out; `details`, for the services worth
+// telling more about, are checked against their code and docs
+// (signing-in.md, configuration.md, architecture.md).
 
 export const groups = [
   {
     title: 'The gateway and signing in',
     services: [
       { name: 'nginx', text: 'The one door in: routes each request to its service and checks the token it carries.' },
-      { name: 'auth-service', text: 'Signing in and signing up, passkeys and two-factor codes, invitations, and the OAuth clients apps sign in through.', doc: 'oauth' },
+      {
+        name: 'auth-service',
+        text: 'Signing in and signing up, for Anahita’s own apps and anybody else’s.',
+        doc: 'oauth',
+        details: [
+          ['OAuth 2.0 and OpenID Connect', 'a complete provider: discovery, keys, user info, refresh tokens, introspection and revocation; PKCE for apps that hold no secret, client credentials for services.'],
+          ['Passkeys', 'WebAuthn, with Face ID, Touch ID, Windows Hello or a security key. A passkey is both factors.'],
+          ['Two-factor', 'codes from any authenticator app, their secrets encrypted at rest.'],
+          ['Codes by email', 'signing in without a password.'],
+          ['Signing keys', 'rotated every 90 days, and sealed with a key of your own or AWS KMS: reading the database is not enough to make a token.'],
+          ['Who may join', 'invitations, applications to join, and the agreements a member accepts.'],
+          ['Guarded', 'limits on guessing codes and passwords, and a one-time token on every form.'],
+        ],
+      },
     ],
   },
   {
     title: 'Profiles and the graph',
     services: [
-      { name: 'actor-service', text: 'The profiles of people, groups and events, all in one service.' },
+      {
+        name: 'actor-service',
+        text: 'Every kind of profile, in one service.',
+        details: [
+          ['People', 'a profile at a username, made when somebody signs up.'],
+          ['Groups', 'made by members, with administrators and followers; a group can host events.'],
+          ['Events', 'a start and an end in their own time zone, how many may go, and where to join online; going or maybe, calling it off, and a calendar file.'],
+          ['Websites', 'a website’s feed, followed like a profile.'],
+          ['Every kind', 'an avatar and a cover, followers, invitations, who may see and do what, and the same life from enabled to archived to deleted.'],
+        ],
+      },
       { name: 'socialgraph-service', text: 'Who follows, blocks and subscribes to whom.', doc: 'permissions' },
       { name: 'identity-image-service', text: 'The avatars and covers of profiles and posts.' },
       { name: 'graph-grpc-service', text: 'The graph every other service reads: profiles and posts are its nodes, and the ties between them its edges.' },
@@ -59,7 +84,7 @@ export const groups = [
   {
     title: 'Storage, mail and upkeep',
     services: [
-      { name: 'file-grpc-service', text: 'Files, on any S3-compatible storage; checks what each upload really is.', doc: 'configuration' },
+      { name: 'file-grpc-service', text: 'Files, on any S3-compatible object storage; checks what each upload really is.', doc: 'configuration' },
       { name: 'mail-grpc-service', text: 'Email, over SMTP.', doc: 'configuration' },
       { name: 'web-shell', text: 'Serves Anahita Web, with each page’s own title and picture, so a shared link shows as itself.', doc: 'web-shell', optional: true },
       { name: 'migration-job', text: 'Brings the database up to date at each upgrade.' },
@@ -71,5 +96,5 @@ export const backing = [
   { name: 'MySQL', text: 'Everything that is kept.' },
   { name: 'Redis', text: 'Sessions.' },
   { name: 'RabbitMQ', text: 'Events between the services.' },
-  { name: 'S3-compatible storage', text: 'Photos, videos and files: Garage on your own machine, any S3 service live.' },
+  { name: 'Object storage', text: 'Photos, videos and files, on any S3-compatible store: Garage on your own machine, your own or your cloud’s live.' },
 ];
