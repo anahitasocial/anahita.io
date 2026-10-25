@@ -74,8 +74,8 @@ function Wide() {
     <Diagram label={label} viewBox={`0 0 960 ${height}`}>
       <Overline x={0} y={28}>APPS</Overline>
       <Node x={0} y={apps[0]} w={210} h={64} icon={LanguageOutlined} title="Anahita Web" lines={['in a browser']} />
-      <Node x={0} y={apps[1]} w={210} h={64} icon={PhoneIphoneOutlined} title="Anahita Mobile" lines={['on a phone · coming soon']} />
-      <Node x={0} y={apps[2]} w={210} h={64} icon={TerminalOutlined} title="Anahita CLI" lines={['in a terminal · coming soon']} />
+      <Node x={0} y={apps[1]} w={210} h={64} icon={PhoneIphoneOutlined} title="Anahita Mobile" lines={['on a phone']} />
+      <Node x={0} y={apps[2]} w={210} h={64} icon={TerminalOutlined} title="Anahita CLI" lines={['in a terminal']} />
       <Link d={`M210 ${apps[0] + 32} C240 ${apps[0] + 32} 236 ${mid} 262 ${mid}`} />
       <Link d={`M210 ${mid} L262 ${mid}`} />
       <Link d={`M210 ${apps[2] + 32} C240 ${apps[2] + 32} 236 ${mid} 262 ${mid}`} />
