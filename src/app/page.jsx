@@ -64,8 +64,8 @@ export default function Home() {
             color="text.secondary"
             sx={{ mt: 3, fontSize: { xs: '1.125rem', md: '1.25rem' }, maxWidth: 640 }}
           >
-            The open-source social network your organisation hosts itself: a
-            home for your community, open to the fediverse and Bluesky.
+            The self-hosted social network for your community, open to the
+            fediverse and Bluesky.
           </Typography>
           <Stack direction="row" spacing={2} sx={{ mt: 5 }} data-pagefind-ignore>
             <Button href="#start" variant="contained" size="large">
