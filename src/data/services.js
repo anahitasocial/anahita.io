@@ -69,7 +69,7 @@ export const groups = [
         icon: 'schema',
         text: 'The graph every other service reads: profiles and posts are its nodes, and the ties between them its edges.',
         details: [
-          ['One gate', 'feeds, search, notifications and suggestions all ask one check of who may see what.'],
+          ['One gate', 'feeds, search, notifications and recommendations all ask one check of who may see what.'],
           ['Identifiers for good', 'every node has a random UUID that never changes, used in every address other servers are given.'],
           ['Threads in one go', 'up to ten notes written as a thread are saved together, all or none.'],
           ['Purges that finish', 'deleting a profile’s posts goes in batches it can resume, and keeps its handle from being taken.'],
@@ -183,8 +183,8 @@ export const groups = [
       },
       {
         name: 'recommendation-service',
-        icon: 'suggest',
-        text: 'Suggestions of who to follow.',
+        icon: 'explore',
+        text: 'Recommendations of who to follow.',
         doc: 'recommendations',
         optional: true,
         details: [

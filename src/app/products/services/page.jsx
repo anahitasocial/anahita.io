@@ -10,6 +10,7 @@ import BadgeOutlined from '@mui/icons-material/BadgeOutlined';
 import CleaningServicesOutlined from '@mui/icons-material/CleaningServicesOutlined';
 import DownloadOutlined from '@mui/icons-material/DownloadOutlined';
 import DynamicFeedOutlined from '@mui/icons-material/DynamicFeedOutlined';
+import ExploreOutlined from '@mui/icons-material/ExploreOutlined';
 import FavoriteBorderOutlined from '@mui/icons-material/FavoriteBorderOutlined';
 import FlagOutlined from '@mui/icons-material/FlagOutlined';
 import FolderOutlined from '@mui/icons-material/FolderOutlined';
@@ -20,7 +21,6 @@ import LinkOutlined from '@mui/icons-material/LinkOutlined';
 import MailOutlined from '@mui/icons-material/MailOutlined';
 import MemoryOutlined from '@mui/icons-material/MemoryOutlined';
 import NotificationsOutlined from '@mui/icons-material/NotificationsOutlined';
-import PersonAddAltOutlined from '@mui/icons-material/PersonAddAltOutlined';
 import PhotoOutlined from '@mui/icons-material/PhotoOutlined';
 import PlaceOutlined from '@mui/icons-material/PlaceOutlined';
 import RouterOutlined from '@mui/icons-material/RouterOutlined';
@@ -54,6 +54,7 @@ const icons = {
   database: StorageOutlined,
   download: DownloadOutlined,
   events: SwapHorizOutlined,
+  explore: ExploreOutlined,
   feed: DynamicFeedOutlined,
   fediverse: HubOutlined,
   files: InventoryOutlined,
@@ -72,7 +73,6 @@ const icons = {
   schema: SchemaOutlined,
   search: SearchOutlined,
   share: ShareOutlined,
-  suggest: PersonAddAltOutlined,
   sweep: CleaningServicesOutlined,
   tag: TagOutlined,
   upgrade: UpgradeOutlined,
