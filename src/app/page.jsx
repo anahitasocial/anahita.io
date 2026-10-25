@@ -14,6 +14,30 @@ import Graph from '../components/diagrams/Graph';
 import { audiences, features, graph, promises } from '../data/home';
 import { site } from '../data/site';
 
+// A word that matters in a line of grey text: in the text's own colour, bold.
+function Strong({ children }) {
+  return (
+    <Box component="strong" sx={{ color: 'text.primary', fontWeight: 500 }}>
+      {children}
+    </Box>
+  );
+}
+
+// A tile's text: plain words, or words with small icons before some of them.
+function TileText({ text }) {
+  if (typeof text === 'string') return text;
+  return text.map((part) =>
+    typeof part === 'string' ? (
+      part
+    ) : (
+      <Box key={part[1]} component="span" sx={{ whiteSpace: 'nowrap' }}>
+        <Icon name={part[0]} sx={{ fontSize: '1.15em', verticalAlign: '-0.2em', mr: 0.25 }} />
+        {part[1]}
+      </Box>
+    ),
+  );
+}
+
 export default function Home() {
   return (
     <>
@@ -117,8 +141,8 @@ export default function Home() {
       </Section>
 
       <Section
-        title="Made for the people leaving Meta and X"
-        subtitle="Organisations that need a place of their own, and a voice on the open web."
+        title="Digital sovereignty"
+        subtitle="For organisations moving off mainstream, centralised platforms: a place of their own, under their own rules, with a voice on the open web."
       >
         <Grid container spacing={3}>
           {audiences.map(({ title, text }) => (
@@ -137,8 +161,14 @@ export default function Home() {
       </Section>
 
       <Section
-        title="Part of the open social web"
-        subtitle="Anahita speaks ActivityPub, the language of Mastodon, Pixelfed and the rest of the fediverse, and the AT Protocol of Bluesky. Federation is opt-in for each profile: sharing is consented to, never assumed."
+        title="Fediverse ready"
+        subtitle={
+          <>
+            Through <Strong>ActivityPub</Strong>, your instance joins the fediverse as an equal; through
+            the <Strong>AT Protocol</Strong>, it reaches Bluesky. Each profile chooses whether to take part, and
+            nothing leaves without consent.
+          </>
+        }
       >
         <Button component={Link} href="/faq/" variant="outlined" data-pagefind-ignore>
           Read the FAQ

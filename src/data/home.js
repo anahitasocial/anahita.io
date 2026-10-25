@@ -83,5 +83,5 @@ export const audiences = [
   { title: 'Newsrooms', text: 'Publish to your readers and to the fediverse at once.' },
   { title: 'Libraries', text: 'Events, reading groups and collections that stay findable.' },
   { title: 'Research groups', text: 'Share work in progress, and keep what was learned.' },
-  { title: 'Non-profits', text: 'Reach your community without renting it from Meta or X.' },
+  { title: 'Non-profits', text: 'Reach your community without renting it from a centralised platform.' },
 ];
