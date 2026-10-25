@@ -8,9 +8,10 @@ export function generateStaticParams() {
 }
 
 export default function DocsLayout({ children }) {
-  const sources = getSources().map(({ key, title }) => ({
+  const sources = getSources().map(({ key, title, side }) => ({
     key,
     title,
+    side,
     pages: getPages(key).map(({ slug, title: page }) => ({ slug, title: page })),
   }));
 

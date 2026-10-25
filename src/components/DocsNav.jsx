@@ -19,10 +19,13 @@ function Pages({ sources, onPick }) {
 
   return (
     <List dense disablePadding>
-      {sources.map(({ key, title, pages }) => (
+      {sources.map(({ key, title, side, pages }) => (
         <Box key={key} component="li" sx={{ listStyle: 'none', mb: 2 }}>
           <List dense disablePadding>
-            <ListSubheader disableSticky sx={{ bgcolor: 'transparent', px: 1.5, lineHeight: '32px' }}>
+            <ListSubheader disableSticky sx={{ bgcolor: 'transparent', px: 1.5, lineHeight: '20px', pb: 1 }}>
+              <Box component="span" sx={{ display: 'block', typography: 'overline', color: 'primary.main', lineHeight: 2 }}>
+                {side}
+              </Box>
               {title}
             </ListSubheader>
             {[{ href: `/docs/${key}/`, title: 'Overview' }, ...pages.map((page) => ({ href: `/docs/${key}/${page.slug}/`, title: page.title }))].map(

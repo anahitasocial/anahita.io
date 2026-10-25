@@ -5,54 +5,59 @@ application, whose email was turned off on 2026-10-15.
 
 ## Checklist
 
-Ticked as the work lands.
+`⬜ todo` · `🚧 in progress` · `✅ done` · `⏳ waiting on the user`
 
-### The site
+`#` is the row, which is how work is referred to. Rows `U1`, `U2`… are what
+waits on the user; the **Needs** column names them where they hold work up.
 
-1. [x] The frame: theme, header, footer, a not-found page, the Pages workflow
-2. [x] Search (Pagefind), running in the visitor's browser
-3. [x] A light/dark toggle that starts from the system and stores nothing
-4. [x] The home page, a first draft
-5. [x] Docs: the landing page, and the repositories' docs rendered on the site
-6. [x] `llms.txt`
-7. [x] The blog, its Atom feed, and a first post (a draft)
-8. [x] Donate, with the platforms "Coming soon"
-9. [x] Staging: hidden from search engines (`site.hidden`), `CNAME` set to staging.anahita.io
-10. [x] A nightly build, so the docs stay current
-11. [ ] Products: anahita-services, anahita-web, anahita-mobile, anahita-cli
-12. [ ] The services catalogue, `/products/services/`
-13. [ ] FAQ
-14. [ ] Diagrams, drawn as SVG: the architecture, the services, how federation works
-15. [ ] Brand: the logo files and how the name and mark may be used
-16. [ ] History: the page and its timeline, with placeholders for the photos
-17. [ ] About: the page, for the user's words
-18. [ ] Blog drafts (`draft: true`) and a template for new posts
-19. [ ] `LICENSE-CONTENT` (CC BY 4.0), and the README's licences
-20. [ ] `sitemap.xml`
-21. [ ] Code in the docs coloured by language
-22. [ ] Launch: `site.hidden` off, `CNAME` to www.anahita.io, roadmap row 91 done in anahita-web
+| # | State | Item | Needs |
+| --- | --- | --- | --- |
+| **M1. The frame and the first pages** | ✅ | | |
+| 1 | ✅ | The frame: theme, header, footer, a not-found page, the Pages workflow | — |
+| 2 | ✅ | Search (Pagefind), in the visitor's browser | — |
+| 3 | ✅ | A light/dark toggle that starts from the system and stores nothing | — |
+| 4 | ✅ | The home page, a first draft | — |
+| 5 | ✅ | Docs: the landing page, and the repositories' docs rendered on the site | — |
+| 6 | ✅ | `llms.txt` | — |
+| 7 | ✅ | The blog, its Atom feed, and a first post (a draft) | — |
+| 8 | ✅ | Donate, with the platforms "Coming soon" | — |
+| 9 | ✅ | Staging: kept out of search engines (`site.hidden`), `CNAME` to staging.anahita.io | — |
+| 10 | ✅ | A nightly build, so the docs stay current | — |
+| 11 | ✅ | The products by name, grouped as Server and Apps | — |
+| **M2. Explaining Anahita** | ⬜ | | |
+| 12 | ⬜ | Products: Anahita Services (Server); Anahita Web, Mobile and CLI (Apps) | — |
+| 13 | ⬜ | The services catalogue, `/products/services/` | — |
+| 14 | ⬜ | FAQ | — |
+| 15 | ⬜ | Diagrams, drawn as SVG: the architecture, Server and Apps, how federation works | — |
+| **M3. The story** | ⬜ | | |
+| 16 | ⬜ | History: the page and its timeline, placeholders for the photos | U2, U3 |
+| 17 | ⬜ | About: the page, for the user's words | U4 |
+| 18 | ⬜ | Brand: the logo files, and how the name and mark may be used | U1 |
+| 19 | ⬜ | A sharp logo and favicon from the vector file | U1 |
+| **M4. Before launch** | ⬜ | | |
+| 20 | ⬜ | Blog drafts (`draft: true`) and a template for new posts | — |
+| 21 | ⬜ | `LICENSE-CONTENT` (CC BY 4.0), and the README's licences | — |
+| 22 | ⬜ | `sitemap.xml` | — |
+| 23 | ⬜ | Code in the docs coloured by language | — |
+| 24 | ⬜ | Anahita Services' docs and the API reference on the site | U12 |
+| 25 | ⬜ | Launch: `site.hidden` off, `CNAME` to www.anahita.io, roadmap row 91 done in anahita-web | U5, U6, U7, U10 |
 
 ### Waiting on the user
 
-1. [ ] The logo as .pdf (or .ai), at `_source/logo.pdf`: for a sharp logo and favicon
-2. [ ] The 12 milestones for History, each with a date, a title and a line;
-       and the 6 photos before 2013 (plus any after), each with its date, a
-       caption and who is in it, in `_source/history/`
-3. [ ] History's opening paragraphs
-4. [ ] About
-5. [ ] The home page's headline and copy, in your words
-6. [ ] The first blog post, rewritten in your voice
-7. [ ] Donate: what the money goes to, in your words; then the accounts on
-       Open Collective, GitHub Sponsors and Liberapay, and their links
-8. [ ] Photos for decoration, stock or Anahita's own (no AI-generated images)
-9. [ ] A colour scheme, when you have ideas
-10. [ ] GitHub settings: Pages' source set to "GitHub Actions", the custom
-        domain staging.anahita.io, and its DNS record (a CNAME to
-        `anahitasocial.github.io`)
-11. [ ] Whether staging needs a real lock (Cloudflare Access) or only to be
-        kept out of search engines
-12. [ ] anahita-services made public: then its repository goes in
-        `src/data/docSources.mjs`, and its docs and the API reference appear
+| # | State | What | Where it goes | Unblocks |
+| --- | --- | --- | --- | --- |
+| U1 | ⏳ | The logo as .pdf (or .ai) | `_source/logo.pdf` | 18, 19 |
+| U2 | ⏳ | The 12 milestones for History: a date, a title and a line each | a note, or `src/data/history.js` | 16 |
+| U3 | ⏳ | The 6 photos before 2013 (and any after): each with its date, a caption and who is in it | `_source/history/` | 16 |
+| U4 | ⏳ | About, and History's opening paragraphs | the pages, once built | 16, 17 |
+| U5 | ⏳ | The home page's headline and copy, in your words | `src/data/home.js`, `src/app/page.jsx` | 25 |
+| U6 | ⏳ | The first blog post, in your voice | `content/blog/` | 25 |
+| U7 | ⏳ | Donate: what the money goes to, in your words; then the accounts and their links | `src/data/donate.js` | 25 |
+| U8 | ⏳ | Photos for decoration: stock, or Anahita's own (no AI-generated images) | `_source/photos/` | — |
+| U9 | ⏳ | A colour scheme, when you have ideas | `src/theme.js` | — |
+| U10 | ⏳ | GitHub: Pages' source "GitHub Actions", custom domain staging.anahita.io, and a DNS CNAME from `staging` to `anahitasocial.github.io` | repository settings, DNS | 25 |
+| U11 | ⏳ | Whether staging needs a real lock (Cloudflare Access) or only to stay out of search engines | — | — |
+| U12 | ⏳ | anahita-services made public | `src/data/docSources.mjs` | 24 |
 
 ## What was settled (the user, 2026-10-24)
 
@@ -79,6 +84,10 @@ Ticked as the work lands.
    and Anahita CLI, as titles everywhere on the site (Products, Docs, the
    sidebar). The lowercase repository names (`anahita-web`) only where the
    code itself is meant. What an operator runs is an **instance**.
+10. **Server and Apps.** Anahita Services is the server: what an operator
+    runs. Anahita Web, Mobile and CLI are the apps: what people use, all
+    through the same API. Products, Docs and the FAQ group them so, under
+    these two words (not "cloud" and "client").
 
 ## Who writes what
 

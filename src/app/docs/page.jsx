@@ -1,4 +1,5 @@
 import Grid from '@mui/material/Grid';
+import Typography from '@mui/material/Typography';
 import Icon from '../../components/Icon';
 import LinkCard from '../../components/LinkCard';
 import PageHeader from '../../components/PageHeader';
@@ -39,17 +40,26 @@ export default function Docs() {
     <>
       <PageHeader
         title="Docs"
-        subtitle="How to set up an Anahita instance, keep it running, make it your own, and build on it. The docs live with the code, so they change when it does."
+        subtitle="Anahita is a server you run and apps people use. How to set up an instance, keep it running, make it your own, and build on it. The docs live with the code, so they change when it does."
       />
       <Section
         small
-        title="Running an instance"
-        subtitle="Anahita Services and its API. Four ways in, each a list of pages to read in order. They open with its public release."
+        overline="Server"
+        title="Anahita Services"
+        subtitle="What you run, on your own machines or in your cloud: it holds everyone's posts and speaks to the fediverse and Bluesky. Four ways in, each a list of pages to read in order. They open with its public release."
       >
         <Cards items={link(waysIn, 'services')} quiet />
       </Section>
-      <Section small title="Anahita Web" subtitle="The web app people use, in React and Material UI.">
+      <Section
+        small
+        overline="Apps"
+        title="Anahita Web"
+        subtitle="What people use, in a browser. Every app talks to the server through the same open API."
+      >
         <Cards items={link(webApp, 'web')} />
+        <Typography variant="body2" color="text.secondary" sx={{ mt: 3 }}>
+          Anahita Mobile, for phones, and Anahita CLI, for the terminal, are on their way.
+        </Typography>
       </Section>
       <Section small title="For builders" subtitle="For your own apps, services and agents.">
         <Cards items={tools} md={4} />

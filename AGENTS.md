@@ -24,7 +24,8 @@ anybody changing it, a person or an agent.
    followers; "profile", "location".
 2. The products are Anahita Services, Anahita Web, Anahita Mobile and
    Anahita CLI; `anahita-web` and the like only for the repositories. What
-   an operator runs is an instance.
+   an operator runs is an instance. Anahita Services is the **Server**;
+   Web, Mobile and CLI are the **Apps**.
 3. Material UI questions are answered from the MUI MCP server (`.mcp.json`),
    not from memory.
 4. Nothing is said about Anahita that the code does not do. Check a claim

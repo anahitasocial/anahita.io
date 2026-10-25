@@ -19,7 +19,7 @@ const folder = path.join(process.cwd(), '.docs-src');
 export function getSources() {
   return docSources
     .filter(({ key }) => fs.existsSync(path.join(folder, key, 'README.md')))
-    .map(({ key, title, repo, branch, aliases }) => ({ key, title, repo, branch, aliases, ...readMeta(key) }));
+    .map(({ key, title, side, repo, branch, aliases }) => ({ key, title, side, repo, branch, aliases, ...readMeta(key) }));
 }
 
 export function getSource(key) {
