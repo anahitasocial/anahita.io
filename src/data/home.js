@@ -21,6 +21,18 @@ export const promises = [
 ];
 
 export const features = [
+  { icon: 'person', title: 'People', text: 'Profiles with posts, photos and an About card.' },
+  { icon: 'groups', title: 'Groups', text: 'Spaces with followers, for classes, desks and teams.' },
+  { icon: 'event', title: 'Events', text: 'Dates, locations and who is going.' },
+  { icon: 'rss', title: 'Websites', text: 'Add any blog or site with an RSS, Atom or JSON feed as a profile that people across the fediverse can follow.' },
+  { icon: 'article', title: 'Text', text: 'Short notes, long articles and topics, with drafts.' },
+  { icon: 'photo', title: 'Media', text: 'Photos, videos and GIFs: up to twenty photos in a post, each described; GIFs and videos ready for every screen.' },
+  { icon: 'label', title: 'Tagging', text: [['tag', 'Hashtags'], ', ', ['place', 'locations'], ', citations, and people in photos, with their approval.'] },
+  { icon: 'visibility', title: 'Audiences', text: 'Choose who sees each post: public, signed-in people, followers, people you follow, mutuals, or only you.' },
+  { icon: 'feed', title: 'Custom feeds', text: 'Feeds that people make for themselves.' },
+  { icon: 'search', title: 'Search', text: 'Results ranked by the graph and fine-tuned by each person.' },
+  { icon: 'explore', title: 'Recommendations', text: 'Who to follow, worked out from the graph, each with its reason.' },
+  { icon: 'notifications', title: 'Notifications', text: 'Grouped, answered in place, and never emailed.' },
   {
     icon: 'fingerprint',
     title: 'Authentication',
@@ -32,25 +44,11 @@ export const features = [
       'Passkeys (WebAuthn)',
       'Face ID, Touch ID, Windows Hello',
       'TOTP two-factor',
-      'Codes by email',
-      'No tokens in the browser',
-      'Keys sealed and rotated',
+      'OTP by email',
     ],
   },
-  { icon: 'person', title: 'People', text: 'Profiles with posts, photos and an About card.' },
-  { icon: 'groups', title: 'Groups', text: 'Spaces with followers, for classes, desks and teams.' },
-  { icon: 'event', title: 'Events', text: 'Dates, locations and who is going.' },
-  { icon: 'article', title: 'Notes and articles', text: 'Short notes and long articles, with drafts.' },
-  { icon: 'photo', title: 'Photos and videos', text: 'Up to twenty photos in a post, each described; videos ready for every screen.' },
-  { icon: 'label', title: 'Tagging', text: [['tag', 'Hashtags'], ', ', ['place', 'locations'], ', citations, and people in photos, with their approval.'] },
-  { icon: 'feed', title: 'Custom feeds', text: 'Feeds that people make for themselves.' },
-  { icon: 'rss', title: 'Websites', text: 'Add any blog or site with an RSS, Atom or JSON feed as a profile that people across the fediverse can follow.' },
-  { icon: 'search', title: 'Search', text: 'Results ranked by the graph and fine-tuned by each person.' },
-  { icon: 'explore', title: 'Recommendations', text: 'Who to follow, worked out from the graph, each with its reason.' },
-  { icon: 'notifications', title: 'Notifications', text: 'Grouped, answered in place, and never emailed.' },
-  { icon: 'visibility', title: 'Audiences', text: 'Choose who sees each post: public, signed-in people, followers, people you follow, mutuals, or only you.' },
   { icon: 'flag', title: 'Moderation', text: 'Reports gathered into cases, with your own reasons and rules.' },
-  { icon: 'download', title: 'Your data', text: 'A full copy to download, readable offline.' },
+  { icon: 'download', title: 'Your data', text: 'Each person can download a full copy of their data.' },
 ];
 
 // "Built on a graph": what the graph does for each part of Anahita, from

@@ -26,6 +26,8 @@ anybody changing it, a person or an agent.
    Anahita CLI; `anahita-web` and the like only for the repositories. What
    an operator runs is an instance. Anahita Services is the **Server**;
    Web, Mobile and CLI are the **Apps**.
+   Those who use Anahita are **people**: "each person", "people", "you";
+   never "users".
 3. **Object storage** for where files are kept, and "S3-compatible object
    storage" where it is explained once; never "S3" alone, which is AWS's.
 4. Material UI questions are answered from the MUI MCP server (`.mcp.json`),
