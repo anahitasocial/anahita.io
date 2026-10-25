@@ -12,5 +12,5 @@ Anahita is made for schools, newsrooms, libraries, research groups and non-profi
 ## Site
 
 - [Home](https://www.anahita.io/): what Anahita is and who it is for
-- [Blog](https://www.anahita.io/blog/): news; Atom feed at https://www.anahita.io/blog/feed.xml
+- [Blog](https://www.anahita.io/blog/): news; Atom feed at https://www.anahita.io/feed.xml
 - [Donate](https://www.anahita.io/donate/): how to support it

@@ -121,7 +121,7 @@ waits on the user; the **Needs** column names them where they hold work up.
 | A repository's docs | `/docs/web/`, `/docs/web/<page>/` | Its README, then each page, with a sidebar and "On this page" |
 | API reference | `/api/` | A copy of anahita-services' `docs/api/index.html` |
 | FAQ | `/faq/` | Numbered questions: the fediverse, a server, the AT Protocol, how Anahita differs, federation is opt-in, the graph, the chronological feed, tracking, what it takes to run, who makes it, the licences |
-| Blog | `/blog/` | Posts in Markdown (`content/blog/`), with an Atom feed at `/blog/feed.xml` |
+| Blog | `/blog/` | Posts in Markdown (`content/blog/`), with an Atom feed at `/feed.xml`, named in every page's `<head>` |
 | Donate | `/donate/` | Why, where the money goes, the three platforms |
 | About | `/about/` | Written by the user |
 | History | `/history/` | The user's paragraphs, then 12 milestones: 6 before 2013 with photos, 6 since |

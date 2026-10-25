@@ -10,7 +10,6 @@ import { formatDate, getPosts } from '../../lib/blog';
 export const metadata = {
   title: 'Blog',
   description: 'News from Anahita.',
-  alternates: { types: { 'application/atom+xml': '/blog/feed.xml' } },
 };
 
 export default function Blog() {
@@ -19,7 +18,7 @@ export default function Blog() {
   return (
     <>
       <PageHeader title="Blog" subtitle="News from Anahita: releases, plans and the open social web.">
-        <MuiLink href="/blog/feed.xml" variant="body2" underline="hover" sx={{ display: 'inline-block', mt: 2 }}>
+        <MuiLink href="/feed.xml" variant="body2" underline="hover" sx={{ display: 'inline-block', mt: 2 }}>
           Atom feed
         </MuiLink>
       </PageHeader>

@@ -1,6 +1,7 @@
-// The blog's Atom feed, written once at build time.
-import { getPosts, toHtml } from '../../../lib/blog';
-import { site } from '../../../data/site';
+// The blog's Atom feed, written once at build time, at the site's root
+// (/feed.xml), where feed readers look; every page names it in its <head>.
+import { getPosts, toHtml } from '../../lib/blog';
+import { site } from '../../data/site';
 
 export const dynamic = 'force-static';
 
@@ -29,7 +30,7 @@ export async function GET() {
   <title>Anahita</title>
   <subtitle>News from Anahita.</subtitle>
   <link href="${site.url}/blog/"/>
-  <link rel="self" href="${site.url}/blog/feed.xml"/>
+  <link rel="self" href="${site.url}/feed.xml"/>
   <id>${site.url}/blog/</id>
   <updated>${posts[0]?.date ?? '2026-10-24'}T00:00:00Z</updated>
 ${entries.join('\n')}

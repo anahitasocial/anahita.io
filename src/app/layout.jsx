@@ -22,6 +22,8 @@ export const metadata = {
   description: site.description,
   icons: { icon: '/images/logo.png' },
   openGraph: { siteName: 'Anahita', type: 'website' },
+  // The blog's feed, offered on every page, as feed readers expect.
+  alternates: { types: { 'application/atom+xml': [{ url: '/feed.xml', title: 'Anahita' }] } },
   ...(site.hidden && { robots: { index: false, follow: false } }),
 };
 

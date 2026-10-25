@@ -38,4 +38,4 @@ Anahita Services will be published as open source, and the docs and the API
 reference will open with them. After that comes banu.io, a public Anahita
 site.
 
-You can follow this blog through its [Atom feed](/blog/feed.xml).
+You can follow this blog through its [Atom feed](/feed.xml).
