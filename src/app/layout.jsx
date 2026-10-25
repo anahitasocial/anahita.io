@@ -21,6 +21,7 @@ export const metadata = {
   description: site.description,
   icons: { icon: '/images/logo.png' },
   openGraph: { siteName: 'Anahita', type: 'website' },
+  ...(site.hidden && { robots: { index: false, follow: false } }),
 };
 
 export default function RootLayout({ children }) {

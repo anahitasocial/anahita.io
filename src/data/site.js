@@ -8,10 +8,10 @@ export const site = {
   github: 'https://github.com/anahitasocial',
   rmdStudio: 'https://www.rmdstudio.com',
   contact: 'https://www.rmdstudio.com/contact',
-  web: 'https://github.com/anahitasocial/anahita-web',
-  // anahita-services is still private. When it is public under anahitasocial,
-  // set this to its address: links to its docs and the API reference appear.
-  services: null,
+  // While the site is on staging.anahita.io, search engines are asked to stay
+  // away (robots.txt, and noindex on every page). At launch: false, and
+  // public/CNAME becomes www.anahita.io.
+  hidden: true,
 };
 
 export const navigation = [
