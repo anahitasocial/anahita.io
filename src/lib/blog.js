@@ -3,12 +3,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import matter from 'gray-matter';
-import { unified } from 'unified';
-import remarkParse from 'remark-parse';
-import remarkGfm from 'remark-gfm';
-import remarkRehype from 'remark-rehype';
-import rehypeSlug from 'rehype-slug';
-import rehypeStringify from 'rehype-stringify';
+import { toHtml } from './markdown';
 
 const folder = path.join(process.cwd(), 'content/blog');
 
@@ -36,16 +31,7 @@ export function getPost(slug) {
   return getPosts().find((post) => post.slug === slug);
 }
 
-export async function toHtml(markdown) {
-  const file = await unified()
-    .use(remarkParse)
-    .use(remarkGfm)
-    .use(remarkRehype)
-    .use(rehypeSlug)
-    .use(rehypeStringify)
-    .process(markdown);
-  return String(file);
-}
+export { toHtml };
 
 export function formatDate(date) {
   return new Date(`${date}T12:00:00Z`).toLocaleDateString('en-CA', {

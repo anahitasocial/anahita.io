@@ -5,6 +5,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import InitColorSchemeScript from '@mui/material/InitColorSchemeScript';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import { DiagramDefs } from '../components/diagrams/parts';
 import theme from '../theme';
 import { site } from '../data/site';
 
@@ -33,6 +34,7 @@ export default function RootLayout({ children }) {
           {/* Nothing is stored: every visit starts from the system's setting. */}
           <ThemeProvider theme={theme} storageManager={null} disableTransitionOnChange>
             <CssBaseline />
+            <DiagramDefs />
             <Header />
             {/* Only what is in <main> goes into the search index. */}
             <main data-pagefind-body>{children}</main>

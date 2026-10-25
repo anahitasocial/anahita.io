@@ -10,6 +10,7 @@ import Icon from '../../components/Icon';
 import Link from '../../components/Link';
 import PageHeader from '../../components/PageHeader';
 import Section from '../../components/Section';
+import ServerAndApps from '../../components/diagrams/ServerAndApps';
 import { apps, server } from '../../data/products';
 
 export const metadata = {
@@ -24,6 +25,9 @@ export default function Products() {
         title="Products"
         subtitle="Anahita is a server you run and apps people use. Every app reaches the server through the same open API, so anybody can build another."
       />
+      <Section small>
+        <ServerAndApps />
+      </Section>
 
       <Section small overline="Server" title={server.name} subtitle={server.text}>
         <Card>

@@ -24,11 +24,11 @@ waits on the user; the **Needs** column names them where they hold work up.
 | 9 | ✅ | Staging: kept out of search engines (`site.hidden`), `CNAME` to staging.anahita.io | — |
 | 10 | ✅ | A nightly build, so the docs stay current | — |
 | 11 | ✅ | The products by name, grouped as Server and Apps | — |
-| **M2. Explaining Anahita** | 🚧 | | |
+| **M2. Explaining Anahita** | ✅ | | |
 | 12 | ✅ | Products: Anahita Services (Server); Anahita Web, Mobile and CLI (Apps) | — |
 | 13 | ✅ | The services catalogue, `/products/services/` | — |
-| 14 | ⬜ | FAQ | — |
-| 15 | ⬜ | Diagrams, drawn as SVG: the architecture, Server and Apps, how federation works | — |
+| 14 | ✅ | FAQ: eleven numbered questions | — |
+| 15 | ✅ | Diagrams, drawn as SVG in the theme's colours: Server and Apps, federation, the graph | — |
 | **M3. The story** | ⬜ | | |
 | 16 | ⬜ | History: the page and its timeline, placeholders for the photos | U2, U3 |
 | 17 | ⬜ | About: the page, for the user's words | U4 |
