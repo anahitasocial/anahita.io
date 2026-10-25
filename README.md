@@ -1,8 +1,8 @@
 # anahita.io
 
 The website of Anahita, at <https://www.anahita.io>: what Anahita is, who it
-is for, and how to run it. A static site built with Jekyll, in place of the
-old PHP application.
+is for, and how to run it. A static site built with Next.js and Material UI,
+in place of the old PHP application.
 
 - Website: <https://www.anahita.io>
 - Founder & Core Architect: Rastin Mehr
@@ -11,8 +11,8 @@ old PHP application.
 
 ## Status
 
-Just begun. The plans are in [`docs/plans/`](docs/plans/), and nothing is
-built yet.
+Being built. The plan and its progress are in
+[`docs/plans/website.md`](docs/plans/website.md).
 
 ## Anahita
 
@@ -26,15 +26,16 @@ Anahita is an open-source social network designed for schools, newsrooms, librar
 
 ## Running it
 
-Running it locally needs Ruby and Bundler:
+Running it locally needs Node.js 22 and Yarn:
 
 ```sh
-bundle install
-bundle exec jekyll serve
+yarn install
+yarn dev
 ```
 
-The site is then at <http://localhost:4000>. Jekyll builds it into `_site/`,
-which is not committed.
+The site is then at <http://localhost:4000>. `yarn build` makes the static
+site in `out/`, which is not committed; GitHub Actions builds and publishes
+it to GitHub Pages on every push to `main`.
 
 ## Licences
 
