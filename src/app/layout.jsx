@@ -20,8 +20,14 @@ export const metadata = {
   metadataBase: new URL(site.url),
   title: { default: 'Anahita', template: '%s · Anahita' },
   description: site.description,
-  icons: { icon: '/images/logo.png' },
-  openGraph: { siteName: 'Anahita', type: 'website' },
+  icons: {
+    icon: [
+      { url: '/images/logo.svg', type: 'image/svg+xml' },
+      { url: '/images/logo-32.png', sizes: '32x32', type: 'image/png' },
+    ],
+    apple: '/images/logo-180.png',
+  },
+  openGraph: { siteName: 'Anahita', type: 'website', images: [{ url: '/images/logo-512.png', width: 512, height: 512 }] },
   // The blog's feed, offered on every page, as feed readers expect.
   alternates: { types: { 'application/atom+xml': [{ url: '/feed.xml', title: 'Anahita' }] } },
   ...(site.hidden && { robots: { index: false, follow: false } }),

@@ -2,10 +2,9 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Link from './Link';
 
-// The circle mark and the name. The PNGs are anahita-web's until the vector
-// files arrive; the white one is shown in dark mode.
-const mark = { display: 'block', '.dark &': { display: 'none' } };
-const markDark = { display: 'none', '.dark &': { display: 'block' } };
+// The circle mark and the name. The mark is drawn from the identity's own
+// vector file (Anahita_base), without its star and facing right; its white
+// ring keeps it clear on a dark background, so one file serves both modes.
 export default function Logo() {
   return (
     <Box
@@ -20,8 +19,7 @@ export default function Logo() {
         textDecoration: 'none',
       }}
     >
-      <Box component="img" src="/images/logo.png" alt="" width={32} height={32} sx={mark} />
-      <Box component="img" src="/images/logo-white.png" alt="" width={32} height={32} sx={markDark} />
+      <Box component="img" src="/images/logo.svg" alt="" width={32} height={32} sx={{ display: 'block' }} />
       <Typography component="span" variant="h6" sx={{ fontWeight: 500 }}>
         Anahita
       </Typography>

@@ -33,7 +33,7 @@ waits on the user; the **Needs** column names them where they hold work up.
 | 16 | ⬜ | History: the page and its timeline, placeholders for the photos | U2, U3 |
 | 17 | ⬜ | About: the page, for the user's words | U4 |
 | 18 | ⬜ | Brand: the logo files, and how the name and mark may be used | U1 |
-| 19 | ⬜ | A sharp logo and favicon from the vector file | U1 |
+| 19 | ✅ | A sharp logo and favicon from the vector file | U1 |
 | **M4. Before launch** | ⬜ | | |
 | 20 | ⬜ | Blog drafts (`draft: true`) and a template for new posts | — |
 | 21 | ⬜ | `LICENSE-CONTENT` (CC BY 4.0), and the README's licences | — |
@@ -46,7 +46,7 @@ waits on the user; the **Needs** column names them where they hold work up.
 
 | # | State | What | Where it goes | Unblocks |
 | --- | --- | --- | --- | --- |
-| U1 | ⏳ | The logo as .pdf (or .ai) | `_source/logo.pdf` | 18, 19 |
+| U1 | ✅ | The logo as .pdf (or .ai) | `_source/logo.pdf` | 18, 19 |
 | U2 | ⏳ | The 12 milestones for History: a date, a title and a line each | a note, or `src/data/history.js` | 16 |
 | U3 | ⏳ | The 6 photos before 2013 (and any after): each with its date, a caption and who is in it | `_source/history/` | 16 |
 | U4 | ⏳ | About, and History's opening paragraphs | the pages, once built | 16, 17 |
@@ -70,8 +70,9 @@ waits on the user; the **Needs** column names them where they hold work up.
    `.github/workflows/pages.yml`. Until launch, at staging.anahita.io, kept
    out of search engines.
 3. **MUI's default colours** until the user chooses Anahita's own.
-4. **The logo:** anahita-web's circle PNGs until the user sends the vector
-   files (.ai and .pdf). The PDF is then converted to SVG.
+4. **The logo:** `public/images/logo.svg`, drawn from the identity's own
+   vector file (`Desktop/Anahita/identity/…/Anahita_base.pdf`), without its
+   star and facing right; PNG copies at 32, 180 and 512 pixels for icons.
 5. **Photos:** placeholders until the user sends them. No AI-generated
    images; technical subjects are drawn as SVG diagrams.
 6. **Donations** through Open Collective, GitHub Sponsors and Liberapay.
