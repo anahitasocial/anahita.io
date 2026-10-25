@@ -4,70 +4,142 @@ import GroupsOutlined from '@mui/icons-material/GroupsOutlined';
 import NotesOutlined from '@mui/icons-material/NotesOutlined';
 import PersonOutlined from '@mui/icons-material/PersonOutlined';
 import ReplyOutlined from '@mui/icons-material/ReplyOutlined';
-import { Caption, Diagram, Link, Node } from './parts';
+import { Caption, Diagram, DiagramIcon, color } from './parts';
 
 const label =
   'A small part of the graph. Nodes: Ana, a person; the Physics club, a group; a note; the Open day, an event; and a reply from mastodon.social. Edges: Ana follows the club, wrote the note and is going to the Open day; the note was posted in the club; the reply from elsewhere replies to the note.';
 
+// A node: a circle with its icon, its name and kind beneath it, or above it
+// (`above`) where its edges leave downward.
+function Circle({ node, r, size }) {
+  const { x, y, icon, title, kind, accent, above } = node;
+  const titleY = above ? y - r - size - 8 : y + r + size + 4;
+  const kindY = above ? y - r - 8 : y + r + 2 * size + 6;
+  return (
+    <g>
+      <circle
+        cx={x}
+        cy={y}
+        r={r}
+        style={{ fill: color.paper, stroke: accent ? color.primary : color.border, strokeWidth: accent ? 1.5 : 1 }}
+      />
+      <DiagramIcon icon={icon} x={x - 12} y={y - 12} size={24} />
+      <text x={x} y={titleY} textAnchor="middle" style={{ fill: color.text, fontSize: size, fontWeight: 500 }}>
+        {title}
+      </text>
+      <Caption x={x} y={kindY} size={size - 2}>
+        {kind}
+      </Caption>
+    </g>
+  );
+}
+
+// An edge: a curve from one circle's rim to another's, bent to one side by
+// `bend`, with its label at the middle of the curve.
+function Edge({ from, to, r, bend, text, dashed, size, labelOffset = 10 }) {
+  const mx = (from.x + to.x) / 2;
+  const my = (from.y + to.y) / 2;
+  const dx = to.x - from.x;
+  const dy = to.y - from.y;
+  const length = Math.hypot(dx, dy);
+  const nx = -dy / length;
+  const ny = dx / length;
+  const cx = mx + nx * bend;
+  const cy = my + ny * bend;
+  const rim = (p, gap) => {
+    const ux = cx - p.x;
+    const uy = cy - p.y;
+    const d = Math.hypot(ux, uy);
+    return { x: p.x + (ux / d) * (r + gap), y: p.y + (uy / d) * (r + gap) };
+  };
+  const a = rim(from, 2);
+  const b = rim(to, 4);
+  // The middle of the curve, and the label just beyond it, on the bent side.
+  const px = 0.25 * a.x + 0.5 * cx + 0.25 * b.x;
+  const py = 0.25 * a.y + 0.5 * cy + 0.25 * b.y;
+  const side = bend >= 0 ? 1 : -1;
+  // The label grows away from the curve: to the left of a curve bent left,
+  // to the right of one bent right, centred above or below a level one.
+  const lx = nx * side;
+  const ly = ny * side;
+  const anchor = Math.abs(lx) < 0.4 ? 'middle' : lx < 0 ? 'end' : 'start';
+  return (
+    <g>
+      <path
+        d={`M${a.x} ${a.y} Q${cx} ${cy} ${b.x} ${b.y}`}
+        markerEnd="url(#arrow)"
+        style={{ fill: 'none', stroke: color.line, strokeWidth: 1.5, strokeDasharray: dashed ? '4 4' : undefined }}
+      />
+      <Caption x={px + lx * labelOffset} y={py + ly * labelOffset + 4} size={size} anchor={anchor}>
+        {text}
+      </Caption>
+    </g>
+  );
+}
+
+function Graph({ viewBox, nodes, edges, r, size }) {
+  return (
+    <Diagram label={label} viewBox={viewBox}>
+      {edges.map((edge) => (
+        <Edge key={edge.text} {...edge} from={nodes[edge.from]} to={nodes[edge.to]} r={r} size={size - 1} />
+      ))}
+      {Object.values(nodes).map((node) => (
+        <Circle key={node.title} node={node} r={r} size={size} />
+      ))}
+    </Diagram>
+  );
+}
+
+const kinds = {
+  ana: { icon: PersonOutlined, title: 'Ana', kind: 'a person', accent: true, above: true },
+  club: { icon: GroupsOutlined, title: 'Physics club', kind: 'a group', above: true },
+  note: { icon: NotesOutlined, title: 'A note', kind: 'a post' },
+  day: { icon: EventOutlined, title: 'Open day', kind: 'an event' },
+  reply: { icon: ReplyOutlined, title: 'A reply', kind: 'from mastodon.social' },
+};
+
+const place = (positions) =>
+  Object.fromEntries(Object.entries(positions).map(([key, [x, y]]) => [key, { ...kinds[key], x, y }]));
+
+// `inward` bends Ana's way to the Open day towards the middle, where a narrow
+// layout has room for its label.
+const edges = (bend, inward) => [
+  { from: 'ana', to: 'club', bend: -bend, text: 'follows' },
+  { from: 'ana', to: 'note', bend, text: 'wrote' },
+  { from: 'note', to: 'club', bend, text: 'posted in' },
+  { from: 'ana', to: 'day', bend: inward ? -bend : bend, text: 'going to' },
+  { from: 'reply', to: 'note', bend, text: 'replies to', dashed: true },
+];
+
 function Wide() {
   return (
-    <Diagram label={label} viewBox="0 0 560 330">
-      <Node x={10} y={30} w={160} h={56} icon={PersonOutlined} title="Ana" lines={['a person']} accent />
-      <Node x={390} y={30} w={160} h={56} icon={GroupsOutlined} title="Physics club" lines={['a group']} />
-      <Node x={200} y={137} w={160} h={56} icon={NotesOutlined} title="A note" lines={['a post']} />
-      <Node x={10} y={250} w={160} h={56} icon={EventOutlined} title="Open day" lines={['an event']} />
-      <Node x={370} y={250} w={180} h={56} icon={ReplyOutlined} title="A reply" lines={['from mastodon.social']} />
-
-      <Link d="M170 58 L386 58" />
-      <Caption x={278} y={50}>follows</Caption>
-
-      <Link d="M140 86 L232 135" />
-      <Caption x={170} y={124} anchor="end">wrote</Caption>
-
-      <Link d="M330 137 L430 88" />
-      <Caption x={392} y={124} anchor="start">posted in</Caption>
-
-      <Link d="M90 86 L90 246" />
-      <Caption x={100} y={172} anchor="start">going to</Caption>
-
-      <Link d="M420 250 L332 195" dashed />
-      <Caption x={398} y={226} anchor="start">replies to</Caption>
-    </Diagram>
+    <Graph
+      viewBox="70 24 560 376"
+      r={34}
+      size={14}
+      nodes={place({ ana: [170, 100], club: [550, 100], note: [360, 215], day: [170, 320], reply: [550, 320] })}
+      edges={edges(36)}
+    />
   );
 }
 
 function Narrow() {
   return (
-    <Diagram label={label} viewBox="0 0 360 352">
-      <Node x={0} y={0} w={160} h={52} icon={PersonOutlined} title="Ana" lines={['a person']} accent size={14} />
-      <Node x={200} y={0} w={160} h={52} icon={GroupsOutlined} title="Physics club" lines={['a group']} size={14} />
-      <Node x={100} y={140} w={160} h={52} icon={NotesOutlined} title="A note" lines={['a post']} size={14} />
-      <Node x={0} y={300} w={160} h={52} icon={EventOutlined} title="Open day" lines={['an event']} size={14} />
-      <Node x={180} y={300} w={180} h={52} icon={ReplyOutlined} title="A reply" lines={['from mastodon.social']} size={14} />
-
-      <Link d="M160 26 L196 26" />
-      <Caption x={180} y={46} size={11}>follows</Caption>
-
-      <Link d="M70 52 L150 136" />
-      <Caption x={96} y={104} anchor="end" size={12}>wrote</Caption>
-
-      <Link d="M230 140 L290 56" />
-      <Caption x={266} y={104} anchor="start" size={12}>posted in</Caption>
-
-      <Link d="M24 52 L24 296" />
-      <Caption x={32} y={232} anchor="start" size={12}>going to</Caption>
-
-      <Link d="M250 300 L200 196" dashed />
-      <Caption x={234} y={252} anchor="start" size={12}>replies to</Caption>
-    </Diagram>
+    <Graph
+      viewBox="0 0 400 450"
+      r={28}
+      size={13}
+      nodes={place({ ana: [96, 84], club: [344, 84], note: [236, 230], day: [96, 360], reply: [330, 360] })}
+      edges={edges(28)}
+    />
   );
 }
 
 // Nodes and the edges between them: one graph for everything, including
 // what came from other servers.
-export default function Graph() {
+export default function GraphDiagram() {
   return (
-    <Box data-pagefind-ignore sx={{ maxWidth: 600 }}>
+    <Box data-pagefind-ignore sx={{ maxWidth: 760 }}>
       <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
         <Wide />
       </Box>

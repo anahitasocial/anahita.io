@@ -120,7 +120,7 @@ export default function Home() {
         subtitle="Under everything Anahita does is one graph of nodes and edges. It is how search ranks, how recommendations are found, and how one rule of who may see what holds everywhere."
       >
         <Grid container spacing={{ xs: 4, md: 6 }} sx={{ alignItems: 'center' }}>
-          <Grid size={{ xs: 12, md: 6 }}>
+          <Grid size={{ xs: 12, md: 5 }}>
             <Box component="dl" sx={{ m: 0, display: 'grid', gap: 3 }}>
               {graph.map(({ title, text }) => (
                 <Box key={title}>
@@ -134,7 +134,7 @@ export default function Home() {
               ))}
             </Box>
           </Grid>
-          <Grid size={{ xs: 12, md: 6 }}>
+          <Grid size={{ xs: 12, md: 7 }}>
             <Graph />
           </Grid>
         </Grid>
