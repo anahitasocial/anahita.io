@@ -34,7 +34,9 @@ yarn dev
 ```
 
 The site is then at <http://localhost:4000>. Anahita Services' docs are left
-out until its repository is public; to see them, read a local checkout:
+out until its repository is public; to see them, read a local checkout with
+`DOCS_SERVICES_PATH`. `yarn dev:services` does it for a checkout at
+`../go/src/github.com/purplerat/anahita-services`:
 
 ```sh
 DOCS_SERVICES_PATH=../go/src/github.com/purplerat/anahita-services yarn dev

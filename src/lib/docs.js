@@ -115,7 +115,9 @@ export function resolveHref(href, { source, slug }) {
   }
   // The API reference is served at /api/ when its source is on the site.
   if (source.key === 'services' && /^docs\/api\/(index\.html)?$/.test(resolved)) {
-    return `/api/${hash && `#${hash}`}`;
+    // By its file name: the dev server, unlike GitHub Pages, does not serve
+    // a folder's index.html at the folder's address.
+    return `/api/index.html${hash && `#${hash}`}`;
   }
   if (resolved.startsWith('docs/images/')) {
     return `/docs-assets/${source.key}/${resolved.slice('docs/'.length)}`;
