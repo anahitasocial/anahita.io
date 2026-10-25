@@ -13,6 +13,8 @@ import Link from '../components/Link';
 import Section from '../components/Section';
 import Graph from '../components/diagrams/Graph';
 import Network from '../components/diagrams/Network';
+import { BlueskyMark } from '../components/diagrams/marks';
+import HubOutlined from '@mui/icons-material/HubOutlined';
 import { audiences, features, graph, promises, start } from '../data/home';
 import { getSource } from '../lib/docs';
 import { site } from '../data/site';
@@ -145,7 +147,19 @@ export default function Home() {
       </Section>
 
       <Section
-        title="Fediverse ready"
+        title={
+          <Box component="span" sx={{ display: 'inline-flex', alignItems: 'center', gap: 1.5 }}>
+            Fediverse ready
+            <Box
+              component="span"
+              aria-hidden="true"
+              sx={{ display: 'inline-flex', gap: 1, color: 'common.black', '.dark &': { color: 'common.white' } }}
+            >
+              <HubOutlined sx={{ fontSize: '0.9em' }} />
+              <BlueskyMark sx={{ fontSize: '0.85em' }} />
+            </Box>
+          </Box>
+        }
         subtitle={
           <>
             Through <Strong>ActivityPub</Strong>, your instance joins the fediverse as an equal; through
