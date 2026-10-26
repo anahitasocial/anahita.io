@@ -60,6 +60,6 @@ export const questions = [
   {
     id: 'licences',
     question: 'What are the licences?',
-    answer: `Anahita Services is under the Apache 2.0 licence, and Anahita Web under the MIT licence. This website's code is under the MIT licence, and its words and pictures under Creative Commons Attribution 4.0. The name Anahita and its logo are under neither: they may not be used to present anything as Anahita's own.`,
+    answer: `Anahita Services is under the Apache 2.0 licence, and Anahita Web under the MIT licence. This website's code is under the MIT licence, and its words and pictures under Creative Commons Attribution 4.0. The name Anahita and its logo are under neither: Anahita is a registered trademark of rmd studio in Canada, and the name and logo may not be used to present anything as Anahita's own. Everything is © rmd studio.`,
   },
 ];

@@ -30,8 +30,8 @@ waits on the user; the **Needs** column names them where they hold work up.
 | 14 | ✅ | FAQ: eleven numbered questions | — |
 | 15 | ✅ | Diagrams, drawn as SVG in the theme's colours: Server and Apps, federation, the graph | — |
 | **M3. The story** | ⬜ | | |
-| 16 | 🚧 | History: the page and its timeline, placeholders for the photos | U2, U3 |
-| 17 | ⬜ | About: the page, for the user's words | U4 |
+| 16 | ✅ | History: the story, then a timeline of Polaroids with captions | — |
+| 17 | — | ~~About~~: left out by the user on 2026-10-25; the home page says what Anahita is, History where it came from, the FAQ who makes it | — |
 | 18 | — | ~~Brand~~: left out by the user on 2026-10-25; the README says how the name and mark may be used | — |
 | 19 | ✅ | A sharp logo and favicon from the vector file | U1 |
 | **M4. Before launch** | ⬜ | | |
@@ -47,9 +47,9 @@ waits on the user; the **Needs** column names them where they hold work up.
 | # | State | What | Where it goes | Unblocks |
 | --- | --- | --- | --- | --- |
 | U1 | ✅ | The logo as .pdf (or .ai) | `_source/logo.pdf` | 19 |
-| U2 | ⏳ | The 12 milestones for History: a date, a title and a line each | a note, or `src/data/history.js` | 16 |
+| U2 | ✅ | The 12 milestones for History: a date, a title and a line each | a note, or `src/data/history.js` | 16 |
 | U3 | ✅ | The 6 photos before 2013 (and any after): each with its date, a caption and who is in it | `_source/history/` | 16 |
-| U4 | ⏳ | About (History's story is in) | the pages, once built | 16, 17 |
+| U4 | ✅ | History's story (About was left out) | `content/history.md` | 16 |
 | U5 | ⏳ | The home page's headline and copy, in your words | `src/data/home.js`, `src/app/page.jsx` | 25 |
 | U6 | ⏳ | The first blog post, in your voice | `content/blog/` | 25 |
 | U7 | ⏳ | Donations: the accounts, then what the money goes to, in your words; see "Donations" below. Not before launch | `src/data/donate.js`, `site.donations` | 8 |
@@ -153,7 +153,6 @@ Sources:
 | FAQ | `/faq/` | Numbered questions: the fediverse, a server, the AT Protocol, how Anahita differs, federation is opt-in, the graph, the chronological feed, tracking, what it takes to run, who makes it, the licences |
 | Blog | `/blog/` | Posts in Markdown (`content/blog/`), with an Atom feed at `/feed.xml`, named in every page's `<head>` |
 | Donate | `/donate/` | Why, where the money goes, the three platforms |
-| About | `/about/` | Written by the user |
 | History | `/history/` | The user's paragraphs, then 12 milestones: 6 before 2013 with photos, 6 since |
 
 The docs stay in their repositories, one set for people and agents alike.

@@ -74,6 +74,13 @@ export default function Home() {
                 GitHub
               </Button>
             </Stack>
+            <Typography variant="body2" color="text.secondary" sx={{ mt: 3 }}>
+              A proudly{' '}
+              <span role="img" aria-hidden="true">
+                🍁
+              </span>{' '}
+              Canadian, open-source project.
+            </Typography>
           </Box>
           {/* A network beside the words, on screens wide enough for both. */}
           <Network sx={{ display: { xs: 'none', md: 'block' }, flex: '1 1 420px', maxWidth: 440, minWidth: 0 }} />

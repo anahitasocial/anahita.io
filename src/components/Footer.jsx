@@ -32,9 +32,14 @@ export default function Footer() {
             </MuiLink>
           ))}
         </Box>
-        <Typography variant="body2" color="text.secondary">
-          © {year} Anahita. No cookies, no tracking.
-        </Typography>
+        <Box sx={{ textAlign: { sm: 'right' } }}>
+          <Typography variant="body2" color="text.secondary">
+            © 2008–{year} rmd studio. No cookies, no tracking.
+          </Typography>
+          <Typography variant="caption" color="text.secondary">
+            Anahita is a registered trademark of rmd studio in Canada.
+          </Typography>
+        </Box>
       </Container>
     </Box>
   );
