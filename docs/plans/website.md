@@ -49,7 +49,7 @@ waits on the user; the **Needs** column names them where they hold work up.
 | U1 | ✅ | The logo as .pdf (or .ai) | `_source/logo.pdf` | 18, 19 |
 | U2 | ⏳ | The 12 milestones for History: a date, a title and a line each | a note, or `src/data/history.js` | 16 |
 | U3 | ✅ | The 6 photos before 2013 (and any after): each with its date, a caption and who is in it | `_source/history/` | 16 |
-| U4 | ⏳ | About, and History's opening paragraphs | the pages, once built | 16, 17 |
+| U4 | ⏳ | About (History's story is in) | the pages, once built | 16, 17 |
 | U5 | ⏳ | The home page's headline and copy, in your words | `src/data/home.js`, `src/app/page.jsx` | 25 |
 | U6 | ⏳ | The first blog post, in your voice | `content/blog/` | 25 |
 | U7 | ⏳ | Donate: what the money goes to, in your words; then the accounts and their links | `src/data/donate.js` | 25 |
