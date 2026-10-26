@@ -1,4 +1,4 @@
-// Markdown to HTML, for the blog's posts, the FAQ's answers and the History
+// Markdown to HTML, for the blog's posts, the FAQ's answers and the About
 // page's story; outboundLinks is shared with the docs (lib/docs.js).
 import { unified } from 'unified';
 import remarkParse from 'remark-parse';

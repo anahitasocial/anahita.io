@@ -30,7 +30,7 @@ waits on the user; the **Needs** column names them where they hold work up.
 | 14 | ✅ | FAQ: eleven numbered questions | — |
 | 15 | ✅ | Diagrams, drawn as SVG in the theme's colours: Server and Apps, federation, the graph | — |
 | **M3. The story** | ⬜ | | |
-| 16 | ✅ | History: the story, then a timeline of Polaroids with captions | — |
+| 16 | ✅ | About (was History): who makes Anahita, then the story and a timeline of Polaroids with captions | — |
 | 17 | — | ~~About~~: left out by the user on 2026-10-25; the home page says what Anahita is, History where it came from, the FAQ who makes it | — |
 | 18 | — | ~~Brand~~: left out by the user on 2026-10-25; the README says how the name and mark may be used | — |
 | 19 | ✅ | A sharp logo and favicon from the vector file | U1 |
@@ -153,7 +153,7 @@ Sources:
 | FAQ | `/faq/` | Numbered questions: the fediverse, a server, the AT Protocol, how Anahita differs, federation is opt-in, the graph, the chronological feed, tracking, what it takes to run, who makes it, the licences |
 | Blog | `/blog/` | Posts in Markdown (`content/blog/`), with an Atom feed at `/feed.xml`, named in every page's `<head>` |
 | Donate | `/donate/` | Why, where the money goes, the three platforms |
-| History | `/history/` | The user's paragraphs, then 12 milestones: 6 before 2013 with photos, 6 since |
+| About | `/about/` | Who makes Anahita, then History: the user's story and twelve Polaroids, 2010 to 2015 |
 
 The docs stay in their repositories, one set for people and agents alike.
 `scripts/fetch-docs.mjs` copies each repository's `docs/` (without

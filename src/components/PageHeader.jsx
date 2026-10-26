@@ -24,8 +24,16 @@ const seedOf = (text) => [...String(text)].reduce((n, c) => (n * 31 + c.charCode
 export default function PageHeader({ parent, title, subtitle, children }) {
   return (
     <HeroBackground component="header">
-      <Container sx={{ pt: { xs: 8, md: 12 }, display: 'flex', alignItems: 'center', gap: { md: 6 } }}>
-        <Box sx={{ maxWidth: 680, flex: '1 1 600px' }}>
+      <Container
+        sx={{
+          pt: { xs: 8, md: 12 },
+          display: 'flex',
+          flexDirection: { xs: 'column', md: 'row' },
+          alignItems: { xs: 'stretch', md: 'center' },
+          gap: { xs: 4, md: 6 },
+        }}
+      >
+        <Box sx={{ maxWidth: 680, flex: { md: '1 1 600px' } }}>
           {parent && (
             <MuiLink component={Link} href={parent.href} variant="body2" underline="hover" sx={{ display: 'inline-block', mb: 2 }}>
               {parent.label}
@@ -49,13 +57,15 @@ export default function PageHeader({ parent, title, subtitle, children }) {
           seed={seedOf(title)}
           layout={layoutOf[title] ?? 1 + (Math.abs(seedOf(title)) % 6)}
           sx={{
-            display: { xs: 'none', md: 'block' },
-            flex: '0 1 440px',
-            maxWidth: 460,
+            // Beside the words on wide screens; under them, smaller, on a phone.
+            flex: { md: '0 1 440px' },
+            width: { xs: '100%', md: 'auto' },
+            maxWidth: { xs: 320, md: 460 },
             minWidth: 0,
-            ml: 'auto',
+            mx: { xs: 'auto', md: 0 },
+            ml: { md: 'auto' },
             // A tall layout is scaled to fit, so every header keeps a like depth.
-            '& svg': { maxHeight: 300 },
+            '& svg': { maxHeight: { xs: 200, md: 300 } },
           }}
         />
       </Container>

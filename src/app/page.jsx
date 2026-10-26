@@ -50,8 +50,16 @@ export default function Home() {
   return (
     <>
       <HeroBackground component="section">
-        <Container sx={{ pt: { xs: 10, md: 16 }, display: 'flex', alignItems: 'center', gap: { md: 6 } }}>
-          <Box sx={{ maxWidth: 680, flex: '1 1 600px' }}>
+        <Container
+          sx={{
+            pt: { xs: 10, md: 16 },
+            display: 'flex',
+            flexDirection: { xs: 'column', md: 'row' },
+            alignItems: { xs: 'stretch', md: 'center' },
+            gap: { xs: 6, md: 6 },
+          }}
+        >
+          <Box sx={{ maxWidth: 680, flex: { md: '1 1 600px' } }}>
             <Typography
               variant="h1"
               sx={{ fontSize: { xs: '2.5rem', md: '3.75rem' } }}
@@ -82,8 +90,16 @@ export default function Home() {
               Canadian, open-source project.
             </Typography>
           </Box>
-          {/* A network beside the words, on screens wide enough for both. */}
-          <Network sx={{ display: { xs: 'none', md: 'block' }, flex: '1 1 420px', maxWidth: 440, minWidth: 0 }} />
+          {/* A network beside the words on wide screens; under them on a phone. */}
+          <Network
+            sx={{
+              flex: { md: '1 1 420px' },
+              width: { xs: '100%', md: 'auto' },
+              maxWidth: { xs: 360, md: 440 },
+              minWidth: 0,
+              mx: { xs: 'auto', md: 0 },
+            }}
+          />
         </Container>
       </HeroBackground>
 

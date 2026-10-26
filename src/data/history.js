@@ -1,4 +1,4 @@
-// The History page's timeline: one Polaroid for each photo, in date order,
+// The About page's timeline: one Polaroid for each photo, in date order,
 // oldest first; the page shows them newest first.
 // `photo` names the files in public/images/history/ (…-300.webp and
 // …-600.webp), made from the originals in _source/history/. A `caption` is
