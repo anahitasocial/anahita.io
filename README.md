@@ -51,7 +51,7 @@ Actions builds and publishes it to GitHub Pages on every push to `main`.
    ([`LICENSE`](LICENSE)).
 2. **Words and pictures:** the pages, their writing, screenshots and
    illustrations are under Creative Commons Attribution 4.0
-   (`LICENSE-CONTENT`, to be added).
+   ([`LICENSE-CONTENT`](LICENSE-CONTENT)).
 3. **The name and the logo** are licensed under neither. Anahita is a
    registered trademark of Rastin Mehr Design Studio Inc. (rmd studio) in
    Canada. "Anahita", its logo and rmd studio's marks may not be used to

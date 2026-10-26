@@ -19,12 +19,14 @@ export const site = {
 export const navigation = [
   { label: 'Products', href: '/products/' },
   { label: 'Docs', href: '/docs/' },
+  { label: 'FAQ', href: '/faq/' },
   { label: 'Blog', href: '/blog/' },
   ...(site.donations ? [{ label: 'Donate', href: '/donate/' }] : []),
 ];
 
 export const footer = [
   { label: 'FAQ', href: '/faq/' },
-  { label: 'History', href: '/history/' },
+  { label: 'Blog', href: '/blog/' },
+  { label: 'About', href: '/about/' },
   { label: 'rmd studio', href: site.rmdStudio },
 ];

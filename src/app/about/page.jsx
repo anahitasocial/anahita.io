@@ -7,11 +7,12 @@ import PageHeader from '../../components/PageHeader';
 import Polaroid from '../../components/Polaroid';
 import Prose from '../../components/Prose';
 import { milestones } from '../../data/history';
+import { site } from '../../data/site';
 import { toHtml } from '../../lib/markdown';
 
 export const metadata = {
-  title: 'History',
-  description: 'Anahita, from its first years to now.',
+  title: 'About',
+  description: 'Who makes Anahita, and where it came from.',
 };
 
 const formatDate = (date, options) =>
@@ -20,15 +21,22 @@ const formatDate = (date, options) =>
 // A Polaroid's tilt, the same on every visit: from its place in the timeline.
 const tiltOf = (index) => [-2.2, 1.6, -1.2, 2.4, -1.8, 1.1][index % 6];
 
-export default async function History() {
+export default async function About() {
   // Newest at the top, as a story read back from today.
   const timeline = [...milestones].reverse();
+  const who = await toHtml(
+    `Anahita is an open-source project of [rmd studio](${site.rmdStudio}), founded by Rastin Mehr, its core architect, and made in Vancouver, Canada.`,
+  );
   const story = await toHtml(fs.readFileSync(path.join(process.cwd(), 'content/history.md'), 'utf8'));
 
   return (
     <>
-      <PageHeader title="History" subtitle="Anahita, from its first years to now." />
+      <PageHeader title="About" subtitle="Who makes Anahita, and where it came from." />
       <Container sx={{ pt: { xs: 6, md: 8 } }}>
+        <Prose html={who} />
+        <Typography id="history" variant="h2" component="h2" sx={{ mt: { xs: 6, md: 8 }, mb: 2, scrollMarginTop: 88 }}>
+          History
+        </Typography>
         <Prose html={story} />
       </Container>
 
