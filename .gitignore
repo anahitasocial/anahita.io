@@ -8,3 +8,6 @@ next-env.d.ts
 .docs-src/
 public/docs-assets/
 public/api/
+
+# Originals of photos and artwork; their resized copies are in public/
+_source/
