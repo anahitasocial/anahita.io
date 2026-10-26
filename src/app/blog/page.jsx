@@ -1,4 +1,5 @@
 import Box from '@mui/material/Box';
+import Chip from '@mui/material/Chip';
 import Container from '@mui/material/Container';
 import Divider from '@mui/material/Divider';
 import MuiLink from '@mui/material/Link';
@@ -31,6 +32,8 @@ export default function Blog() {
                 <Typography variant="body2" color="text.secondary" component="time" dateTime={post.date}>
                   {formatDate(post.date)}
                 </Typography>
+                {/* Seen under yarn dev only: drafts are left out of the built site. */}
+                {post.draft && <Chip label="Draft" size="small" color="secondary" sx={{ ml: 1 }} />}
                 <Typography variant="h3" component="h2" sx={{ mt: 1 }}>
                   <MuiLink component={Link} href={`/blog/${post.slug}/`} color="inherit" underline="hover">
                     {post.title}

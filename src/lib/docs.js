@@ -9,6 +9,7 @@ import remarkParse from 'remark-parse';
 import remarkGfm from 'remark-gfm';
 import remarkRehype from 'remark-rehype';
 import rehypeSlug from 'rehype-slug';
+import rehypeHighlight from 'rehype-highlight';
 import { outboundLinks } from './markdown';
 import rehypeStringify from 'rehype-stringify';
 import { visit } from 'unist-util-visit';
@@ -86,6 +87,7 @@ export async function getDoc(key, slug) {
       .use(remarkGfm)
       .use(remarkRehype)
       .use(rehypeSlug)
+      .use(rehypeHighlight, { detect: false })
       .use(rewriteLinks, { source, slug })
       .use(outboundLinks)
       .use(collectHeadings, { headings })

@@ -4,6 +4,7 @@ import { unified } from 'unified';
 import remarkParse from 'remark-parse';
 import remarkGfm from 'remark-gfm';
 import remarkRehype from 'remark-rehype';
+import rehypeHighlight from 'rehype-highlight';
 import rehypeSlug from 'rehype-slug';
 import rehypeStringify from 'rehype-stringify';
 import { visit } from 'unist-util-visit';
@@ -32,6 +33,9 @@ export async function toHtml(markdown) {
     .use(remarkGfm)
     .use(remarkRehype)
     .use(rehypeSlug)
+    // Code marked with its language (```sh, ```json) is coloured; Prose
+    // gives the colours.
+    .use(rehypeHighlight, { detect: false })
     .use(outboundLinks)
     .use(rehypeStringify)
     .process(markdown);

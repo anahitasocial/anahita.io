@@ -50,6 +50,7 @@ export default function Prose({ html }) {
           borderRadius: 2,
           p: 2,
           overflowX: 'auto',
+          lineHeight: 1.5,
           '& code': { bgcolor: 'transparent', p: 0 },
         },
         '& blockquote': {
@@ -81,6 +82,25 @@ export default function Prose({ html }) {
         '& td code': { overflowWrap: 'anywhere' },
         '& td:first-of-type': { minWidth: 120 },
         '& h2, & h3': { scrollMarginTop: 88 },
+        // Code coloured by language (rehype-highlight): few colours, quiet,
+        // each readable on the code block's background in light and dark.
+        '--code-comment': '#6E7781',
+        '--code-keyword': '#8250DF',
+        '--code-string': '#0A6E3F',
+        '--code-number': '#0550AE',
+        '--code-title': '#953800',
+        '.dark &': {
+          '--code-comment': '#8B949E',
+          '--code-keyword': '#D2A8FF',
+          '--code-string': '#7EE787',
+          '--code-number': '#79C0FF',
+          '--code-title': '#FFA657',
+        },
+        '& .hljs-comment, & .hljs-quote': { color: 'var(--code-comment)', fontStyle: 'italic' },
+        '& .hljs-keyword, & .hljs-built_in, & .hljs-selector-tag, & .hljs-meta': { color: 'var(--code-keyword)' },
+        '& .hljs-string, & .hljs-attr + .hljs-string, & .hljs-regexp': { color: 'var(--code-string)' },
+        '& .hljs-number, & .hljs-literal, & .hljs-variable, & .hljs-template-variable': { color: 'var(--code-number)' },
+        '& .hljs-attr, & .hljs-title, & .hljs-section, & .hljs-name, & .hljs-type': { color: 'var(--code-title)' },
       })}
     />
   );

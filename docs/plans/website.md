@@ -35,10 +35,10 @@ waits on the user; the **Needs** column names them where they hold work up.
 | 18 | — | ~~Brand~~: left out by the user on 2026-10-25; the README says how the name and mark may be used | — |
 | 19 | ✅ | A sharp logo and favicon from the vector file | U1 |
 | **M4. Before launch** | ⬜ | | |
-| 20 | ⬜ | Blog drafts (`draft: true`) and a template for new posts | — |
-| 21 | ⬜ | `LICENSE-CONTENT` (CC BY 4.0), and the README's licences | — |
-| 22 | ⬜ | `sitemap.xml` | — |
-| 23 | ⬜ | Code in the docs coloured by language | — |
+| 20 | ✅ | Blog drafts (`draft: true`) and a template for new posts | — |
+| 21 | ✅ | `LICENSE-CONTENT` (CC BY 4.0), and the README's licences | — |
+| 22 | ✅ | `sitemap.xml` | — |
+| 23 | ✅ | Code in the docs coloured by language | — |
 | 24 | ⬜ | Anahita Services' docs and the API reference on the site | U12 |
 | 25 | ⬜ | Launch: `site.hidden` off, `CNAME` to www.anahita.io, roadmap row 91 done in anahita-web | U5, U6, U10 |
 

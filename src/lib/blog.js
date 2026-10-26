@@ -1,5 +1,8 @@
 // The blog's posts: one Markdown file each in content/blog/, named
-// YYYY-MM-DD-slug.md, with a title, date, summary and author at the top.
+// YYYY-MM-DD-slug.md, with a title, date, summary and author at the top
+// (start from content/blog/_template.md). A post with `draft: true` shows
+// under `yarn dev` only, never in the built site. Files whose names begin
+// with an underscore, the template among them, are never posts.
 import fs from 'node:fs';
 import path from 'node:path';
 import matter from 'gray-matter';
@@ -15,6 +18,7 @@ function read(file) {
     date: new Date(data.date).toISOString().slice(0, 10),
     summary: data.summary,
     author: data.author,
+    draft: Boolean(data.draft),
     content,
   };
 }
@@ -22,8 +26,9 @@ function read(file) {
 export function getPosts() {
   return fs
     .readdirSync(folder)
-    .filter((file) => file.endsWith('.md'))
+    .filter((file) => file.endsWith('.md') && !file.startsWith('_'))
     .map(read)
+    .filter((post) => !post.draft || process.env.NODE_ENV === 'development')
     .sort((a, b) => b.date.localeCompare(a.date));
 }
 
