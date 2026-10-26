@@ -11,18 +11,20 @@ export const site = {
   // away (robots.txt, and noindex on every page). At launch: false, and
   // public/CNAME becomes www.anahita.io.
   hidden: true,
+  // Donate is left out (no link, and its page answers "not found") until an
+  // account on Liberapay, GitHub Sponsors or Open Collective is open.
+  donations: false,
 };
 
 export const navigation = [
   { label: 'Products', href: '/products/' },
   { label: 'Docs', href: '/docs/' },
   { label: 'Blog', href: '/blog/' },
-  { label: 'Donate', href: '/donate/' },
+  ...(site.donations ? [{ label: 'Donate', href: '/donate/' }] : []),
 ];
 
 export const footer = [
   { label: 'FAQ', href: '/faq/' },
   { label: 'History', href: '/history/' },
-  { label: 'Brand', href: '/brand/' },
-  { label: 'rmd Studio', href: site.rmdStudio },
+  { label: 'rmd studio', href: site.rmdStudio },
 ];

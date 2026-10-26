@@ -6,7 +6,7 @@ anybody changing it, a person or an agent.
 
 - Website: <https://www.anahita.io>
 - Founder & Core Architect: Rastin Mehr
-- Maintained and developed by rmd Studio, <https://www.rmdstudio.com>
+- Maintained and developed by rmd studio, <https://www.rmdstudio.com>
 
 ## Where to begin
 
@@ -28,6 +28,7 @@ anybody changing it, a person or an agent.
    Web, Mobile and CLI are the **Apps**.
    Those who use Anahita are **people**: "each person", "people", "you";
    never "users".
+   The company is **rmd studio**, in lower case, everywhere in the copy.
 3. **Object storage** for where files are kept, and "S3-compatible object
    storage" where it is explained once; never "S3" alone, which is AWS's.
 4. Material UI questions are answered from the MUI MCP server (`.mcp.json`),

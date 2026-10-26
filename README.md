@@ -6,7 +6,7 @@ in place of the old PHP application.
 
 - Website: <https://www.anahita.io>
 - Founder & Core Architect: Rastin Mehr
-- Maintained and developed by rmd Studio, <https://www.rmdstudio.com>
+- Maintained and developed by rmd studio, <https://www.rmdstudio.com>
 - Commercial inquiries: <https://www.rmdstudio.com/contact>
 
 ## Status
@@ -53,5 +53,5 @@ Actions builds and publishes it to GitHub Pages on every push to `main`.
    illustrations are under Creative Commons Attribution 4.0
    (`LICENSE-CONTENT`, to be added).
 3. **The name and the logo** are licensed under neither. "Anahita", its logo
-   and rmd Studio's marks may not be used to present a copy of this site,
+   and rmd studio's marks may not be used to present a copy of this site,
    or anything else, as Anahita's own.

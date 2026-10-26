@@ -54,8 +54,8 @@ export const questions = [
   },
   {
     id: 'who',
-    question: 'Who makes it, and how is it paid for?',
-    answer: `Anahita was founded by Rastin Mehr, its core architect, and is developed and maintained by [rmd Studio](https://www.rmdstudio.com). It is free and open source. It is paid for by [donations](/donate/). Its story goes back further than most of the fediverse: see its [history](/history/).`,
+    question: 'Who makes it?',
+    answer: `Anahita was founded by Rastin Mehr, its core architect, and is developed and maintained by [rmd studio](https://www.rmdstudio.com). It is free and open source. Its story goes back further than most of the fediverse: see its [history](/history/).`,
   },
   {
     id: 'licences',

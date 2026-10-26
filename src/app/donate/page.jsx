@@ -1,3 +1,4 @@
+import { notFound } from 'next/navigation';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
@@ -6,6 +7,7 @@ import LinkCard from '../../components/LinkCard';
 import PageHeader from '../../components/PageHeader';
 import Section from '../../components/Section';
 import { platforms, uses } from '../../data/donate';
+import { site } from '../../data/site';
 
 export const metadata = {
   title: 'Donate',
@@ -13,6 +15,7 @@ export const metadata = {
 };
 
 export default function Donate() {
+  if (!site.donations) notFound();
   return (
     <>
       <PageHeader

@@ -20,7 +20,7 @@ waits on the user; the **Needs** column names them where they hold work up.
 | 5 | ✅ | Docs: the landing page, and the repositories' docs rendered on the site | — |
 | 6 | ✅ | `llms.txt` | — |
 | 7 | ✅ | The blog, its Atom feed, and a first post (a draft) | — |
-| 8 | ✅ | Donate, with the platforms "Coming soon" | — |
+| 8 | ✅ | Donate, with the platforms "Coming soon"; hidden until an account is open (`site.donations`) | U7 |
 | 9 | ✅ | Staging: kept out of search engines (`site.hidden`), `CNAME` to staging.anahita.io | — |
 | 10 | ✅ | A nightly build, so the docs stay current | — |
 | 11 | ✅ | The products by name, grouped as Server and Apps | — |
@@ -32,7 +32,7 @@ waits on the user; the **Needs** column names them where they hold work up.
 | **M3. The story** | ⬜ | | |
 | 16 | 🚧 | History: the page and its timeline, placeholders for the photos | U2, U3 |
 | 17 | ⬜ | About: the page, for the user's words | U4 |
-| 18 | ⬜ | Brand: the logo files, and how the name and mark may be used | U1 |
+| 18 | — | ~~Brand~~: left out by the user on 2026-10-25; the README says how the name and mark may be used | — |
 | 19 | ✅ | A sharp logo and favicon from the vector file | U1 |
 | **M4. Before launch** | ⬜ | | |
 | 20 | ⬜ | Blog drafts (`draft: true`) and a template for new posts | — |
@@ -40,24 +40,53 @@ waits on the user; the **Needs** column names them where they hold work up.
 | 22 | ⬜ | `sitemap.xml` | — |
 | 23 | ⬜ | Code in the docs coloured by language | — |
 | 24 | ⬜ | Anahita Services' docs and the API reference on the site | U12 |
-| 25 | ⬜ | Launch: `site.hidden` off, `CNAME` to www.anahita.io, roadmap row 91 done in anahita-web | U5, U6, U7, U10 |
+| 25 | ⬜ | Launch: `site.hidden` off, `CNAME` to www.anahita.io, roadmap row 91 done in anahita-web | U5, U6, U10 |
 
 ### Waiting on the user
 
 | # | State | What | Where it goes | Unblocks |
 | --- | --- | --- | --- | --- |
-| U1 | ✅ | The logo as .pdf (or .ai) | `_source/logo.pdf` | 18, 19 |
+| U1 | ✅ | The logo as .pdf (or .ai) | `_source/logo.pdf` | 19 |
 | U2 | ⏳ | The 12 milestones for History: a date, a title and a line each | a note, or `src/data/history.js` | 16 |
 | U3 | ✅ | The 6 photos before 2013 (and any after): each with its date, a caption and who is in it | `_source/history/` | 16 |
 | U4 | ⏳ | About (History's story is in) | the pages, once built | 16, 17 |
 | U5 | ⏳ | The home page's headline and copy, in your words | `src/data/home.js`, `src/app/page.jsx` | 25 |
 | U6 | ⏳ | The first blog post, in your voice | `content/blog/` | 25 |
-| U7 | ⏳ | Donate: what the money goes to, in your words; then the accounts and their links | `src/data/donate.js` | 25 |
+| U7 | ⏳ | Donations: the accounts, then what the money goes to, in your words; see "Donations" below. Not before launch | `src/data/donate.js`, `site.donations` | 8 |
 | U8 | ⏳ | Photos for decoration: stock, or Anahita's own (no AI-generated images) | `_source/photos/` | — |
 | U9 | ⏳ | A colour scheme, when you have ideas | `src/theme.js` | — |
 | U10 | ⏳ | GitHub: Pages' source "GitHub Actions", custom domain staging.anahita.io, and a DNS CNAME from `staging` to `anahitasocial.github.io` | repository settings, DNS | 25 |
 | U11 | ⏳ | Whether staging needs a real lock (Cloudflare Access) or only to stay out of search engines | — | — |
 | U12 | ⏳ | anahita-services made public | `src/data/docSources.mjs` | 24 |
+
+## Donations (looked into on 2026-10-25)
+
+Hidden until an account is open: `site.donations` in `src/data/site.js`
+takes Donate out of the header and makes `/donate/` answer "not found". The
+user is putting it off until after launch.
+
+| Platform | Set-up | In Canada | Fees and terms |
+| --- | --- | --- | --- |
+| Liberapay | Minutes: an account, then Stripe or PayPal connected | Yes, through Stripe or PayPal | No fee of its own, only the processor's. One user reported Stripe closing their account over its crowdfunding terms: keep PayPal as a fallback |
+| GitHub Sponsors | About a day's work, then GitHub's review, for which no time is published | Yes, a supported region | The `anahitasocial` organisation can be sponsored. Needs two-factor sign-in, a Canadian bank account (a personal one is allowed) and tax details. The payout choice (bank or fiscal host) is fixed at sign-up |
+| Open Collective | An application to a fiscal host, the slowest | Through a host | Open Source Collective takes 10% and has verification criteria it does not publish; probably better once anahita-services is public. Hypha, a Canadian worker co-operative, also hosts open-source projects |
+
+Suggested order: Liberapay and GitHub Sponsors first, Open Collective after
+anahita-services is public. Donations to a person or to rmd studio, neither a
+registered charity, are likely taxable income: a question for an accountant.
+
+Sources:
+
+1. [About GitHub Sponsors](https://docs.github.com/en/sponsors/getting-started-with-github-sponsors/about-github-sponsors)
+2. [Setting up GitHub Sponsors for your organization](https://docs.github.com/en/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization)
+3. [GitHub Sponsors and Stripe Connect Express](https://stripe.com/en-ch/newsroom/stories/githubsponsors)
+4. [DEV Community: GitHub Sponsors' supported countries](https://dev.to/ashucommits/exploring-github-sponsors-global-impact-and-future-innovations-in-open-source-funding-46h5)
+5. [Open Source Collective: apply](https://opencollective.com/opensource/apply/intro)
+6. [Open Collective Europe: fiscal hosting FAQs](https://docs.opencollective.com/oceurope/faq/fiscal-hosting-faqs)
+7. [Open Collective: becoming a fiscal host](https://docs.opencollective.com/help/hosts/become-host)
+8. [Hypha: fiscal sponsorship](https://handbook.hypha.coop/Hypha-Worker-Co-operative/fiscal-sponsorship.html)
+9. [Liberapay on Wikipedia](https://en.wikipedia.org/wiki/Liberapay)
+10. [Techlore: Is Stripe killing Liberapay?](https://blog.techlore.tech/stripe-liberapay)
 
 ## What was settled (the user, 2026-10-24)
 
@@ -126,7 +155,6 @@ waits on the user; the **Needs** column names them where they hold work up.
 | Donate | `/donate/` | Why, where the money goes, the three platforms |
 | About | `/about/` | Written by the user |
 | History | `/history/` | The user's paragraphs, then 12 milestones: 6 before 2013 with photos, 6 since |
-| Brand | `/brand/` | The logo files, and how the name and mark may be used |
 
 The docs stay in their repositories, one set for people and agents alike.
 `scripts/fetch-docs.mjs` copies each repository's `docs/` (without
