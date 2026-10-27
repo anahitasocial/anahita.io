@@ -8,8 +8,11 @@ import { getService, getServicePage, getServices } from '../../../lib/api';
 
 export const dynamicParams = false;
 
+// A static export needs at least one page: until the services' docs are on
+// the site, one that is not found.
 export function generateStaticParams() {
-  return getServices().map(({ slug }) => ({ service: slug }));
+  const services = getServices().map(({ slug }) => ({ service: slug }));
+  return services.length ? services : [{ service: '_' }];
 }
 
 export async function generateMetadata({ params }) {

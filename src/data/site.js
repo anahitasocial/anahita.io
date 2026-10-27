@@ -7,10 +7,10 @@ export const site = {
     'Open-source social software that an organisation runs for its own community, connected to the fediverse and Bluesky.',
   github: 'https://github.com/anahitasocial',
   rmdStudio: 'https://www.rmdstudio.com',
-  // While the site is on staging.anahita.io, search engines are asked to stay
-  // away (robots.txt, and noindex on every page). At launch: false, and
-  // public/CNAME becomes www.anahita.io.
-  hidden: true,
+  // True keeps search engines away (robots.txt, and noindex on every page),
+  // for a copy of the site that is not the real one. Off since the launch,
+  // 2026-10-27.
+  hidden: false,
   // Donate is left out (no link, and its page answers "not found") until an
   // account on Liberapay, GitHub Sponsors or Open Collective is open.
   donations: false,
