@@ -1,12 +1,74 @@
 'use client';
 
+import { useEffect, useRef } from 'react';
 import Box from '@mui/material/Box';
+
+// The language last chosen in a group of code tabs (lib/markdown.js,
+// codeTabs), for every group on every page.
+const TAB_KEY = 'anahita-code-tab';
+
+function choose(root, name) {
+  root.querySelectorAll('[data-code-tabs]').forEach((group) => {
+    const tabs = [...group.querySelectorAll('[role="tab"]')];
+    if (!tabs.some((tab) => tab.dataset.tab === name)) return;
+    tabs.forEach((tab) => {
+      const on = tab.dataset.tab === name;
+      tab.setAttribute('aria-selected', String(on));
+      tab.tabIndex = on ? 0 : -1;
+    });
+    group.querySelectorAll('[role="tabpanel"]').forEach((panel) => {
+      panel.hidden = panel.dataset.tab !== name;
+    });
+  });
+}
 
 // Writing from Markdown, set in the theme's type: a readable measure,
 // quiet headings, and code that stays inside the page.
 export default function Prose({ html }) {
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const root = ref.current;
+    if (!root || !root.querySelector('[data-code-tabs]')) return undefined;
+    try {
+      const saved = window.localStorage.getItem(TAB_KEY);
+      if (saved) choose(root, saved);
+    } catch {
+      // No storage: the first tab of each group stays chosen.
+    }
+    const pick = (name) => {
+      choose(root, name);
+      try {
+        window.localStorage.setItem(TAB_KEY, name);
+      } catch {
+        // Not remembered, which is all.
+      }
+    };
+    const onClick = (event) => {
+      const tab = event.target.closest('[data-code-tabs] [role="tab"]');
+      if (tab) pick(tab.dataset.tab);
+    };
+    // Left and right move between a group's tabs, as in any tab list.
+    const onKey = (event) => {
+      const tab = event.target.closest('[data-code-tabs] [role="tab"]');
+      if (!tab || (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight')) return;
+      const tabs = [...tab.parentElement.querySelectorAll('[role="tab"]')];
+      const next = tabs[(tabs.indexOf(tab) + (event.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length];
+      pick(next.dataset.tab);
+      next.focus();
+      event.preventDefault();
+    };
+    root.addEventListener('click', onClick);
+    root.addEventListener('keydown', onKey);
+    return () => {
+      root.removeEventListener('click', onClick);
+      root.removeEventListener('keydown', onKey);
+    };
+  }, [html]);
+
   return (
     <Box
+      ref={ref}
       dangerouslySetInnerHTML={{ __html: html }}
       sx={(theme) => ({
         maxWidth: 680,
@@ -51,7 +113,43 @@ export default function Prose({ html }) {
           p: 2,
           overflowX: 'auto',
           lineHeight: 1.5,
+          // Go is indented with tabs: four wide, not the browser's eight.
+          tabSize: 4,
           '& code': { bgcolor: 'transparent', p: 0 },
+        },
+        // Code in several languages, one tab each: quiet labels, the chosen
+        // one underlined, and the code below in the same box.
+        '& .code-tabs': {
+          my: 3,
+          border: 1,
+          borderColor: 'divider',
+          borderRadius: 2,
+          overflow: 'hidden',
+          '& pre': { m: 0, borderRadius: 0 },
+        },
+        '& .code-tabs-list': {
+          display: 'flex',
+          overflowX: 'auto',
+          borderBottom: 1,
+          borderColor: 'divider',
+          px: 1,
+        },
+        '& .code-tabs-list button': {
+          appearance: 'none',
+          border: 0,
+          borderBottom: '2px solid transparent',
+          mb: '-1px',
+          bgcolor: 'transparent',
+          color: 'text.secondary',
+          cursor: 'pointer',
+          ...theme.typography.body2,
+          fontWeight: 500,
+          whiteSpace: 'nowrap',
+          px: 2,
+          py: 1,
+          '&:hover': { color: 'text.primary' },
+          '&[aria-selected="true"]': { color: 'text.primary', borderBottomColor: 'primary.main' },
+          '&:focus-visible': { outline: 2, outlineColor: 'primary.main', outlineOffset: -2 },
         },
         '& blockquote': {
           borderLeft: 2,
