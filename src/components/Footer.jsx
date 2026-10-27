@@ -2,8 +2,10 @@ import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import MuiLink from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
+import IconButton from '@mui/material/IconButton';
+import BlueskyIcon from './BlueskyIcon';
 import Link from './Link';
-import { footer } from '../data/site';
+import { footer, site } from '../data/site';
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -18,7 +20,7 @@ export default function Footer() {
           justifyContent: 'space-between',
         }}
       >
-        <Box component="nav" sx={{ display: 'flex', flexWrap: 'wrap', gap: 3 }}>
+        <Box component="nav" sx={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', columnGap: 3, rowGap: 1 }}>
           {footer.map(({ label, href }) => (
             <MuiLink
               key={label}
@@ -31,6 +33,16 @@ export default function Footer() {
               {label}
             </MuiLink>
           ))}
+          {/* Anahita's own account, @anahita.io: a profile to follow. */}
+          <IconButton
+            href={site.bluesky}
+            aria-label="Anahita on Bluesky"
+            title="Anahita on Bluesky"
+            size="small"
+            sx={{ color: 'text.secondary', ml: -1, '&:hover': { color: '#1185FE' } }}
+          >
+            <BlueskyIcon fontSize="small" />
+          </IconButton>
         </Box>
         <Box sx={{ textAlign: { sm: 'right' } }}>
           <Typography variant="body2" color="text.secondary">

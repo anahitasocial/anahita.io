@@ -6,6 +6,7 @@ export const site = {
   description:
     'Open-source social software that an organisation runs for its own community, connected to the fediverse and Bluesky.',
   github: 'https://github.com/anahitasocial',
+  bluesky: 'https://bsky.app/profile/anahita.io',
   rmdStudio: 'https://www.rmdstudio.com',
   // True keeps search engines away (robots.txt, and noindex on every page),
   // for a copy of the site that is not the real one. Off since the launch,
