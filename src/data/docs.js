@@ -67,7 +67,7 @@ export const builders = [
   {
     icon: 'smart_toy',
     title: 'MCP server',
-    text: 'The docs and API reference for AI agents: an MCP server that runs on your computer.',
+    text: 'The docs and API reference for AI agents, over MCP: on your computer, or at mcp.anahita.io.',
     href: 'https://github.com/anahitasocial/anahita-mcp',
   },
   {
