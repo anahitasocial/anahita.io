@@ -25,12 +25,4 @@ and follow Anahita
 
 Anahita is still fully open source, and I can’t wait to see what projects you develop with the new codebase!
 
-
-
 Here's to a new era for Anahita, a proudly 🍁 Canadian Fediverse project!
-
-
-
-
-
-You can follow this blog through its [Atom feed](/feed.xml).
