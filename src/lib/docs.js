@@ -13,8 +13,11 @@ import rehypeHighlight from 'rehype-highlight';
 import { codeTabs, outboundLinks } from './markdown';
 import rehypeStringify from 'rehype-stringify';
 import { visit } from 'unist-util-visit';
+import { toString } from 'mdast-util-to-string';
+import GithubSlugger from 'github-slugger';
 import { docSources } from '../data/docSources.mjs';
 import { apiHref } from './api';
+import { site } from '../data/site';
 
 const folder = path.join(process.cwd(), '.docs-src');
 
@@ -203,4 +206,59 @@ function collectHeadings({ headings }) {
       }
     });
   };
+}
+
+// A page as Markdown, cut into its sections at each `##` and `###`, for
+// /docs/index.json and the agents that read it (anahita-mcp). Each section
+// has the id its heading has on the page, and its links already lead where
+// they do on this site. The text before the first heading is a section with
+// no heading. Null for a page that does not exist.
+export function getDocSections(key, slug) {
+  const markdown = readFile(key, slug);
+  if (markdown === null) return null;
+  const source = getSource(key);
+  const { title, body } = split(withoutSections(markdown, slug === 'README' ? undefined : ['Contents']));
+  const tree = unified().use(remarkParse).use(remarkGfm).parse(body);
+
+  // Links first, from the end back, so each offset still holds.
+  const links = [];
+  visit(tree, ['link', 'image', 'definition'], (node) => {
+    links.push(node);
+  });
+  let text = body;
+  for (const node of links.sort((a, b) => b.position.start.offset - a.position.start.offset)) {
+    const { start, end } = node.position;
+    const original = text.slice(start.offset, end.offset);
+    const href = resolveHref(node.url, { source, slug });
+    const absolute = href && href.startsWith('/') ? `${site.url}${href}` : href;
+    let replaced;
+    if (absolute === null) {
+      // A link to what is not on the site: its words, without the link.
+      replaced = node.type === 'link' ? toString(node) : original;
+    } else {
+      replaced = original.split(node.url).join(absolute);
+    }
+    text = text.slice(0, start.offset) + replaced + text.slice(end.offset);
+  }
+
+  // Then the headings, again, from the text with the links rewritten. Every
+  // heading takes a slug, as rehype-slug gives them on the page, but only
+  // `##` and `###` begin a section.
+  const slugger = new GithubSlugger();
+  const cuts = [];
+  visit(unified().use(remarkParse).use(remarkGfm).parse(text), 'heading', (node) => {
+    const words = toString(node);
+    const id = slugger.slug(words);
+    if (node.depth === 2 || node.depth === 3) {
+      cuts.push({ id, heading: words, level: node.depth, offset: node.position.start.offset, after: node.position.end.offset });
+    }
+  });
+  const sections = [];
+  const intro = text.slice(0, cuts[0]?.offset ?? text.length).trim();
+  if (intro) sections.push({ id: '', heading: null, level: 1, markdown: intro });
+  cuts.forEach((cut, at) => {
+    const until = cuts[at + 1]?.offset ?? text.length;
+    sections.push({ id: cut.id, heading: cut.heading, level: cut.level, markdown: text.slice(cut.after, until).trim() });
+  });
+  return { title, sections };
 }

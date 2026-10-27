@@ -10,7 +10,8 @@ Anahita is made for schools, newsrooms, libraries, research groups and non-profi
 - [Anahita Services docs](https://www.anahita.io/docs/services/): running an instance, the concepts (the graph, how things are found), federation, and building on it
 - [Why Anahita](https://www.anahita.io/docs/services/why-anahita/): the design principles
 - [Anahita Web docs](https://www.anahita.io/docs/web/): getting started, configuration, architecture, customising, deploying
-- [MCP server](https://gitmcp.io/anahitasocial/anahita-services): the services' docs and code over MCP, from GitMCP; https://gitmcp.io/anahitasocial/anahita-web for the web app
+- [MCP server](https://github.com/anahitasocial/anahita-mcp): anahita-mcp, these docs and the API reference for AI agents, run on your computer with `npx -y github:anahitasocial/anahita-mcp`
+- [Docs index](https://www.anahita.io/docs/index.json): every page of the docs as Markdown, cut into sections, in one JSON file
 
 ## API
 
