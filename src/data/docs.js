@@ -68,7 +68,7 @@ export const builders = [
     icon: 'smart_toy',
     title: 'MCP server',
     text: 'The docs and API reference for AI agents, over MCP: on your computer, or at mcp.anahita.io.',
-    href: 'https://github.com/anahitasocial/anahita-mcp',
+    href: '/docs/services/ai-agents/',
   },
   {
     icon: 'description',
@@ -82,6 +82,7 @@ export const builders = [
 // its README's Contents. A group not named here has none.
 export const groupIcons = {
   'Start here': 'install',
+  'AI agents': 'smart_toy',
   Concepts: 'account_tree',
   'Run a site': 'settings',
   People: 'person',
