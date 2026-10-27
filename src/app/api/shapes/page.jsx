@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import ApiFields, { Type, Words } from '../../../components/ApiFields';
+import WrittenBy from '../../../components/WrittenBy';
 import { getApi, getShapes } from '../../../lib/api';
 
 export const metadata = { title: 'Shapes · API reference' };
@@ -32,6 +33,7 @@ export default function Shapes() {
           {fields.length ? <ApiFields fields={fields} requiredWord="always" /> : <Type html={type} />}
         </Box>
       ))}
+      <WrittenBy sx={{ mt: 2 }} />
     </Box>
   );
 }

@@ -8,6 +8,7 @@ import Typography from '@mui/material/Typography';
 import Icon from '../../components/Icon';
 import Link from '../../components/Link';
 import { groupIcons } from '../../data/docs';
+import WrittenBy from '../../components/WrittenBy';
 import { getApi } from '../../lib/api';
 
 export const metadata = {
@@ -93,6 +94,7 @@ export default function Api() {
           </Grid>
         ))}
       </Grid>
+      <WrittenBy sx={{ mt: 6 }} />
     </Box>
   );
 }

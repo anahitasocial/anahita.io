@@ -7,6 +7,7 @@ import Typography from '@mui/material/Typography';
 import Icon from './Icon';
 import Prose from './Prose';
 import Link from './Link';
+import WrittenBy from './WrittenBy';
 import { groupIcons } from '../data/docs';
 
 // A docs overview's groups of pages, as cards: each group's name, its icon,
@@ -112,6 +113,7 @@ export default function DocPage({ doc, eyebrow, title: heading, groups = [], nei
             , {source.date}.
           </Typography>
         )}
+        <WrittenBy sx={source.commit ? undefined : { mt: 4 }} />
       </Box>
       {sections.length > 1 && (
         <Box

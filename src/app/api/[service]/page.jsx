@@ -3,6 +3,7 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import ApiRoute from '../../../components/ApiRoute';
 import { Words } from '../../../components/ApiFields';
+import WrittenBy from '../../../components/WrittenBy';
 import { getService, getServicePage, getServices } from '../../../lib/api';
 
 export const dynamicParams = false;
@@ -41,6 +42,7 @@ export default async function Service({ params }) {
       {page.routes.map((route) => (
         <ApiRoute key={route.id} route={route} />
       ))}
+      <WrittenBy sx={{ mt: 2 }} />
     </Box>
   );
 }
