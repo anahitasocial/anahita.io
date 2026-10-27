@@ -16,12 +16,12 @@ All content from the old Anahita social network is now archived securely; I am s
 You will still be able to follow me:
 
 * Fediverse @rastin@banu.io
-* Bluesky @rastinmehr.com
+* Bluesky [@rastinmehr.com](https://bsky.app/profile/rastinmehr.com)
 
 and follow Anahita
 
 * Fediverse @anahita@banu.io
-* Bluesky @anahita.io
+* Bluesky [@anahita.io](https://bsky.app/profile/anahita.io)
 
 Anahita is still fully open source, and I can’t wait to see what projects you develop with the new codebase!
 
