@@ -50,7 +50,23 @@ export default function Header() {
                 href={href}
                 color="inherit"
                 aria-current={isCurrent(href) ? 'page' : undefined}
-                sx={{ minWidth: 0, px: 1.5, color: isCurrent(href) ? 'text.primary' : 'text.secondary' }}
+                sx={{
+                  minWidth: 0,
+                  px: 1.5,
+                  color: isCurrent(href) ? 'text.primary' : 'text.secondary',
+                  // The page you are on: a short line under its name, in the
+                  // secondary colour, on the bar's own bottom edge.
+                  '&[aria-current="page"]::after': {
+                    content: '""',
+                    position: 'absolute',
+                    left: 12,
+                    right: 12,
+                    bottom: -14,
+                    height: 2,
+                    borderRadius: 1,
+                    bgcolor: 'secondary.main',
+                  },
+                }}
               >
                 {label}
               </Button>

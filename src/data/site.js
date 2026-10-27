@@ -19,6 +19,7 @@ export const site = {
 export const navigation = [
   { label: 'Products', href: '/products/' },
   { label: 'Docs', href: '/docs/' },
+  { label: 'About', href: '/about/' },
   { label: 'FAQ', href: '/faq/' },
   { label: 'Blog', href: '/blog/' },
   ...(site.donations ? [{ label: 'Donate', href: '/donate/' }] : []),
