@@ -12,7 +12,7 @@ export default function DocsLayout({ children }) {
     key,
     title,
     side,
-    pages: getPages(key).map(({ slug, title: page }) => ({ slug, title: page })),
+    pages: getPages(key).map(({ slug, title: page, group }) => ({ slug, title: page, group })),
   }));
 
   return (

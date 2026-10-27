@@ -1,7 +1,46 @@
 import Box from '@mui/material/Box';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import Grid from '@mui/material/Grid';
 import MuiLink from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
+import Icon from './Icon';
 import Prose from './Prose';
+import Link from './Link';
+import { groupIcons } from '../data/docs';
+
+// A docs overview's groups of pages, as cards: each group's name, its icon,
+// and its pages, two cards to a row on wider screens.
+function Groups({ groups }) {
+  if (!groups.length) return null;
+  return (
+    <Grid container spacing={2} sx={{ mt: 6 }} data-pagefind-ignore>
+      {groups.map(({ name, pages }) => (
+        <Grid key={name} size={{ xs: 12, sm: 6 }}>
+          <Card sx={{ height: '100%' }}>
+            <CardContent>
+              <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, color: 'primary.main' }}>
+                {groupIcons[name] && <Icon name={groupIcons[name]} />}
+                <Typography variant="subtitle1" component="h2" sx={{ fontWeight: 500, color: 'text.primary' }}>
+                  {name}
+                </Typography>
+              </Box>
+              <Box component="ul" sx={{ listStyle: 'none', p: 0, m: 0, mt: 1 }}>
+                {pages.map(({ slug, title, href }) => (
+                  <Box key={slug} component="li">
+                    <MuiLink component={Link} href={href} variant="body2" underline="hover" sx={{ display: 'block', py: 0.5 }}>
+                      {title}
+                    </MuiLink>
+                  </Box>
+                ))}
+              </Box>
+            </CardContent>
+          </Card>
+        </Grid>
+      ))}
+    </Grid>
+  );
+}
 
 // The page before and the page after, at the foot of the page: quiet boxes,
 // side by side, each saying which way it goes and where.
@@ -47,7 +86,7 @@ function Neighbours({ previous, next }) {
 
 // One page of the docs: its title, the page, and where it came from. On wide
 // screens its headings are listed beside it.
-export default function DocPage({ doc, eyebrow, title: heading, neighbours = {} }) {
+export default function DocPage({ doc, eyebrow, title: heading, groups = [], neighbours = {} }) {
   const { html, headings, source } = doc;
   const title = heading || doc.title;
   const sections = headings.filter(({ level }) => level === 2);
@@ -62,6 +101,7 @@ export default function DocPage({ doc, eyebrow, title: heading, neighbours = {} 
           {title}
         </Typography>
         <Prose html={html} />
+        <Groups groups={groups.map((group) => ({ ...group, pages: group.pages.map((page) => ({ ...page, href: `/docs/${source.key}/${page.slug}/` })) }))} />
         <Neighbours previous={neighbours.previous} next={neighbours.next} />
         {source.commit && (
           <Typography variant="body2" color="text.secondary" sx={{ mt: 4 }} data-pagefind-ignore>

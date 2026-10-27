@@ -1,5 +1,5 @@
 import DocPage from '../../../components/DocPage';
-import { getDoc, getNeighbours, getSource, getSources } from '../../../lib/docs';
+import { getDoc, getGroups, getNeighbours, getSource, getSources } from '../../../lib/docs';
 
 export const dynamicParams = false;
 
@@ -12,9 +12,12 @@ export async function generateMetadata({ params }) {
   return { title: `${getSource(source).title} docs` };
 }
 
-// A source's README, without its contents list, which is the sidebar here.
+// A source's README, without its contents list, which is the sidebar here,
+// and its groups of pages below it as cards.
 export default async function DocsOverview({ params }) {
   const { source } = await params;
   const doc = await getDoc(source, 'README');
-  return <DocPage doc={doc} eyebrow="Docs" title={doc.source.title} neighbours={getNeighbours(source, 'README')} />;
+  return (
+    <DocPage doc={doc} eyebrow="Docs" title={doc.source.title} groups={getGroups(source)} neighbours={getNeighbours(source, 'README')} />
+  );
 }
