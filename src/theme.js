@@ -7,12 +7,18 @@ import { createTheme } from '@mui/material/styles';
 // mode it turns to near-white. The red is an accent, used sparingly: red
 // also means an error. Light or dark is a class on <html>: set from the
 // operating system before the page paints (InitColorSchemeScript), then by
-// the toggle in the header.
-const theme = createTheme({
+// the toggle in the header. A palette from the colour picker, on the dev
+// server, takes the place of Anahita's own (components/SiteTheme.jsx).
+const anahita = {
+  light: { primary: '#1F2328', secondary: '#D62828' },
+  dark: { primary: '#E6E8EB', secondary: '#E57575' },
+};
+
+export const makeTheme = (palette = anahita) => createTheme({
   cssVariables: { colorSchemeSelector: 'class' },
   colorSchemes: {
-    light: { palette: { primary: { main: '#1F2328' }, secondary: { main: '#D62828' } } },
-    dark: { palette: { primary: { main: '#E6E8EB' }, secondary: { main: '#E57575' } } },
+    light: { palette: { primary: { main: palette.light.primary }, secondary: { main: palette.light.secondary } } },
+    dark: { palette: { primary: { main: palette.dark.primary }, secondary: { main: palette.dark.secondary } } },
   },
   shape: { borderRadius: 12 },
   typography: {
@@ -35,4 +41,4 @@ const theme = createTheme({
   },
 });
 
-export default theme;
+export default makeTheme();
