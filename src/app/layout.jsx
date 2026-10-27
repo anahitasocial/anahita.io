@@ -1,11 +1,12 @@
 import { Roboto } from 'next/font/google';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v16-appRouter';
+import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import InitColorSchemeScript from '@mui/material/InitColorSchemeScript';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { DiagramDefs } from '../components/diagrams/parts';
-import SiteTheme from '../components/SiteTheme';
+import theme from '../theme';
 import { site } from '../data/site';
 
 // Downloaded at build time and served from this site: no request to Google.
@@ -38,14 +39,15 @@ export default function RootLayout({ children }) {
       <body>
         <InitColorSchemeScript attribute="class" />
         <AppRouterCacheProvider>
-          <SiteTheme>
+          {/* Nothing is stored: every visit starts from the system's setting. */}
+          <ThemeProvider theme={theme} storageManager={null} disableTransitionOnChange>
             <CssBaseline />
             <DiagramDefs />
             <Header />
             {/* Only what is in <main> goes into the search index. */}
             <main data-pagefind-body>{children}</main>
             <Footer />
-          </SiteTheme>
+          </ThemeProvider>
         </AppRouterCacheProvider>
       </body>
     </html>
