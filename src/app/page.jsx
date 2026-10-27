@@ -170,19 +170,13 @@ export default function Home() {
       </Section>
 
       <Section
-        title={
-          <Box component="span" sx={{ display: 'inline-flex', alignItems: 'center', gap: 1.5 }}>
-            Fediverse ready
-            <Box
-              component="span"
-              aria-hidden="true"
-              sx={{ display: 'inline-flex', gap: 1, color: 'common.black', '.dark &': { color: 'common.white' } }}
-            >
-              <HubOutlined sx={{ fontSize: '0.9em' }} />
-              <BlueskyMark sx={{ fontSize: '0.85em' }} />
-            </Box>
-          </Box>
+        icon={
+          <>
+            <HubOutlined color="primary" aria-hidden="true" />
+            <BlueskyMark color="primary" aria-hidden="true" />
+          </>
         }
+        title="Fediverse ready"
         subtitle={
           <>
             Through <Strong>ActivityPub</Strong>, your instance joins the fediverse as an equal; through
