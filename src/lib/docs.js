@@ -14,6 +14,7 @@ import { codeTabs, outboundLinks } from './markdown';
 import rehypeStringify from 'rehype-stringify';
 import { visit } from 'unist-util-visit';
 import { docSources } from '../data/docSources.mjs';
+import { apiHref } from './api';
 
 const folder = path.join(process.cwd(), '.docs-src');
 
@@ -159,11 +160,10 @@ export function resolveHref(href, { source, slug }) {
   if (page && readFile(source.key, page[1]) !== null) {
     return docHref(source.key, page[1], hash && `#${hash}`);
   }
-  // The API reference is served at /api/ when its source is on the site.
+  // The API reference is the site's own pages at /api/: a service, a route
+  // or a shape by what follows the # (lib/api.js).
   if (source.key === 'services' && /^docs\/api\/(index\.html)?$/.test(resolved)) {
-    // By its file name: the dev server, unlike GitHub Pages, does not serve
-    // a folder's index.html at the folder's address.
-    return `/api/index.html${hash && `#${hash}`}`;
+    return apiHref(hash);
   }
   if (resolved.startsWith('docs/images/')) {
     return `/docs-assets/${source.key}/${resolved.slice('docs/'.length)}`;

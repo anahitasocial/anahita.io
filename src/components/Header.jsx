@@ -21,10 +21,11 @@ import ModeToggle from './ModeToggle';
 import Search from './Search';
 import { navigation, site } from '../data/site';
 
-export default function Header() {
+export default function Header({ api = false }) {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
   const isCurrent = (href) => pathname.startsWith(href);
+  const links = navigation.filter(({ needs }) => !needs || (needs === 'api' && api));
 
   return (
     <AppBar
@@ -43,7 +44,7 @@ export default function Header() {
           <Logo />
           <Box sx={{ flexGrow: 1 }} />
           <Box component="nav" sx={{ display: { xs: 'none', sm: 'flex' }, gap: 0.5, mr: 1 }}>
-            {navigation.map(({ label, href }) => (
+            {links.map(({ label, href }) => (
               <Button
                 key={href}
                 component={Link}
@@ -97,7 +98,7 @@ export default function Header() {
           </Toolbar>
         </Container>
         <List sx={{ pb: 2 }}>
-          {navigation.map(({ label, href }) => (
+          {links.map(({ label, href }) => (
             <ListItemButton
               key={href}
               component={Link}

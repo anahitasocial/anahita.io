@@ -62,7 +62,7 @@ export const builders = [
     title: 'API reference',
     text: 'Every route, with what it takes and what it sends, from OpenAPI 3.1 made from the code.',
     needs: 'services',
-    href: '/api/index.html',
+    href: '/api/',
   },
   {
     icon: 'smart_toy',
