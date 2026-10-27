@@ -52,6 +52,20 @@ export function getPages(key) {
   return order.map((slug) => ({ slug, title: readTitle(readFile(key, slug)) || slug }));
 }
 
+// The pages before and after one, in the order of the docs' menu: the
+// Overview, then getPages. Either is null at an end.
+export function getNeighbours(key, slug) {
+  const source = getSource(key);
+  const all = [
+    { href: `/docs/${key}/`, title: 'Overview', slug: 'README' },
+    ...getPages(key).map((page) => ({ href: `/docs/${key}/${page.slug}/`, title: page.title, slug: page.slug })),
+  ];
+  const at = all.findIndex((page) => page.slug === slug);
+  if (!source || at === -1) return { previous: null, next: null };
+  const pick = (page) => (page ? { href: page.href, title: page.title } : null);
+  return { previous: pick(all[at - 1]), next: pick(all[at + 1]) };
+}
+
 // What a README holds for its own repository and not for this site: its
 // contents list, which is the sidebar here, and its plans, which are work
 // notes and stay in the repository with docs/plans/.

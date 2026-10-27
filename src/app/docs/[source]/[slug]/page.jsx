@@ -1,5 +1,5 @@
 import DocPage from '../../../../components/DocPage';
-import { getDoc, getPages, getSources } from '../../../../lib/docs';
+import { getDoc, getNeighbours, getPages, getSources } from '../../../../lib/docs';
 
 export const dynamicParams = false;
 
@@ -15,5 +15,5 @@ export async function generateMetadata({ params }) {
 
 export default async function Doc({ params }) {
   const { source, slug } = await params;
-  return <DocPage doc={await getDoc(source, slug)} />;
+  return <DocPage doc={await getDoc(source, slug)} neighbours={getNeighbours(source, slug)} />;
 }
