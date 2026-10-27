@@ -1,8 +1,9 @@
 The exact start date of the Anahita project is unknown. The idea emerged in
-the mid-2000s, while Rastin Mehr, Anahita's founder and core architect, was a
-software architect building online learning tools and contributing to the
-open-source [Joomla!](https://www.joomla.org) CMS in their free time. They dreamed of an open-source
-platform for sharing knowledge and connecting people, and it led them to
+the mid-2000s, while Rastin Mehr, Anahita's founder and core architect, 
+was a building online learning tools in their first job out of school 
+and contributing to the open-source [Joomla!](https://www.joomla.org) CMS in their free time. 
+
+They dreamed of an open-source platform for sharing knowledge and connecting people, and it led them to
 leave their job and work full-time on their own software company, [rmd studio](https://www.rmdstudio.com),
 and on what would become the Anahita social networking platform and
 framework.
