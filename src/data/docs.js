@@ -62,7 +62,7 @@ export const builders = [
     title: 'API reference',
     text: 'Every route, with what it takes and what it sends, from OpenAPI 3.1 made from the code.',
     needs: 'services',
-    href: '/api/index.html',
+    href: '/api/',
   },
   {
     icon: 'smart_toy',
@@ -77,3 +77,15 @@ export const builders = [
     href: '/llms.txt',
   },
 ];
+
+// The icon of each group of pages on a docs overview, by the group's name in
+// its README's Contents. A group not named here has none.
+export const groupIcons = {
+  'Start here': 'install',
+  Concepts: 'account_tree',
+  'Run a site': 'settings',
+  People: 'person',
+  Posts: 'article',
+  'Fediverse and Bluesky': 'public',
+  'Build on Anahita': 'code',
+};

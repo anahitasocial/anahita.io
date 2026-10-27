@@ -8,6 +8,7 @@ import Footer from '../components/Footer';
 import { DiagramDefs } from '../components/diagrams/parts';
 import theme from '../theme';
 import { site } from '../data/site';
+import { getApi } from '../lib/api';
 
 // Downloaded at build time and served from this site: no request to Google.
 const roboto = Roboto({
@@ -43,7 +44,8 @@ export default function RootLayout({ children }) {
           <ThemeProvider theme={theme} storageManager={null} disableTransitionOnChange>
             <CssBaseline />
             <DiagramDefs />
-            <Header />
+            {/* API in the top bar once the reference is on the site. */}
+            <Header api={Boolean(getApi())} />
             {/* Only what is in <main> goes into the search index. */}
             <main data-pagefind-body>{children}</main>
             <Footer />

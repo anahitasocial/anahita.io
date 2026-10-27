@@ -16,9 +16,13 @@ export const site = {
   donations: false,
 };
 
+// API is left out until the services' reference is on the site (Header's
+// `api`).
 export const navigation = [
   { label: 'Products', href: '/products/' },
   { label: 'Docs', href: '/docs/' },
+  { label: 'API', href: '/api/', needs: 'api' },
+  { label: 'About', href: '/about/' },
   { label: 'FAQ', href: '/faq/' },
   { label: 'Blog', href: '/blog/' },
   ...(site.donations ? [{ label: 'Donate', href: '/donate/' }] : []),

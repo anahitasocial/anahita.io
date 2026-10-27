@@ -1,8 +1,10 @@
 // Copies the docs of each repository in src/data/docSources.mjs into
 // .docs-src/<key>/, for the site to render, with the commit they came from.
 // The working notes in docs/plans/ are left behind. Images go to
-// public/docs-assets/<key>/, and anahita-services' API reference and its
-// OpenAPI document (anahita.json) to public/api/.
+// public/docs-assets/<key>/. anahita-services' OpenAPI documents, one for
+// each service and anahita.json of them all, go to .docs-src/api/, which the
+// API reference at /api/ is made from (lib/api.js), and anahita.json also to
+// public/api/, for builders' own tools.
 //
 //   node scripts/fetch-docs.mjs          fetch what is missing
 //   node scripts/fetch-docs.mjs --force  fetch everything again
@@ -26,7 +28,10 @@ for (const source of docSources) {
   if (!source.repo && !local) {
     fs.rmSync(target, { recursive: true, force: true });
     fs.rmSync(path.join(root, 'public', 'docs-assets', source.key), { recursive: true, force: true });
-    if (source.key === 'services') fs.rmSync(path.join(root, 'public', 'api'), { recursive: true, force: true });
+    if (source.key === 'services') {
+      fs.rmSync(path.join(root, 'public', 'api'), { recursive: true, force: true });
+      fs.rmSync(path.join(root, '.docs-src', 'api'), { recursive: true, force: true });
+    }
     continue;
   }
   if (fs.existsSync(target) && !force && !local) {
@@ -65,16 +70,17 @@ for (const source of docSources) {
     fs.cpSync(images, path.join(assets, 'images'), { recursive: true });
   }
 
-  const api = path.join(checkout, 'docs', 'api', 'index.html');
-  if (source.key === 'services' && fs.existsSync(api)) {
+  const api = path.join(checkout, 'docs', 'api');
+  if (source.key === 'services' && fs.existsSync(path.join(api, 'anahita.json'))) {
+    const documents = path.join(root, '.docs-src', 'api');
+    fs.rmSync(documents, { recursive: true, force: true });
+    fs.mkdirSync(documents, { recursive: true });
+    for (const file of fs.readdirSync(api).filter((name) => name.endsWith('.json'))) {
+      fs.copyFileSync(path.join(api, file), path.join(documents, file));
+    }
+    fs.rmSync(path.join(root, 'public', 'api'), { recursive: true, force: true });
     fs.mkdirSync(path.join(root, 'public', 'api'), { recursive: true });
-    // Its links back to the docs (../feeds.md#…) lead to their pages here.
-    const html = fs
-      .readFileSync(api, 'utf8')
-      .replace(/href="\.\.\/([\w-]+)\.md(#[^"]*)?"/g, (_, page, hash = '') => `href="/docs/${source.key}/${page}/${hash}"`);
-    fs.writeFileSync(path.join(root, 'public', 'api', 'index.html'), html);
-    // The OpenAPI document it is made from, for builders' own tools.
-    fs.copyFileSync(path.join(checkout, 'docs', 'api', 'anahita.json'), path.join(root, 'public', 'api', 'anahita.json'));
+    fs.copyFileSync(path.join(api, 'anahita.json'), path.join(root, 'public', 'api', 'anahita.json'));
   }
 
   if (temporary) fs.rmSync(temporary, { recursive: true, force: true });

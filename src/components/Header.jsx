@@ -21,10 +21,11 @@ import ModeToggle from './ModeToggle';
 import Search from './Search';
 import { navigation, site } from '../data/site';
 
-export default function Header() {
+export default function Header({ api = false }) {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
   const isCurrent = (href) => pathname.startsWith(href);
+  const links = navigation.filter(({ needs }) => !needs || (needs === 'api' && api));
 
   return (
     <AppBar
@@ -43,14 +44,30 @@ export default function Header() {
           <Logo />
           <Box sx={{ flexGrow: 1 }} />
           <Box component="nav" sx={{ display: { xs: 'none', sm: 'flex' }, gap: 0.5, mr: 1 }}>
-            {navigation.map(({ label, href }) => (
+            {links.map(({ label, href }) => (
               <Button
                 key={href}
                 component={Link}
                 href={href}
                 color="inherit"
                 aria-current={isCurrent(href) ? 'page' : undefined}
-                sx={{ minWidth: 0, px: 1.5, color: isCurrent(href) ? 'text.primary' : 'text.secondary' }}
+                sx={{
+                  minWidth: 0,
+                  px: 1.5,
+                  color: isCurrent(href) ? 'text.primary' : 'text.secondary',
+                  // The page you are on: a short line under its name, in the
+                  // secondary colour, on the bar's own bottom edge.
+                  '&[aria-current="page"]::after': {
+                    content: '""',
+                    position: 'absolute',
+                    left: 12,
+                    right: 12,
+                    bottom: -14,
+                    height: 2,
+                    borderRadius: 1,
+                    bgcolor: 'secondary.main',
+                  },
+                }}
               >
                 {label}
               </Button>
@@ -81,7 +98,7 @@ export default function Header() {
           </Toolbar>
         </Container>
         <List sx={{ pb: 2 }}>
-          {navigation.map(({ label, href }) => (
+          {links.map(({ label, href }) => (
             <ListItemButton
               key={href}
               component={Link}

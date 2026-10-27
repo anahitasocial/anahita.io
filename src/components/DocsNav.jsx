@@ -12,8 +12,9 @@ import ListSubheader from '@mui/material/ListSubheader';
 import MenuBookOutlined from '@mui/icons-material/MenuBookOutlined';
 import Link from './Link';
 
-// The pages of every source, one flat list under each source's name. Beside
-// the page on wide screens; from a button above it on narrow ones.
+// The pages of every source under its name, and under a small heading for
+// each of its groups where its README has them. Beside the page on wide
+// screens; from a button above it on narrow ones.
 function Pages({ sources, onPick }) {
   const pathname = usePathname();
 
@@ -28,10 +29,20 @@ function Pages({ sources, onPick }) {
               </Box>
               {title}
             </ListSubheader>
-            {[{ href: `/docs/${key}/`, title: 'Overview' }, ...pages.map((page) => ({ href: `/docs/${key}/${page.slug}/`, title: page.title }))].map(
-              ({ href, title: label }) => (
+            {[
+              { href: `/docs/${key}/`, title: 'Overview', group: null },
+              ...pages.map((page) => ({ href: `/docs/${key}/${page.slug}/`, title: page.title, group: page.group })),
+            ].map(({ href, title: label, group }, index, all) => (
+              <Box key={href} component="li" sx={{ listStyle: 'none' }}>
+                {group && group !== all[index - 1].group && (
+                  <Box
+                    component="span"
+                    sx={{ display: 'block', px: 1.5, pt: 2, pb: 0.5, typography: 'caption', fontWeight: 500, color: 'text.secondary' }}
+                  >
+                    {group}
+                  </Box>
+                )}
                 <ListItemButton
-                  key={href}
                   component={Link}
                   href={href}
                   selected={pathname === href}
@@ -40,8 +51,8 @@ function Pages({ sources, onPick }) {
                 >
                   <ListItemText primary={label} />
                 </ListItemButton>
-              ),
-            )}
+              </Box>
+            ))}
           </List>
         </Box>
       ))}

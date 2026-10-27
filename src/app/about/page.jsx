@@ -12,7 +12,7 @@ import { toHtml } from '../../lib/markdown';
 
 export const metadata = {
   title: 'About',
-  description: 'Who makes Anahita, and where it came from.',
+  description: 'Who makes Anahita, who writes this site, and where it came from.',
 };
 
 const formatDate = (date, options) =>
@@ -28,16 +28,24 @@ export default async function About() {
     `Anahita is an open-source project of [rmd studio](${site.rmdStudio}), founded by Rastin Mehr, its core architect, and made in Vancouver, Canada.`,
   );
   const story = await toHtml(fs.readFileSync(path.join(process.cwd(), 'content/history.md'), 'utf8'));
+  // Who wrote what on this site, in Rastin's words (2026-10-27).
+  const aiUsage = await toHtml(
+    "Much of the API and documentation on this website is written by Claude, based on code and material Rastin Mehr has written over the past 15+ years about Anahita's design philosophy and system architecture. Rastin personally reviews all the documentation before publishing. All the content on the About and Blog pages is written by Rastin Mehr and proofread by Grammarly and macOS writing tools.",
+  );
 
   return (
     <>
-      <PageHeader title="About" subtitle="Who makes Anahita, and where it came from." />
+      <PageHeader title="About" subtitle="Who makes Anahita, who writes this site, and where it came from." />
       <Container sx={{ pt: { xs: 6, md: 8 } }}>
         <Prose html={who} />
         <Typography id="history" variant="h2" component="h2" sx={{ mt: { xs: 6, md: 8 }, mb: 2, scrollMarginTop: 88 }}>
           History
         </Typography>
         <Prose html={story} />
+        <Typography id="ai-usage" variant="h2" component="h2" sx={{ mt: { xs: 6, md: 8 }, mb: 2, scrollMarginTop: 88 }}>
+          Content AI usage
+        </Typography>
+        <Prose html={aiUsage} />
       </Container>
 
       <Container component="section" aria-label="Timeline" sx={{ pt: { xs: 8, md: 12 } }}>

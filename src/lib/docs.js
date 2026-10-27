@@ -14,6 +14,7 @@ import { codeTabs, outboundLinks } from './markdown';
 import rehypeStringify from 'rehype-stringify';
 import { visit } from 'unist-util-visit';
 import { docSources } from '../data/docSources.mjs';
+import { apiHref } from './api';
 
 const folder = path.join(process.cwd(), '.docs-src');
 
@@ -38,9 +39,26 @@ function readFile(key, slug) {
   return fs.existsSync(file) ? fs.readFileSync(file, 'utf8') : null;
 }
 
-// Every page of a source, in the order its README first links to them (the
-// ways in, then its contents), then any page the README leaves out. Each is
-// called by its own first heading.
+// The groups of a source's pages, from its README's Contents: each
+// `### Group` heading there, and the pages its list links to, in order. A
+// README whose Contents has no such headings has no groups.
+function readGroups(key) {
+  const readme = readFile(key, 'README') || '';
+  const contents = readme.match(/^## Contents\n([\s\S]*?)(?=^## |(?![\s\S]))/m)?.[1] || '';
+  const groups = [];
+  for (const line of contents.split('\n')) {
+    const heading = line.match(/^### (.+)$/);
+    if (heading) groups.push({ name: heading[1].trim(), slugs: [] });
+    const entry = line.match(/^\d+\. \[[^\]]+\]\(([\w-]+)\.md\)/);
+    if (entry && groups.length) groups[groups.length - 1].slugs.push(entry[1]);
+  }
+  return groups;
+}
+
+// Every page of a source: in its groups' order where its README has groups,
+// else in the order the README first links to them (the ways in, then its
+// contents); then any page the README leaves out. Each is called by its own
+// first heading, and carries its group's name, or null.
 export function getPages(key) {
   const readme = withoutSections(readFile(key, 'README'), ['Plans']);
   const slugs = [...readme.matchAll(/\]\(([\w-]+)\.md(?:#[^)]*)?\)/g)].map(([, slug]) => slug);
@@ -48,8 +66,18 @@ export function getPages(key) {
     .readdirSync(path.join(folder, key))
     .filter((file) => file.endsWith('.md') && file !== 'README.md')
     .map((file) => file.slice(0, -3));
-  const order = [...new Set([...slugs.filter((slug) => files.includes(slug)), ...files])];
-  return order.map((slug) => ({ slug, title: readTitle(readFile(key, slug)) || slug }));
+  const groups = readGroups(key);
+  const groupOf = new Map(groups.flatMap(({ name, slugs: inGroup }) => inGroup.map((slug) => [slug, name])));
+  const grouped = groups.flatMap(({ slugs: inGroup }) => inGroup);
+  const order = [...new Set([...grouped, ...slugs, ...files])].filter((slug) => files.includes(slug));
+  return order.map((slug) => ({ slug, title: readTitle(readFile(key, slug)) || slug, group: groupOf.get(slug) || null }));
+}
+
+// A source's groups with their pages, for its overview: [] where its README
+// has none.
+export function getGroups(key) {
+  const pages = getPages(key);
+  return readGroups(key).map(({ name }) => ({ name, pages: pages.filter((page) => page.group === name) }));
 }
 
 // The pages before and after one, in the order of the docs' menu: the
@@ -132,11 +160,10 @@ export function resolveHref(href, { source, slug }) {
   if (page && readFile(source.key, page[1]) !== null) {
     return docHref(source.key, page[1], hash && `#${hash}`);
   }
-  // The API reference is served at /api/ when its source is on the site.
+  // The API reference is the site's own pages at /api/: a service, a route
+  // or a shape by what follows the # (lib/api.js).
   if (source.key === 'services' && /^docs\/api\/(index\.html)?$/.test(resolved)) {
-    // By its file name: the dev server, unlike GitHub Pages, does not serve
-    // a folder's index.html at the folder's address.
-    return `/api/index.html${hash && `#${hash}`}`;
+    return apiHref(hash);
   }
   if (resolved.startsWith('docs/images/')) {
     return `/docs-assets/${source.key}/${resolved.slice('docs/'.length)}`;

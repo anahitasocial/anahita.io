@@ -15,5 +15,7 @@ export async function generateMetadata({ params }) {
 
 export default async function Doc({ params }) {
   const { source, slug } = await params;
-  return <DocPage doc={await getDoc(source, slug)} neighbours={getNeighbours(source, slug)} />;
+  // Above the title, the group the page is in, where its docs have groups.
+  const group = getPages(source).find((page) => page.slug === slug)?.group;
+  return <DocPage doc={await getDoc(source, slug)} eyebrow={group || undefined} neighbours={getNeighbours(source, slug)} />;
 }
