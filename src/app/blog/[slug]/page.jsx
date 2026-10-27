@@ -5,6 +5,7 @@ import Typography from '@mui/material/Typography';
 import Link from '../../../components/Link';
 import Prose from '../../../components/Prose';
 import { formatDate, getPost, getPosts, toHtml } from '../../../lib/blog';
+import { site } from '../../../data/site';
 
 export const dynamicParams = false;
 
@@ -18,7 +19,8 @@ export async function generateMetadata({ params }) {
   return {
     title: post.title,
     description: post.summary,
-    openGraph: { type: 'article', publishedTime: post.date, authors: [post.author] },
+    // A page's own openGraph replaces the site's whole, so the card is named again.
+    openGraph: { type: 'article', publishedTime: post.date, authors: [post.author], images: [site.card] },
   };
 }
 

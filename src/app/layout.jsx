@@ -28,7 +28,8 @@ export const metadata = {
     ],
     apple: '/images/logo-180.png',
   },
-  openGraph: { siteName: 'Anahita', type: 'website', images: [{ url: '/images/logo-512.png', width: 512, height: 512 }] },
+  openGraph: { siteName: 'Anahita', type: 'website', images: [site.card] },
+  twitter: { card: 'summary_large_image', images: [site.card.url] },
   // The blog's feed, offered on every page, as feed readers expect.
   alternates: { types: { 'application/atom+xml': [{ url: '/feed.xml', title: 'Anahita' }] } },
   ...(site.hidden && { robots: { index: false, follow: false } }),
