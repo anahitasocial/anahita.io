@@ -30,11 +30,13 @@ export default function LinkCard({ icon, title, text, href, quiet }) {
     return <Card sx={{ height: '100%' }}>{content}</Card>;
   }
 
-  const outside = href.startsWith('http');
+  // Another site, or a file (llms.txt) rather than a page: a plain link, as
+  // Next's router would look for a page there and find none.
+  const plain = href.startsWith('http') || /\.\w+$/.test(href);
   return (
     <Card sx={{ height: '100%' }}>
       <CardActionArea
-        component={outside ? 'a' : Link}
+        component={plain ? 'a' : Link}
         href={href}
         sx={{ height: '100%', alignItems: 'flex-start' }}
       >

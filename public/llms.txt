@@ -2,14 +2,22 @@
 
 > Open-source social software that an organisation runs for its own community: people, groups, events, articles, photos, videos, custom feeds and websites, in a chronological feed with no tracking. It speaks ActivityPub (the fediverse) and the AT Protocol (Bluesky). Federation is opt-in for each profile.
 
-Anahita is made for schools, newsrooms, libraries, research groups and non-profits that want digital sovereignty: a social network of their own instead of mainstream, centralised platforms. It is two products: Anahita Services (repository anahita-services), Go services behind one API (OpenAPI 3.1), run with Docker Compose locally and Kubernetes live; and Anahita Web (anahita-web), the React and Material UI web app. Anahita Mobile and Anahita CLI are planned. Maintained and developed by rmd studio.
+Anahita is made for schools, newsrooms, libraries, research groups and non-profits that want digital sovereignty: a social network of their own instead of mainstream, centralised platforms. It is two products: Anahita Services (repository anahita-services), Go services behind one API (OpenAPI 3.1), run with Docker Compose locally and Kubernetes live; and Anahita Web (anahita-web), the React and Material UI web app. Anahita Mobile and Anahita CLI are planned. Source: https://github.com/anahitasocial. Maintained and developed by rmd studio.
 
 ## Docs
 
 - [Docs](https://www.anahita.io/docs/): where every part of the documentation lives
+- [Anahita Services docs](https://www.anahita.io/docs/services/): running an instance, the concepts (the graph, how things are found), federation, and building on it
+- [Why Anahita](https://www.anahita.io/docs/services/why-anahita/): the design principles
 - [Anahita Web docs](https://www.anahita.io/docs/web/): getting started, configuration, architecture, customising, deploying
+
+## API
+
+- [API reference](https://www.anahita.io/api/): every route, grouped by service
+- [OpenAPI 3.1](https://www.anahita.io/api/anahita.json): the whole API in one file
 
 ## Site
 
 - [Home](https://www.anahita.io/): what Anahita is and who it is for
+- [About](https://www.anahita.io/about/): who makes Anahita, its history, and how AI is used in writing the site
 - [Blog](https://www.anahita.io/blog/): news; Atom feed at https://www.anahita.io/feed.xml
