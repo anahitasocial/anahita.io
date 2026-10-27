@@ -147,7 +147,7 @@ Sources:
 | Home | `/` | Headline, the three promises, what's inside, who it is for, federation, a call to action |
 | Products | `/products/` | anahita-services, anahita-web, anahita-mobile (coming soon), anahita-cli (coming soon) |
 | Services | `/products/services/` | Every service: its name, what it does, whether it is optional, its doc |
-| Docs | `/docs/` | The four ways in (Running an instance), Anahita Web's docs, the API reference, the MCP server (coming soon), `llms.txt` |
+| Docs | `/docs/` | The four ways in (Running an instance), Anahita Web's docs, the API reference, the MCP server (GitMCP), `llms.txt` |
 | A repository's docs | `/docs/web/`, `/docs/web/<page>/` | Its README, then each page, with a sidebar and "On this page" |
 | API reference | `/api/`, `/api/<service>/`, `/api/shapes/` | Made from anahita-services' OpenAPI documents (`src/lib/api.js`): each service's routes in two columns, what each takes and answers beside its request in curl, JavaScript and Python and an example answer; the services under the docs' groups in a sidebar; `anahita.json` at `/api/anahita.json` |
 | FAQ | `/faq/` | Numbered questions: the fediverse, a server, the AT Protocol, how Anahita differs, federation is opt-in, the graph, the chronological feed, tracking, what it takes to run, who makes it, the licences |

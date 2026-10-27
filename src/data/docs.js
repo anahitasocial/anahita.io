@@ -67,8 +67,8 @@ export const builders = [
   {
     icon: 'smart_toy',
     title: 'MCP server',
-    text: 'The docs for AI agents, read-only, over the Model Context Protocol.',
-    href: null,
+    text: 'The docs and code for AI agents, read-only, over the Model Context Protocol, from GitMCP.',
+    href: 'https://gitmcp.io/anahitasocial/anahita-services',
   },
   {
     icon: 'description',
