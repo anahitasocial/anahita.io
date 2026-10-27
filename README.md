@@ -20,7 +20,7 @@ Anahita is an open-source social network designed for schools, newsrooms, librar
 
 | Repository | What it is |
 | --- | --- |
-| [anahita-services](https://github.com/purplerat/anahita-services) | The Go services and the API |
+| [anahita-services](https://github.com/anahitasocial/anahita-services) | The Go services and the API |
 | [anahita-web](https://github.com/anahitasocial/anahita-web) | The web app: React with Material UI |
 | anahita.io | This website |
 
