@@ -33,8 +33,7 @@ body:
   - type: input
     id: where
     attributes:
-      label: Where it is hosted
-      placeholder: City, country
+      label: Its country
   - type: input
     id: since
     attributes:

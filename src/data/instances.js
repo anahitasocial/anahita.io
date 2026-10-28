@@ -11,7 +11,7 @@ export const instances = [
     logo: '/images/instances/banu-io.png',
     description: 'The 1st Anahita instance in the Fediverse',
     joining: 'By invitation',
-    where: 'Montreal, Canada',
+    where: 'Canada',
     since: '27 October 2026',
   },
 ];
