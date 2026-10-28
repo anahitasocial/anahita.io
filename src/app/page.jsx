@@ -65,7 +65,7 @@ export default function Home() {
               variant="h1"
               sx={{ fontSize: { xs: '2.5rem', md: '3.75rem' } }}
             >
-              Connect your people, here and everywhere.
+              Connect your people, here and everywhere
             </Typography>
             <HeroRule />
             <Typography
