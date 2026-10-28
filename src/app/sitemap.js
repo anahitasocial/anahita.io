@@ -13,6 +13,7 @@ export default function sitemap() {
     page('/', 1),
     page('/products/', 0.8),
     page('/products/services/', 0.6),
+    page('/instances/', 0.6),
     page('/docs/', 0.8),
     page('/faq/', 0.7),
     page('/blog/', 0.6),

@@ -41,6 +41,7 @@ waits on the user; the **Needs** column names them where they hold work up.
 | 23 | ✅ | Code in the docs coloured by language | — |
 | 24 | ⬜ | Anahita Services' docs and the API reference on the site | U12 |
 | 25 | ⬜ | Launch: `site.hidden` off, `CNAME` to www.anahita.io, roadmap row 91 done in anahita-web | U5, U6, U10 |
+| 26 | ✅ | Instances, `/instances/` (2026-10-28): the instances we would point people to, from `src/data/instances.js`, banu.io the first; "Let us know" by a GitHub form (`.github/ISSUE_TEMPLATE/instance.yml`) or by following @rastin@banu.io | — |
 
 ### Waiting on the user
 

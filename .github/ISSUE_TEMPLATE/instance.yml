@@ -1,0 +1,42 @@
+name: An Anahita instance
+description: Tell us of an instance of Anahita Services you run, for the Instances page on www.anahita.io.
+title: "Instance: "
+labels: [instance]
+body:
+  - type: markdown
+    attributes:
+      value: Thank you for running Anahita. What you write here is public. We look at each instance, and those we add go on www.anahita.io/instances/ as you say them here.
+  - type: input
+    id: address
+    attributes:
+      label: Its address
+      placeholder: https://example.org/
+    validations:
+      required: true
+  - type: input
+    id: description
+    attributes:
+      label: What it is, in a line
+      description: As its home page says it.
+    validations:
+      required: true
+  - type: dropdown
+    id: joining
+    attributes:
+      label: Who can join
+      options:
+        - Anybody
+        - By invitation
+        - Nobody new for now
+    validations:
+      required: true
+  - type: input
+    id: where
+    attributes:
+      label: Where it is hosted
+      placeholder: City, country
+  - type: input
+    id: since
+    attributes:
+      label: Running since
+      placeholder: Day month year

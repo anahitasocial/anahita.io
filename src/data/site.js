@@ -24,6 +24,7 @@ export const site = {
 // `api`).
 export const navigation = [
   { label: 'Products', href: '/products/' },
+  { label: 'Instances', href: '/instances/' },
   { label: 'Docs', href: '/docs/' },
   { label: 'API', href: '/api/', needs: 'api' },
   { label: 'About', href: '/about/' },
