@@ -11,16 +11,16 @@ Hello everyone, you may be wondering what's happening to the old Anahita website
 
 That’s right … Anahita is now fluent in both ActivityPub and ATProtocol! Anahita can now work seamlessly with other websites, blogs, discussion forums, and social networks, such as Mastodon and the Bluesky.app social network. In addition, Anahita now provides a complete set of features that a modern social network delivers. 
 
-All content from the old Anahita social network is now archived securely; I am soon launching a social network using the new Anahita services under the new domain Banu.io, for myself and my close friends only. Banu means a lady of high status, which, of course, is a reference to you-know-who!  
+All content from the old Anahita social network is now archived securely; I am soon launching a social network using the new Anahita services under the new domain [Banu.io](https://banu.io), for myself and my close friends only. Banu means a lady of high status, which, of course, is a reference to you-know-who!  
 
 You will still be able to follow me:
 
-* Fediverse @rastin@banu.io
+* Fediverse [@rastin@banu.io](https://banu.io/@rastin)
 * Bluesky [@rastinmehr.com](https://bsky.app/profile/rastinmehr.com)
 
 and follow Anahita
 
-* Fediverse @anahita@banu.io
+* Fediverse [@anahita@banu.io](https://banu.io/@anahita)
 * Bluesky [@anahita.io](https://bsky.app/profile/anahita.io)
 
 Anahita is still fully open source, and I can’t wait to see what projects you develop with the new codebase!
