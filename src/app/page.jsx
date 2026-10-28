@@ -15,6 +15,7 @@ import Graph from '../components/diagrams/Graph';
 import HeroBackground from '../components/HeroBackground';
 import Network from '../components/diagrams/Network';
 import { BlueskyMark } from '../components/diagrams/marks';
+import HeroRule from '../components/HeroRule';
 import HubOutlined from '@mui/icons-material/HubOutlined';
 import { audiences, features, graph, promises, start } from '../data/home';
 import { getSource } from '../lib/docs';
@@ -66,6 +67,7 @@ export default function Home() {
             >
               Connect your people, here and everywhere.
             </Typography>
+            <HeroRule />
             <Typography
               variant="body1"
               color="text.secondary"

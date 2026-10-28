@@ -4,6 +4,7 @@ import MuiLink from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
 import Link from './Link';
 import HeroBackground from './HeroBackground';
+import HeroRule from './HeroRule';
 import Network from './diagrams/Network';
 
 // Each page draws its own variation of the home page's network: a layout of
@@ -42,11 +43,12 @@ export default function PageHeader({ parent, title, subtitle, children }) {
           <Typography variant="h1" sx={{ fontSize: { xs: '2.25rem', md: '3rem' } }}>
             {title}
           </Typography>
+          {subtitle && <HeroRule />}
           {subtitle && (
             <Typography
               variant="body1"
               color="text.secondary"
-              sx={{ mt: 2, fontSize: { xs: '1.125rem', md: '1.25rem' } }}
+              sx={{ mt: 3, fontSize: { xs: '1.125rem', md: '1.25rem' } }}
             >
               {subtitle}
             </Typography>
