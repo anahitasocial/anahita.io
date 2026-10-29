@@ -6,7 +6,7 @@ import Icon from '../../components/Icon';
 import PageHeader from '../../components/PageHeader';
 import Section from '../../components/Section';
 import { site } from '../../data/site';
-import { ai, current, planned, principles, questions } from '../../data/ai';
+import { ai, current, planned, principles, questions, science } from '../../data/ai';
 
 const path = '/ai/';
 
@@ -37,7 +37,7 @@ const structuredData = {
       mainEntity: {
         '@type': 'ItemList',
         name: 'Anahita AI features',
-        itemListElement: [current, ...planned].map(({ name, text }, index) => ({
+        itemListElement: [current, ...science.features, ...planned].map(({ name, text }, index) => ({
           '@type': 'ListItem',
           position: index + 1,
           name,
@@ -100,9 +100,19 @@ export default function AnahitaAi() {
         <FeatureCard {...current} />
       </Section>
 
+      <Section small title={science.title} subtitle={science.subtitle}>
+        <Grid container spacing={2}>
+          {science.features.map((feature) => (
+            <Grid key={feature.name} size={{ xs: 12, md: 6 }}>
+              <FeatureCard {...feature} />
+            </Grid>
+          ))}
+        </Grid>
+      </Section>
+
       <Section
         small
-        title="Planned"
+        title="Also planned"
         subtitle="Each planned on its own, and built on the same service."
       >
         <Grid container spacing={2}>

@@ -6,7 +6,7 @@ export const ai = {
   title: 'Anahita AI',
   // For search engines and shared links: what it is, in about 155 characters.
   description:
-    'Anahita AI: alt-text drafts, translation, thread summaries and search by meaning for Anahita, from a model each instance chooses and can run itself.',
+    'Anahita AI: alt-text drafts, translation, search by meaning and open science on a knowledge graph, from a model each instance chooses and can run itself.',
   subtitle:
     'Help from a language model that each instance chooses, and can run on its own machines. It drafts, and people decide. Alt-text drafts come first; the rest is planned.',
 };
@@ -63,12 +63,37 @@ export const planned = [
     icon: 'groups',
     text: 'Suggestions from interests a person chooses to state, and from nothing else: nothing is inferred from what they read or tap.',
   },
-  {
-    name: 'Open science',
-    icon: 'description',
-    text: 'Citation details taken from the papers people share, and answers drawn from the community’s own posts, each with a link to the post it came from.',
-  },
 ];
+
+// Open science and the knowledge graph: planned, with item 50. Citations
+// between posts are built (item 60); papers and topics as nodes are not.
+export const science = {
+  title: 'Open science and knowledge',
+  subtitle:
+    'Anahita began as tools for open learning and open science, and everything in it sits on one graph: people, groups and posts, and which post cites which. A model can add what the posts talk about, the papers, datasets and topics, and grow it into a map of what a community knows. The model proposes; the author confirms.',
+  features: [
+    {
+      name: 'Citations from papers',
+      icon: 'description',
+      text: 'A paper shared in a post gives its title, authors, year and DOI, checked against Crossref or DataCite. The paper becomes part of the graph, and every post about it can be found from it.',
+    },
+    {
+      name: 'A knowledge graph',
+      icon: 'account_tree',
+      text: 'The topics, methods and datasets a post names, proposed as ties in the graph for its author to accept: what a research group or a library knows, laid out as the graph it already has.',
+    },
+    {
+      name: 'Answers with their sources',
+      icon: 'bookmark',
+      text: 'A question asked of a group or a site, answered only from its posts, each claim linked to the post it came from, and “nothing here says” when nothing does.',
+    },
+    {
+      name: 'Related work',
+      icon: 'explore',
+      text: 'Beside a post or a paper, the posts and papers nearest to it, by meaning and through the graph, each with the reason it is there.',
+    },
+  ],
+};
 
 // Asked here, and given to search engines as an FAQ.
 export const questions = [

@@ -218,6 +218,16 @@ export default function Home() {
       </Section>
 
       <Section
+        icon={<Icon name="smart_toy" />}
+        title="Anahita AI"
+        subtitle="Help from a language model your instance chooses, and can run on its own machines. It drafts, and people decide. Alt-text drafts are being built first. Then open science: citations from the papers people share, and the graph grown into a map of what a community knows, with answers that cite their sources."
+      >
+        <Button component={Link} href="/ai/" variant="outlined" data-pagefind-ignore>
+          About Anahita AI
+        </Button>
+      </Section>
+
+      <Section
         id="start"
         title="Start your own instance"
         subtitle="Everything you need is here, and free: the code, the docs, and guides to running it."
