@@ -220,7 +220,8 @@ export const groups = [
           ['Both ways', 'follows, notes, photos, videos, articles, replies, likes and reposts, with Mastodon, Pixelfed, GoToSocial and others.'],
           ['Signed and checked', 'each person has their own signing keys, kept encrypted; every message in is checked against its sender.'],
           ['Delivered', 'sending is retried for two days, and what goes missing is found and sent again.'],
-          ['Refusing servers', 'super administrators can refuse a domain and everything under it.'],
+          ['Refusing servers', 'super administrators can refuse a domain and everything under it, on the fediverse and on Bluesky.'],
+          ['Refusing accounts', 'administrators can refuse one account on the fediverse or Bluesky for the whole instance; what was here of it is removed, and nothing more is taken from it or sent to it.'],
         ],
       },
       {
@@ -233,6 +234,7 @@ export const groups = [
           ['For everyone', 'anybody can follow Bluesky profiles from here, without a Bluesky account.'],
           ['Post as yourself', 'connect your Bluesky account to post, reply, like, repost and follow there.'],
           ['Password never kept', 'the app password is traded once for a token, which is kept encrypted.'],
+          ['Refused by DID', 'a Bluesky account the instance refuses is heard no more and removed, by what does not change, whatever its handle becomes.'],
           ['Bring your follows', 'follow here the people you already follow on Bluesky.'],
         ],
       },
@@ -276,6 +278,7 @@ export const groups = [
           ['Your own reasons', 'the list of reasons can be replaced with your own, in your languages.'],
           ['Rules', 'a report can name a site’s, group’s or event’s rule; group administrators see those without the reporters’ names.'],
           ['Reporters protected', 'the person reported is never told who reported them.'],
+          ['Acted on from the case', 'a spammer here removed at once, or an account from the fediverse or Bluesky refused for the whole instance, and the case closes.'],
         ],
       },
       {

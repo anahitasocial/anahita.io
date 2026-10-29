@@ -47,7 +47,7 @@ export const features = [
       'OTP by email',
     ],
   },
-  { icon: 'flag', title: 'Moderation', text: 'Reports gathered into cases, with your own reasons and rules.' },
+  { icon: 'flag', title: 'Moderation', text: 'Reports gathered into cases, with your own reasons and rules. Refuse a whole server, or one account on the fediverse or Bluesky.' },
   { icon: 'download', title: 'Your data', text: 'Each person can download a full copy of their data.' },
 ];
 
