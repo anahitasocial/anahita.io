@@ -7,6 +7,8 @@ export const site = {
     'Open-source social software that an organisation runs for its own community, connected to the fediverse and Bluesky.',
   github: 'https://github.com/anahitasocial',
   bluesky: 'https://bsky.app/profile/anahita.io',
+  // @anahita@banu.io, Anahita's own profile on the fediverse.
+  fediverse: 'https://banu.io/@anahita',
   // The card shown when a page is shared: the home page's headline beside
   // its network (made from the built home page, 2026-10-27).
   card: { url: '/images/og.png', width: 1200, height: 630, alt: 'Anahita: connect your people, here and everywhere' },

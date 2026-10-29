@@ -3,6 +3,7 @@ import Container from '@mui/material/Container';
 import MuiLink from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
+import HubOutlined from '@mui/icons-material/HubOutlined';
 import BlueskyIcon from './BlueskyIcon';
 import Link from './Link';
 import { footer, site } from '../data/site';
@@ -33,13 +34,24 @@ export default function Footer() {
               {label}
             </MuiLink>
           ))}
-          {/* Anahita's own account, @anahita.io: a profile to follow. */}
+          {/* Anahita's own profiles to follow: @anahita@banu.io on the fediverse
+              (rel="me", so Mastodon can verify the link), @anahita.io on Bluesky. */}
+          <IconButton
+            href={site.fediverse}
+            rel="me"
+            aria-label="Anahita on the fediverse, @anahita@banu.io"
+            title="@anahita@banu.io"
+            size="small"
+            sx={{ color: 'text.secondary', ml: -1, '&:hover': { color: 'primary.main' } }}
+          >
+            <HubOutlined fontSize="small" />
+          </IconButton>
           <IconButton
             href={site.bluesky}
             aria-label="Anahita on Bluesky"
             title="Anahita on Bluesky"
             size="small"
-            sx={{ color: 'text.secondary', ml: -1, '&:hover': { color: '#1185FE' } }}
+            sx={{ color: 'text.secondary', ml: -2, '&:hover': { color: '#1185FE' } }}
           >
             <BlueskyIcon fontSize="small" />
           </IconButton>
