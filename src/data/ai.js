@@ -111,8 +111,4 @@ export const questions = [
     answer:
       'No. The feed stays chronological, drafts are edited by their authors, and a flag waits for a person. A ranked feed is only ever a custom feed somebody makes.',
   },
-  {
-    question: 'Is any of it built?',
-    answer: 'Not yet. Alt-text drafts are in development; the others are coming soon, one at a time.',
-  },
 ];

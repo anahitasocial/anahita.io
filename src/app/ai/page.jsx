@@ -167,10 +167,12 @@ export default function AnahitaAi() {
 
       <Section small title="Questions">
         <Box sx={{ display: 'grid', gap: 4, maxWidth: 680 }}>
+          {/* Numbered past three, as every list is. */}
           {questions.map(({ question, answer }, index) => (
             <Box key={question}>
               <Typography variant="h6" component="h3">
-                {index + 1}. {question}
+                {questions.length > 3 && `${index + 1}. `}
+                {question}
               </Typography>
               <Typography variant="body1" color="text.secondary" sx={{ mt: 1 }}>
                 {answer}
