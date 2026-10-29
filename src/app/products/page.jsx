@@ -89,6 +89,17 @@ export default function Products() {
           ))}
         </Grid>
       </Section>
+
+      <Section
+        small
+        overline="Planned"
+        title="Anahita AI"
+        subtitle="Help from a language model each instance chooses, and can run itself: alt-text drafts first, then translation, thread summaries and search by meaning."
+      >
+        <Button component={Link} href="/ai/" variant="outlined">
+          Anahita AI
+        </Button>
+      </Section>
     </>
   );
 }

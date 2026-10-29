@@ -27,6 +27,7 @@ import PhotoOutlined from '@mui/icons-material/PhotoOutlined';
 import PlaceOutlined from '@mui/icons-material/PlaceOutlined';
 import PlayCircleOutlined from '@mui/icons-material/PlayCircleOutlined';
 import PublicOutlined from '@mui/icons-material/PublicOutlined';
+import QueryStatsOutlined from '@mui/icons-material/QueryStatsOutlined';
 import RssFeedOutlined from '@mui/icons-material/RssFeedOutlined';
 import ScheduleOutlined from '@mui/icons-material/ScheduleOutlined';
 import SearchOutlined from '@mui/icons-material/SearchOutlined';
@@ -34,6 +35,7 @@ import SettingsOutlined from '@mui/icons-material/SettingsOutlined';
 import SmartToyOutlined from '@mui/icons-material/SmartToyOutlined';
 import TagOutlined from '@mui/icons-material/TagOutlined';
 import TerminalOutlined from '@mui/icons-material/TerminalOutlined';
+import TranslateOutlined from '@mui/icons-material/TranslateOutlined';
 import TuneOutlined from '@mui/icons-material/TuneOutlined';
 import VideocamOutlined from '@mui/icons-material/VideocamOutlined';
 import VisibilityOutlined from '@mui/icons-material/VisibilityOutlined';
@@ -69,6 +71,7 @@ const icons = {
   place: PlaceOutlined,
   play: PlayCircleOutlined,
   public: PublicOutlined,
+  query_stats: QueryStatsOutlined,
   rss: RssFeedOutlined,
   schedule: ScheduleOutlined,
   search: SearchOutlined,
@@ -76,6 +79,7 @@ const icons = {
   smart_toy: SmartToyOutlined,
   tag: TagOutlined,
   terminal: TerminalOutlined,
+  translate: TranslateOutlined,
   tune: TuneOutlined,
   video: VideocamOutlined,
   visibility: VisibilityOutlined,
