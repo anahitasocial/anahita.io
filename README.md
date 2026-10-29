@@ -45,6 +45,11 @@ DOCS_SERVICES_PATH=../go/src/github.com/purplerat/anahita-services yarn dev
 `yarn build` makes the static site in `out/`, which is not committed; GitHub
 Actions builds and publishes it to GitHub Pages on every push to `main`.
 
+## Security
+
+To report a vulnerability, see [SECURITY.md](SECURITY.md). Please don't open
+a public issue.
+
 ## Licences
 
 1. **Code:** the templates, styles and scripts are under the MIT License
