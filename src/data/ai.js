@@ -1,14 +1,14 @@
 // The Anahita AI page. Nothing on it is built yet: alt-text drafts are in
-// progress, the rest planned (anahita-services docs/plans/anahita-ai.md,
+// development, the rest coming soon (anahita-services docs/plans/anahita-ai.md,
 // item 95). Change a feature's `state` when its phase lands.
 
 export const ai = {
   title: 'Anahita AI',
   // For search engines and shared links: what it is, in about 155 characters.
   description:
-    'Anahita AI: alt-text drafts, translation, search by meaning and open science on a knowledge graph, from a model each instance chooses and can run itself.',
+    'Anahita AI: open-source AI for a self-hosted social network on the fediverse. Alt-text drafts, translation, and open science on a knowledge graph.',
   subtitle:
-    'Help from a language model that each instance chooses, and can run on its own machines. It drafts, and people decide. Alt-text drafts come first; the rest is planned.',
+    'Open-source AI for Anahita, the self-hosted social network on the fediverse and Bluesky, with a language model each instance chooses and can run on its own machines. It drafts, and people decide. Alt-text drafts are in development; the rest is coming soon.',
 };
 
 // How it is built, in the order the plan gives them.
@@ -65,7 +65,7 @@ export const planned = [
   },
 ];
 
-// Open science and the knowledge graph: planned, with item 50. Citations
+// Open science and the knowledge graph: coming soon, with item 50. Citations
 // between posts are built (item 60); papers and topics as nodes are not.
 export const science = {
   title: 'Open science and knowledge',
@@ -113,6 +113,6 @@ export const questions = [
   },
   {
     question: 'Is any of it built?',
-    answer: 'Not yet. Alt-text drafts are being built first; the others follow, each planned on its own.',
+    answer: 'Not yet. Alt-text drafts are in development; the others are coming soon, one at a time.',
   },
 ];

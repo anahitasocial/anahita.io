@@ -36,6 +36,7 @@ export const navigation = [
 ];
 
 export const footer = [
+  { label: 'Anahita AI', href: '/ai/' },
   { label: 'FAQ', href: '/faq/' },
   { label: 'Blog', href: '/blog/' },
   { label: 'About', href: '/about/' },

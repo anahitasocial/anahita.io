@@ -13,7 +13,7 @@ export default function sitemap() {
     page('/', 1),
     page('/products/', 0.8),
     page('/products/services/', 0.6),
-    page('/ai/', 0.7),
+    { ...page('/ai/', 0.7), lastModified: '2026-10-29' },
     page('/instances/', 0.6),
     page('/docs/', 0.8),
     page('/faq/', 0.7),

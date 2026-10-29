@@ -92,7 +92,7 @@ export default function Products() {
 
       <Section
         small
-        overline="Planned"
+        overline="Coming soon"
         title="Anahita AI"
         subtitle="Help from a language model each instance chooses, and can run itself: alt-text drafts first, then translation, thread summaries and search by meaning."
       >

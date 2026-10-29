@@ -11,8 +11,9 @@ import { ai, current, planned, principles, questions, science } from '../../data
 const path = '/ai/';
 
 export const metadata = {
-  // The name alone would read "Anahita AI · Anahita" under the template.
-  title: { absolute: 'Anahita AI: help from a model your instance chooses' },
+  // The name alone would read "Anahita AI · Anahita" under the template; the
+  // words after it are what people search for, under 60 characters.
+  title: { absolute: 'Anahita AI: open-source AI for self-hosted social networks' },
   description: ai.description,
   alternates: { canonical: path },
   // A page's own openGraph replaces the site's whole, so the card is named again.
@@ -20,8 +21,9 @@ export const metadata = {
   twitter: { card: 'summary_large_image', title: ai.title, description: ai.description, images: [site.card.url] },
 };
 
-// What search engines read of the page: the page, the features it lists,
-// and its questions with their answers.
+// What search engines read of the page: where it sits, the page, the
+// features it lists, the software, and its questions with their answers.
+const updated = '2026-10-29';
 const structuredData = {
   '@context': 'https://schema.org',
   '@graph': [
@@ -32,8 +34,20 @@ const structuredData = {
       name: ai.title,
       description: ai.description,
       inLanguage: 'en',
+      datePublished: updated,
+      dateModified: updated,
+      keywords: 'open-source AI, self-hosted social network, fediverse, ActivityPub, Bluesky, alt text, translation, open science, knowledge graph, local language models',
       isPartOf: { '@type': 'WebSite', name: site.name, url: site.url },
-      about: { '@type': 'SoftwareApplication', name: site.name, applicationCategory: 'SocialNetworkingApplication', url: site.url },
+      breadcrumb: { '@id': `${site.url}${path}#breadcrumb` },
+      publisher: { '@type': 'Organization', name: 'rmd studio', url: site.rmdStudio },
+      about: {
+        '@type': 'SoftwareApplication',
+        name: site.name,
+        applicationCategory: 'SocialNetworkingApplication',
+        operatingSystem: 'Linux',
+        url: site.url,
+        sameAs: [site.github, site.fediverse, site.bluesky],
+      },
       mainEntity: {
         '@type': 'ItemList',
         name: 'Anahita AI features',
@@ -44,6 +58,15 @@ const structuredData = {
           description: text,
         })),
       },
+    },
+    {
+      '@type': 'BreadcrumbList',
+      '@id': `${site.url}${path}#breadcrumb`,
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: site.name, item: `${site.url}/` },
+        { '@type': 'ListItem', position: 2, name: 'Products', item: `${site.url}/products/` },
+        { '@type': 'ListItem', position: 3, name: ai.title, item: `${site.url}${path}` },
+      ],
     },
     {
       '@type': 'FAQPage',
@@ -94,13 +117,13 @@ export default function AnahitaAi() {
         // Escaped, so nothing in the text can close the script.
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, '\\u003c') }}
       />
-      <PageHeader title={ai.title} subtitle={ai.subtitle} />
+      <PageHeader parent={{ href: '/products/', label: 'Products' }} title={ai.title} subtitle={ai.subtitle} />
 
-      <Section small title="In progress" subtitle="The first piece, being built now.">
+      <Section small title="In development" subtitle="The first piece, being built now.">
         <FeatureCard {...current} />
       </Section>
 
-      <Section small title={science.title} subtitle={science.subtitle}>
+      <Section small overline="Coming soon" title={science.title} subtitle={science.subtitle}>
         <Grid container spacing={2}>
           {science.features.map((feature) => (
             <Grid key={feature.name} size={{ xs: 12, md: 6 }}>
@@ -112,8 +135,8 @@ export default function AnahitaAi() {
 
       <Section
         small
-        title="Also planned"
-        subtitle="Each planned on its own, and built on the same service."
+        title="Also coming"
+        subtitle="Each built on its own, on the same service."
       >
         <Grid container spacing={2}>
           {planned.map((feature, index) => (
