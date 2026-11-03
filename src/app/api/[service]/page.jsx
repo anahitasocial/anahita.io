@@ -1,8 +1,10 @@
 import { notFound } from 'next/navigation';
 import Box from '@mui/material/Box';
+import MuiLink from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
 import ApiRoute from '../../../components/ApiRoute';
 import { Words } from '../../../components/ApiFields';
+import Link from '../../../components/Link';
 import WrittenBy from '../../../components/WrittenBy';
 import { getService, getServicePage, getServices } from '../../../lib/api';
 
@@ -27,6 +29,11 @@ export default async function Service({ params }) {
   const page = await getServicePage(service);
   if (!page) notFound();
   const { group } = getServices().find(({ slug }) => slug === service);
+  // A kind's own routes, then those every kind has at its own address,
+  // which another section explains once.
+  const own = page.routes.filter((route) => !route.shared);
+  const shared = page.routes.filter((route) => route.shared);
+  const explainedBy = shared.length ? getServices().find(({ slug }) => slug === shared[0].shared) : null;
 
   return (
     <Box>
@@ -42,7 +49,29 @@ export default async function Service({ params }) {
         </Typography>
         <Words html={page.about} sx={{ typography: 'body1', color: 'text.primary', '& p + p': { mt: 2 } }} />
       </Box>
-      {page.routes.map((route) => (
+      {own.map((route) => (
+        <ApiRoute key={route.id} route={route} />
+      ))}
+      {shared.length > 0 && (
+        <Box sx={{ maxWidth: 680, pt: 4, pb: 3 }}>
+          <Typography variant="h2" sx={{ fontSize: '1.5rem', mb: 1 }}>
+            As every profile
+          </Typography>
+          <Typography variant="body1" color="text.secondary">
+            The same on every kind, at this kind&rsquo;s address.{' '}
+            {explainedBy && (
+              <>
+                What each does is under{' '}
+                <MuiLink component={Link} href={`/api/${explainedBy.slug}/`} underline="hover">
+                  {explainedBy.title}
+                </MuiLink>
+                .
+              </>
+            )}
+          </Typography>
+        </Box>
+      )}
+      {shared.map((route) => (
         <ApiRoute key={route.id} route={route} />
       ))}
       <WrittenBy sx={{ mt: 2 }} />

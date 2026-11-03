@@ -53,6 +53,9 @@ export function getApi() {
   }
   const schemas = all.components?.schemas || {};
   const titles = Object.fromEntries((all.tags || []).map((tag) => [tag.name, tag.description]));
+  // A section of a service (actor-service's people, groups, events…): which
+  // service, and what it says of itself.
+  const sections = Object.fromEntries((all.tags || []).filter((tag) => tag['x-service']).map((tag) => [tag.name, tag]));
 
   const routes = {};
   for (const [route, item] of Object.entries(all.paths || {})) {
@@ -69,14 +72,17 @@ export function getApi() {
   const groups = (all['x-tagGroups'] || [{ name: 'Services', tags: Object.keys(titles) }]).map((group) => ({
     name: group.name,
     services: group.tags.map((name) => ({
-      name,
+      name: sections[name]?.['x-service'] || name,
       slug: slugOf(name),
       title: titles[name] || name,
-      about: read(`${name}.json`)?.info?.description || '',
-      routes: (routes[name] || []).map(({ method, path: route, op }) => ({
+      about: sections[name] ? sections[name]['x-about'] || '' : read(`${name}.json`)?.info?.description || '',
+      // A kind's own routes first, then those every kind has, which a
+      // section of their own explains (x-shared).
+      routes: [...(routes[name] || [])].sort((a, b) => Number(Boolean(a.op['x-shared'])) - Number(Boolean(b.op['x-shared']))).map(({ method, path: route, op }) => ({
         id: op.operationId,
         method,
         path: route,
+        shared: op['x-shared'] || '',
         summary: op.summary || '',
         op,
       })),
@@ -111,6 +117,9 @@ export function apiHref(hash = '') {
   if (!id || !api) return '/api/';
   if (id === 'schemas') return '/api/shapes/';
   if (id.startsWith('schema-')) return `/api/shapes/#${id.slice('schema-'.length)}`;
+  // A service shown as sections leads to the first of them: actor-service
+  // to Profiles.
+  if (id === 'actor-service') return '/api/profiles/';
   if (id.endsWith('-service')) return `/api/${slugOf(id)}/`;
   if (api.where[id]) return `/api/${api.where[id]}/#${id}`;
   return '/api/';
@@ -419,6 +428,7 @@ async function describe(route, server) {
     id: route.id,
     method: route.method,
     path: route.path,
+    shared: route.shared,
     summary: route.summary,
     description: markdown(description),
     who: who.join(', '),
