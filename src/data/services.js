@@ -36,10 +36,10 @@ export const groups = [
         text: 'Every kind of profile, in one service.',
         details: [
           ['People', 'a profile at a username, made when somebody signs up.'],
-          ['Groups', 'made by members, with administrators and followers; a group can host events.'],
-          ['Events', 'a start and an end in their own time zone, how many may go, and where to join online; going or maybe, calling it off, and a calendar file.'],
+          ['Groups', 'made by members, with admins and followers, and who may see each chosen as it is made; a group can host events.'],
+          ['Events', 'a start and an end in their own time zone, how many may go, and where to join online; going or maybe, calling it off, and a calendar file. What is on, soonest first, for anybody each is open to.'],
           ['Websites', 'a website’s feed, followed like a profile.'],
-          ['Every kind', 'an avatar and a cover, followers, invitations, who may see and do what, and the same life from enabled to archived to deleted.'],
+          ['Every kind', 'a profile photo and a cover photo, followers, invitations, who may see and do what, and the same life from enabled to archived to deleted.'],
         ],
       },
       {
@@ -87,7 +87,7 @@ export const groups = [
         doc: 'post-language',
         details: [
           ['Drafts', 'articles and topics can be kept as drafts and published when ready.'],
-          ['Embeds and citations', 'an address on a line of its own shows the post or a card for the page; citations are counted and listed as “Cited by”.'],
+          ['Embeds and citations', 'an address on a line of its own shows the post or a card for the page; the posts that cite or quote a post are listed under it as “Cited by”.'],
           ['Quotes by consent', 'authors choose who may quote them, and can take their post out of any quote.'],
           ['Who may reply', 'anyone, nobody, followers, people they follow or people mentioned; and replies can be hidden.'],
           ['Private saves', 'what somebody saves is seen by them alone: nothing is counted, and the author is never told.'],

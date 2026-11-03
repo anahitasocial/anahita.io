@@ -23,7 +23,7 @@ export const promises = [
 export const features = [
   { icon: 'person', title: 'People', text: 'Profiles with posts, photos and an About card.' },
   { icon: 'groups', title: 'Groups', text: 'Spaces with followers, for classes, desks and teams.' },
-  { icon: 'event', title: 'Events', text: 'Dates, locations and who is going.' },
+  { icon: 'event', title: 'Events', text: 'What is on, for anyone to find, and who is going.' },
   { icon: 'rss', title: 'Websites', text: 'Add any blog or site with an RSS, Atom or JSON feed as a profile that people across the fediverse can follow.' },
   { icon: 'article', title: 'Text', text: 'Short notes, long articles and topics, with drafts.' },
   { icon: 'photo', title: 'Media', text: 'Photos, videos and GIFs: up to twenty photos in a post, each described; GIFs and videos ready for every screen.' },
