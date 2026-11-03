@@ -14,7 +14,7 @@ export const docSources = [
     // Public since 2026-10-27: its docs and the API reference are on the site.
     repo: 'anahitasocial/anahita-services',
     branch: 'main',
-    aliases: ['purplerat/anahita-services', 'anahitasocial/anahita-services'],
+    aliases: ['anahitasocial/anahita-services'],
     localEnv: 'DOCS_SERVICES_PATH',
   },
   {

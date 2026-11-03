@@ -33,13 +33,13 @@ yarn install
 yarn dev
 ```
 
-The site is then at <http://localhost:4000>. Anahita Services' docs are left
-out until its repository is public; to see them, read a local checkout with
-`DOCS_SERVICES_PATH`. `yarn dev:services` does it for a checkout at
-`../go/src/github.com/purplerat/anahita-services`:
+The site is then at <http://localhost:4000>. Anahita Services' docs and API
+reference are fetched from GitHub. To read a local checkout instead, while
+changing them, give its folder as `DOCS_SERVICES_PATH`; `yarn dev:services`
+does it for a checkout beside this one, at `../anahita-services`:
 
 ```sh
-DOCS_SERVICES_PATH=../go/src/github.com/purplerat/anahita-services yarn dev
+DOCS_SERVICES_PATH=../anahita-services yarn dev
 ```
 
 `yarn build` makes the static site in `out/`, which is not committed; GitHub
