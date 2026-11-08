@@ -28,4 +28,4 @@ architecture, now for the decentralized web and the fediverse. The result is
 the codebase we have today.
 
 Anahita is named after the Persian goddess of the waters, of love, fertility
-and wisdom. Its first public instance, [Banu.io](https://banu.io), launched on October 27th, 20206. Banu means a lady of high standing!
+and wisdom. Its first public instance, [Banu.io](https://banu.io), launched on October 27th, 2026. Banu means a lady of high standing!
