@@ -31,13 +31,16 @@ export default function LinkCard({ icon, title, text, href, quiet }) {
   }
 
   // Another site, or a file (llms.txt) rather than a page: a plain link, as
-  // Next's router would look for a page there and find none.
-  const plain = href.startsWith('http') || /\.\w+$/.test(href);
+  // Next's router would look for a page there and find none. Another site
+  // opens in a tab of its own, so that this one stays where it was.
+  const away = href.startsWith('http');
+  const plain = away || /\.\w+$/.test(href);
   return (
     <Card sx={{ height: '100%' }}>
       <CardActionArea
         component={plain ? 'a' : Link}
         href={href}
+        {...(away && { target: '_blank', rel: 'noopener noreferrer' })}
         sx={{ height: '100%', alignItems: 'flex-start' }}
       >
         {content}

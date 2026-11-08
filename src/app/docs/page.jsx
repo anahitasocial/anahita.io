@@ -4,7 +4,7 @@ import Icon from '../../components/Icon';
 import LinkCard from '../../components/LinkCard';
 import PageHeader from '../../components/PageHeader';
 import Section from '../../components/Section';
-import { builders, waysIn, webApp } from '../../data/docs';
+import { builders, recipes, waysIn, webApp } from '../../data/docs';
 import { getSource } from '../../lib/docs';
 
 export const metadata = {
@@ -60,6 +60,14 @@ export default function Docs() {
         <Typography variant="body2" color="text.secondary" sx={{ mt: 3 }}>
           Anahita Mobile, for phones, and Anahita CLI, for the terminal, are on their way.
         </Typography>
+      </Section>
+      <Section
+        small
+        id="recipes"
+        title="Anahita Recipes"
+        subtitle="Sites ready to run on one server, for each purpose: a folder to copy, its settings chosen and explained, and every task one make word. No knowledge of Kubernetes needed. Each opens its folder on GitHub."
+      >
+        <Cards items={recipes} md={4} />
       </Section>
       <Section small id="for-builders" title="For builders" subtitle="For your own apps, services and agents.">
         <Cards items={tools} md={4} />

@@ -5,9 +5,11 @@ import BookmarkBorderOutlined from '@mui/icons-material/BookmarkBorderOutlined';
 import BrushOutlined from '@mui/icons-material/BrushOutlined';
 import BusinessCenterOutlined from '@mui/icons-material/BusinessCenterOutlined';
 import CodeOutlined from '@mui/icons-material/CodeOutlined';
+import CoffeeOutlined from '@mui/icons-material/CoffeeOutlined';
 import DescriptionOutlined from '@mui/icons-material/DescriptionOutlined';
 import DnsOutlined from '@mui/icons-material/DnsOutlined';
 import DownloadOutlined from '@mui/icons-material/DownloadOutlined';
+import DriveFileMoveOutlined from '@mui/icons-material/DriveFileMoveOutlined';
 import DynamicFeedOutlined from '@mui/icons-material/DynamicFeedOutlined';
 import EventOutlined from '@mui/icons-material/EventOutlined';
 import ExploreOutlined from '@mui/icons-material/ExploreOutlined';
@@ -35,6 +37,7 @@ import SettingsOutlined from '@mui/icons-material/SettingsOutlined';
 import SmartToyOutlined from '@mui/icons-material/SmartToyOutlined';
 import TagOutlined from '@mui/icons-material/TagOutlined';
 import TerminalOutlined from '@mui/icons-material/TerminalOutlined';
+import TheatersOutlined from '@mui/icons-material/TheatersOutlined';
 import TranslateOutlined from '@mui/icons-material/TranslateOutlined';
 import TuneOutlined from '@mui/icons-material/TuneOutlined';
 import VideocamOutlined from '@mui/icons-material/VideocamOutlined';
@@ -50,6 +53,7 @@ const icons = {
   brush: BrushOutlined,
   business: BusinessCenterOutlined,
   code: CodeOutlined,
+  coffee: CoffeeOutlined,
   description: DescriptionOutlined,
   dns: DnsOutlined,
   download: DownloadOutlined,
@@ -64,6 +68,7 @@ const icons = {
   install: InstallDesktopOutlined,
   label: LocalOfferOutlined,
   manage: ManageHistoryOutlined,
+  move: DriveFileMoveOutlined,
   notifications: NotificationsOutlined,
   person: PersonOutlined,
   phone: PhoneIphoneOutlined,
@@ -79,6 +84,7 @@ const icons = {
   smart_toy: SmartToyOutlined,
   tag: TagOutlined,
   terminal: TerminalOutlined,
+  theatre: TheatersOutlined,
   translate: TranslateOutlined,
   tune: TuneOutlined,
   video: VideocamOutlined,

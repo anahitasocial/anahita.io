@@ -29,6 +29,45 @@ export const waysIn = [
   },
 ];
 
+// Anahita Recipes: a site ready to run, for each purpose, each a folder in
+// anahita-recipes. A recipe not written yet has no href, and its card waits.
+const recipesRepo = 'https://github.com/anahitasocial/anahita-recipes/tree/main';
+
+export const recipes = [
+  {
+    icon: 'groups',
+    title: 'Commons',
+    text: 'A classic social network: everything Anahita does, like Mastodon and Pixelfed, but more. The one to begin with.',
+    href: `${recipesRepo}/commons`,
+  },
+  {
+    icon: 'coffee',
+    title: 'Coffeehouse',
+    text: 'Microblogging: short posts and the conversation around them, like Mastodon and Bluesky.',
+  },
+  {
+    icon: 'article',
+    title: 'Journal',
+    text: 'Long-form content: articles first, for newsrooms, research groups and writers, like WordPress and Medium.',
+  },
+  {
+    icon: 'theatre',
+    title: 'Theatre',
+    text: 'Video sharing: arts, music, news and lectures, on a channel of your own, like YouTube and PeerTube.',
+  },
+  {
+    icon: 'event',
+    title: 'Gathering',
+    text: 'Organising meetups and events: what is on, first, with groups to host them, like Meetup and Luma.',
+  },
+  {
+    icon: 'move',
+    title: 'PHP migration',
+    text: 'Migrate your Anahita PHP site to Anahita\'s microservices, and relaunch it as a Commons site.',
+    href: `${recipesRepo}/php-migration`,
+  },
+];
+
 export const webApp = [
   {
     icon: 'play',
