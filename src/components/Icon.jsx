@@ -3,6 +3,7 @@ import ApiOutlined from '@mui/icons-material/ApiOutlined';
 import ArticleOutlined from '@mui/icons-material/ArticleOutlined';
 import BookmarkBorderOutlined from '@mui/icons-material/BookmarkBorderOutlined';
 import BrushOutlined from '@mui/icons-material/BrushOutlined';
+import BuildOutlined from '@mui/icons-material/BuildOutlined';
 import BusinessCenterOutlined from '@mui/icons-material/BusinessCenterOutlined';
 import CodeOutlined from '@mui/icons-material/CodeOutlined';
 import CoffeeOutlined from '@mui/icons-material/CoffeeOutlined';
@@ -30,6 +31,7 @@ import PlaceOutlined from '@mui/icons-material/PlaceOutlined';
 import PlayCircleOutlined from '@mui/icons-material/PlayCircleOutlined';
 import PublicOutlined from '@mui/icons-material/PublicOutlined';
 import QueryStatsOutlined from '@mui/icons-material/QueryStatsOutlined';
+import RamenDiningOutlined from '@mui/icons-material/RamenDiningOutlined';
 import RssFeedOutlined from '@mui/icons-material/RssFeedOutlined';
 import ScheduleOutlined from '@mui/icons-material/ScheduleOutlined';
 import SearchOutlined from '@mui/icons-material/SearchOutlined';
@@ -43,6 +45,7 @@ import TuneOutlined from '@mui/icons-material/TuneOutlined';
 import VideocamOutlined from '@mui/icons-material/VideocamOutlined';
 import VisibilityOutlined from '@mui/icons-material/VisibilityOutlined';
 import VolunteerActivismOutlined from '@mui/icons-material/VolunteerActivismOutlined';
+import WebOutlined from '@mui/icons-material/WebOutlined';
 
 // The icons the site's words name in src/data/, so the data stays plain.
 const icons = {
@@ -51,6 +54,7 @@ const icons = {
   article: ArticleOutlined,
   bookmark: BookmarkBorderOutlined,
   brush: BrushOutlined,
+  build: BuildOutlined,
   business: BusinessCenterOutlined,
   code: CodeOutlined,
   coffee: CoffeeOutlined,
@@ -77,6 +81,7 @@ const icons = {
   play: PlayCircleOutlined,
   public: PublicOutlined,
   query_stats: QueryStatsOutlined,
+  recipes: RamenDiningOutlined,
   rss: RssFeedOutlined,
   schedule: ScheduleOutlined,
   search: SearchOutlined,
@@ -89,6 +94,7 @@ const icons = {
   tune: TuneOutlined,
   video: VideocamOutlined,
   visibility: VisibilityOutlined,
+  web: WebOutlined,
   volunteer: VolunteerActivismOutlined,
   website: LanguageOutlined,
 };

@@ -45,6 +45,7 @@ export default function Docs() {
       <Section
         small
         overline="Server"
+        icon={<Icon name="dns" />}
         title="Anahita Services"
         subtitle={`What you run, on your own machines or in your cloud: it holds everyone's posts and speaks to the fediverse and Bluesky. Four ways in, each a list of pages to read in order.${getSource('services') ? '' : ' They open with its public release.'}`}
       >
@@ -53,6 +54,7 @@ export default function Docs() {
       <Section
         small
         overline="Apps"
+        icon={<Icon name="web" />}
         title="Anahita Web"
         subtitle="What people use, in a browser. Every app talks to the server through the same open API."
       >
@@ -64,12 +66,13 @@ export default function Docs() {
       <Section
         small
         id="recipes"
+        icon={<Icon name="recipes" />}
         title="Anahita Recipes"
         subtitle="Sites ready to run on one server, for each purpose: a folder to copy, its settings chosen and explained, and every task one make word. No knowledge of Kubernetes needed. Each opens its folder on GitHub."
       >
         <Cards items={recipes} md={4} />
       </Section>
-      <Section small id="for-builders" title="For builders" subtitle="For your own apps, services and agents.">
+      <Section small id="for-builders" icon={<Icon name="build" />} title="For builders" subtitle="For your own apps, services and agents.">
         <Cards items={tools} md={4} />
       </Section>
     </>
