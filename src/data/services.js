@@ -221,6 +221,7 @@ export const groups = [
         optional: true,
         details: [
           ['Both ways', 'follows, notes, photos, videos, articles, replies, likes and reposts, with Mastodon, Pixelfed, GoToSocial and others.'],
+          ['Asked, not followed', 'somebody who approves their followers is asked, and the request waits for their yes, as on Mastodon; their profile is read again when it is opened and an hour old, so a change there shows here.'],
           ['Signed and checked', 'each person has their own signing keys, kept encrypted; every message in is checked against its sender.'],
           ['Delivered', 'sending is retried for two days, and what goes missing is found and sent again.'],
           ['Refusing servers', 'super administrators can refuse a domain and everything under it, on the fediverse and on Bluesky.'],
