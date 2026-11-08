@@ -31,7 +31,9 @@ function Pages({ sources, onPick }) {
             </ListSubheader>
             {[
               { href: `/docs/${key}/`, title: 'Overview', group: null },
-              ...pages.map((page) => ({ href: `/docs/${key}/${page.slug}/`, title: page.title, group: page.group })),
+              // A page of the docs by its slug; a link elsewhere (a recipe on
+              // GitHub) by its address, opened in a tab of its own.
+              ...pages.map((page) => ({ href: page.href || `/docs/${key}/${page.slug}/`, title: page.title, group: page.group })),
             ].map(({ href, title: label, group }, index, all) => (
               <Box key={href} component="li" sx={{ listStyle: 'none' }}>
                 {group && group !== all[index - 1].group && (
@@ -43,8 +45,9 @@ function Pages({ sources, onPick }) {
                   </Box>
                 )}
                 <ListItemButton
-                  component={Link}
+                  component={href.startsWith('http') ? 'a' : Link}
                   href={href}
+                  {...(href.startsWith('http') && { target: '_blank', rel: 'noopener noreferrer' })}
                   selected={pathname === href}
                   onClick={onPick}
                   sx={{ borderRadius: 2, px: 1.5 }}
