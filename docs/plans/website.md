@@ -34,13 +34,13 @@ waits on the user; the **Needs** column names them where they hold work up.
 | 17 | — | ~~About~~: left out by the user on 2026-10-25; the home page says what Anahita is, History where it came from, the FAQ who makes it | — |
 | 18 | — | ~~Brand~~: left out by the user on 2026-10-25; the README says how the name and mark may be used | — |
 | 19 | ✅ | A sharp logo and favicon from the vector file | U1 |
-| **M4. Before launch** | ⬜ | | |
+| **M4. Before launch** | ✅ | | |
 | 20 | ✅ | Blog drafts (`draft: true`) and a template for new posts | — |
 | 21 | ✅ | `LICENSE-CONTENT` (CC BY 4.0), and the README's licences | — |
 | 22 | ✅ | `sitemap.xml` | — |
 | 23 | ✅ | Code in the docs coloured by language | — |
-| 24 | ⬜ | Anahita Services' docs and the API reference on the site | U12 |
-| 25 | ⬜ | Launch: `site.hidden` off, `CNAME` to www.anahita.io, roadmap row 91 done in anahita-web | U5, U6, U10 |
+| 24 | ✅ | Anahita Services' docs and the API reference on the site (2026-11-07) | U12 |
+| 25 | ✅ | Launch: `site.hidden` off, `CNAME` to www.anahita.io, roadmap row 91 done in anahita-web. **Launched 2026-11-07,** with the code public | U5, U6, U10 |
 | 26 | ✅ | Instances, `/instances/` (2026-10-28): the instances we would point people to, from `src/data/instances.js`, banu.io the first; "Let us know" by a GitHub form (`.github/ISSUE_TEMPLATE/instance.yml`) or by following @rastin@banu.io | — |
 
 ### Waiting on the user
@@ -51,14 +51,14 @@ waits on the user; the **Needs** column names them where they hold work up.
 | U2 | ✅ | The 12 milestones for History: a date, a title and a line each | a note, or `src/data/history.js` | 16 |
 | U3 | ✅ | The 6 photos before 2013 (and any after): each with its date, a caption and who is in it | `_source/history/` | 16 |
 | U4 | ✅ | History's story (About was left out) | `content/history.md` | 16 |
-| U5 | ⏳ | The home page's headline and copy, in your words | `src/data/home.js`, `src/app/page.jsx` | 25 |
-| U6 | ⏳ | The first blog post, in your voice | `content/blog/` | 25 |
+| U5 | ✅ | The home page's headline and copy, in your words | `src/data/home.js`, `src/app/page.jsx` | 25 |
+| U6 | ✅ | The first blog post, in your voice | `content/blog/` | 25 |
 | U7 | ⏳ | Donations: the accounts, then what the money goes to, in your words; see "Donations" below. Not before launch | `src/data/donate.js`, `site.donations` | 8 |
 | U8 | ⏳ | Photos for decoration: stock, or Anahita's own (no AI-generated images) | `_source/photos/` | — |
 | U9 | ⏳ | A colour scheme, when you have ideas | `src/theme.js` | — |
-| U10 | ⏳ | GitHub: Pages' source "GitHub Actions", custom domain staging.anahita.io, and a DNS CNAME from `staging` to `anahitasocial.github.io` | repository settings, DNS | 25 |
+| U10 | ✅ | GitHub: Pages' source "GitHub Actions", custom domain staging.anahita.io, and a DNS CNAME from `staging` to `anahitasocial.github.io` | repository settings, DNS | 25 |
 | U11 | ⏳ | Whether staging needs a real lock (Cloudflare Access) or only to stay out of search engines | — | — |
-| U12 | ⏳ | anahita-services made public | `src/data/docSources.mjs` | 24 |
+| U12 | ✅ | anahita-services made public | `src/data/docSources.mjs` | 24 |
 
 ## Donations (looked into on 2026-10-25)
 
