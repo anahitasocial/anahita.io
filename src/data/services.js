@@ -291,7 +291,7 @@ export const groups = [
       {
         name: 'import-export-service',
         icon: 'download',
-        text: 'A copy of your own data to download, and your lists brought in from elsewhere, each done by a worker.',
+        text: 'A copy of your own data to download, and your social graph brought in from elsewhere, each done by a worker.',
         doc: 'data-export',
         optional: true,
         details: [
@@ -299,7 +299,7 @@ export const groups = [
           ['Readable anywhere', 'a web page in the archive works with no connection and no scripts.'],
           ['Portable', 'ActivityStreams files that other fediverse software reads, and Mastodon’s own lists, which Mastodon, Misskey and GoToSocial import.'],
           ['Asked for in person', 'each copy needs a fresh proof of who you are, and is kept for 7 days.'],
-          ['Bring your lists in', 'who you follow, block and mute, and what you saved, from another Anahita’s download or a Mastodon or Misskey list; looked at first, then done a line a second, as you would by hand.'],
+          ['Your social graph, brought in', 'who you follow, block and mute, and what you saved, from another Anahita’s download or a file from Mastodon or Misskey; looked at first, then done a line a second, as you would by hand.'],
         ],
       },
       {

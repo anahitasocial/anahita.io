@@ -48,7 +48,7 @@ export const features = [
     ],
   },
   { icon: 'flag', title: 'Moderation', text: 'Reports gathered into cases, with your own reasons and rules. Refuse a whole server, or one account on the fediverse or Bluesky.' },
-  { icon: 'download', title: 'Your data', text: 'Download a complete copy of your data at any time. Move between Mastodon and Anahita instances with your followers and your lists.' },
+  { icon: 'download', title: 'Your data', text: 'Download a complete copy of your data at any time. Move between Mastodon and Anahita instances with your social graph: your followers, and who you follow, block and mute.' },
 ];
 
 // "Built on a graph": what the graph does for each part of Anahita, from
