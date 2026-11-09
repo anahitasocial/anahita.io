@@ -95,7 +95,7 @@ export const groups = [
           ['Quotes by consent', 'authors choose who may quote them, and can take their post out of any quote.'],
           ['Who may reply', 'anyone, nobody, followers, people they follow or people mentioned; and replies can be hidden.'],
           ['Private saves', 'what somebody saves is seen by them alone: nothing is counted, and the author is never told.'],
-          ['Content warnings', 'any post can carry one; its words and pictures stay blurred until somebody chooses to see them.'],
+          ['Content warnings', 'any post can carry one, and it goes with the post to the fediverse and Bluesky; its pictures stay blurred until somebody chooses to see them.'],
         ],
       },
       {
