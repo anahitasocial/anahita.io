@@ -74,7 +74,7 @@ export const groups = [
         details: [
           ['One gate', 'feeds, search, notifications and recommendations all ask one check of who may see what.'],
           ['Identifiers for good', 'every node has a random UUID that never changes, used in every address other servers are given.'],
-          ['Threads in one go', 'up to ten notes, each with words, photos or both, saved together, all or none.'],
+          ['Threads in one go', 'up to ten notes, each with words and photos, a GIF, a video or a sound, saved in order.'],
           ['Purges that finish', 'deleting a profile’s posts goes in batches it can resume, and keeps its handle from being taken.'],
         ],
       },
@@ -95,6 +95,7 @@ export const groups = [
           ['Quotes by consent', 'authors choose who may quote them, and can take their post out of any quote.'],
           ['Who may reply', 'anyone, nobody, followers, people they follow or people mentioned; and replies can be hidden.'],
           ['Private saves', 'what somebody saves is seen by them alone: nothing is counted, and the author is never told.'],
+          ['Content warnings', 'any post can carry one; its words and pictures stay blurred until somebody chooses to see them.'],
         ],
       },
       {
@@ -105,6 +106,7 @@ export const groups = [
         details: [
           ['Up to twenty images', 'in one post, with one caption and one audience.'],
           ['Alt text', 'a description of up to 2,000 characters for each image.'],
+          ['As mobiles take them', 'JPEG, PNG, WebP, HEIC and AVIF, kept as JPEG, or PNG where see-through.'],
           ['Nothing hidden in the file', 'each image is encoded afresh at six sizes, never enlarged, so only the picture is kept.'],
           ['Downloads by consent', 'full size only if the author allows it, and never counted.'],
         ],
