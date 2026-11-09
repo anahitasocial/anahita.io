@@ -120,7 +120,7 @@ export const groups = [
           ['Several sizes', 'MP4 at 1080, 720 and 360 by default, up to 4K, with a poster frame.'],
           ['Nothing hidden in the file', 'every file shown is encoded afresh, and the original is deleted.'],
           ['GIFs as loops', 'animated GIFs become silent looping videos, a fraction of the size.'],
-          ['Sounds', 'MP3, M4A, Ogg, Opus, WAV or FLAC, up to an hour, posted as a sound with its cover.'],
+          ['Sounds', 'MP3, M4A, Ogg, Opus, WAV or FLAC, up to an hour, posted as a sound with its cover; or recorded in the page, where the instance allows it.'],
           ['Videos from elsewhere', 'a video from Bluesky or the fediverse is copied here the first time it is played, and plays from this instance.'],
           ['Checked on every play', 'each play checks again that the viewer may see the post.'],
         ],
