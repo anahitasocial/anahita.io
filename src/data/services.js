@@ -3,7 +3,8 @@
 // marks what an instance may leave out; `icon` is named in
 // src/app/products/services/page.jsx. `details` are what each does that is
 // worth knowing, only what is built, each checked against the service's
-// docs and code (2026-10-24). A new claim is checked the same way first.
+// docs and code (2026-10-24; muting, moving and imports 2026-11-08). A new
+// claim is checked the same way first.
 
 export const groups = [
   {
@@ -46,12 +47,13 @@ export const groups = [
       {
         name: 'socialgraph-service',
         icon: 'share',
-        text: 'Who follows, blocks and subscribes to whom.',
+        text: 'Who follows, blocks, mutes and subscribes to whom.',
         doc: 'permissions',
         details: [
           ['Follow requests', 'a profile can ask to approve its followers, and shows strangers only its name and picture.'],
           ['Invitations', 'up to 50 followers invited to a group or event at once; unanswered ones lapse after 30 days.'],
           ['Blocks that hold', 'a block ends follows both ways, and is sent on to the fediverse.'],
+          ['Mutes', 'somebody’s posts, replies and, if you choose, notifications kept out of your sight, for a day, a week, a month or until unmuted; they are not told.'],
           ['Each person’s say', 'who may mention them, and who may tag them in photos, or approve each first.'],
           ['Group rules', 'a group or event with rules is followed only once each rule is agreed to.'],
         ],
@@ -226,6 +228,7 @@ export const groups = [
           ['Delivered', 'sending is retried for two days, and what goes missing is found and sent again.'],
           ['Refusing servers', 'super administrators can refuse a domain and everything under it, on the fediverse and on Bluesky.'],
           ['Refusing accounts', 'administrators can refuse one account on the fediverse or Bluesky for the whole instance; what was here of it is removed, and nothing more is taken from it or sent to it.'],
+          ['Moving', 'somebody followed from here who moves is followed at their new account; a person here moves in from another account, or away after proving who they are, their followers going with them and the old profile pointing the way, as on Mastodon.'],
         ],
       },
       {
@@ -286,16 +289,17 @@ export const groups = [
         ],
       },
       {
-        name: 'export-service',
+        name: 'import-export-service',
         icon: 'download',
-        text: 'A copy of your own data, made by a worker and kept for a while to download.',
+        text: 'A copy of your own data to download, and your lists brought in from elsewhere, each done by a worker.',
         doc: 'data-export',
         optional: true,
         details: [
-          ['Everything', 'every post, private ones too, full-size photos and videos, follows, followers, blocks, likes and saves.'],
+          ['Everything', 'every post, private ones too, full-size photos and videos, follows, followers, blocks, mutes, likes and saves.'],
           ['Readable anywhere', 'a web page in the archive works with no connection and no scripts.'],
-          ['Portable', 'ActivityStreams files that other fediverse software reads.'],
+          ['Portable', 'ActivityStreams files that other fediverse software reads, and Mastodon’s own lists, which Mastodon, Misskey and GoToSocial import.'],
           ['Asked for in person', 'each copy needs a fresh proof of who you are, and is kept for 7 days.'],
+          ['Bring your lists in', 'who you follow, block and mute, and what you saved, from another Anahita’s download or a Mastodon or Misskey list; looked at first, then done a line a second, as you would by hand.'],
         ],
       },
       {
