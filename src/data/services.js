@@ -1,6 +1,7 @@
 // Anahita Services, one by one, from anahita-services' docs/architecture.md
 // ("Services"). `doc` is the page of its docs that describes it; `optional`
-// marks what an instance may leave out; `icon` is named in
+// marks what an instance may leave out, and `brings` what it is left out
+// with, as the diagram at the top of the Services page says it; `icon` is named in
 // src/app/products/services/page.jsx. `details` are what each does that is
 // worth knowing, only what is built, each checked against the service's
 // docs and code (2026-10-24; muting, moving and imports 2026-11-08). A new
@@ -117,6 +118,7 @@ export const groups = [
         text: 'Video and audio posts. A worker makes each ready for every screen.',
         doc: 'videos',
         optional: true,
+        brings: 'Videos and sound',
         details: [
           ['Straight to storage', 'the browser sends a video in parts directly to object storage.'],
           ['Several sizes', 'MP4 at 1080, 720 and 360 by default, up to 4K, with a poster frame.'],
@@ -197,6 +199,7 @@ export const groups = [
         text: 'Recommendations of who to follow.',
         doc: 'recommendations',
         optional: true,
+        brings: 'Who to follow',
         details: [
           ['Reasons, not a model', 'worked out from the graph by written rules, and shown with their reasons.'],
           ['In each person’s hands', 'weights for each reason, “Not interested”, and not being suggested at all.'],
@@ -226,6 +229,7 @@ export const groups = [
         text: 'Makes the instance a server of the fediverse, for the people who choose to be found there.',
         doc: 'federation',
         optional: true,
+        brings: 'The fediverse',
         details: [
           ['Both ways', 'follows, notes, photos, videos, articles, replies, likes and reposts, with Mastodon, Pixelfed, GoToSocial and others.'],
           ['Asked, not followed', 'somebody who approves their followers is asked, and the request waits for their yes, as on Mastodon; their profile is read again when it is opened and an hour old, so a change there shows here.'],
@@ -242,6 +246,7 @@ export const groups = [
         text: 'Bluesky: following profiles there, and posting there for whoever connects their own Bluesky account.',
         doc: 'federation',
         optional: true,
+        brings: 'Bluesky and the Atmosphere',
         details: [
           ['For everyone', 'anybody can follow Bluesky profiles from here, without a Bluesky account.'],
           ['Post as yourself', 'connect your Bluesky account to post, reply, like, repost and follow there.'],
@@ -256,6 +261,7 @@ export const groups = [
         text: 'Follow a website’s feed like a profile. A worker reads every feed and posts what is new.',
         doc: 'websites',
         optional: true,
+        brings: 'Websites’ feeds',
         details: [
           ['Any feed', 'RSS, Atom or JSON Feed, from WordPress, a static site or a podcast; followed here and from the fediverse.'],
           ['Proven domains', 'a DNS record or a file on the site, checked again every day.'],
@@ -269,6 +275,7 @@ export const groups = [
         text: 'The card under a note that links to a page: its title and picture.',
         doc: 'link-previews',
         optional: true,
+        brings: 'Cards for links',
         details: [
           ['Safe fetching', 'web addresses only; private and internal addresses are refused, and every redirect is checked again.'],
           ['Private reading', 'the picture is served from this instance, so reading a note tells the linked site nothing.'],
@@ -299,6 +306,7 @@ export const groups = [
         text: 'A copy of your own data to download, and your social graph brought in from elsewhere, each done by a worker.',
         doc: 'data-export',
         optional: true,
+        brings: 'Downloads and imports',
         details: [
           ['Everything', 'every post, private ones too, full-size photos and videos, follows, followers, blocks, mutes, likes and saves.'],
           ['Readable anywhere', 'a web page in the archive works with no connection and no scripts.'],
@@ -353,6 +361,7 @@ export const groups = [
         text: 'Serves Anahita Web, with each page’s own title and picture, so a shared link shows as itself.',
         doc: 'web-shell',
         optional: true,
+        brings: 'The web app, and links shared',
         details: [
           ['The same for all', 'crawlers and people are sent the same page; nobody is told apart.'],
           ['Public only', 'a page is described only if its post and profile are public.'],

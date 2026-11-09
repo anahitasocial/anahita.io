@@ -37,6 +37,7 @@ import WebOutlined from '@mui/icons-material/WebOutlined';
 import Link from '../../../components/Link';
 import PageHeader from '../../../components/PageHeader';
 import Section from '../../../components/Section';
+import WhatRuns from '../../../components/diagrams/WhatRuns';
 import { BlueskyMark } from '../../../components/diagrams/marks';
 import { getSource } from '../../../lib/docs';
 import { backing, groups } from '../../../data/services';
@@ -166,6 +167,10 @@ export default function Services() {
         title="Anahita Services"
         subtitle="The server, one service at a time. Each does one thing, all are reached through one gateway, and the optional ones can be left out."
       />
+      {/* What runs, and what a site may leave out: the dashed ones. */}
+      <Section>
+        <WhatRuns />
+      </Section>
       {groups.map(({ title, services }) => (
         <Section key={title} small title={title}>
           <Grid container spacing={2}>
