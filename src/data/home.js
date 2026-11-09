@@ -26,7 +26,7 @@ export const features = [
   { icon: 'event', title: 'Events', text: 'What is on, for anyone to find, and who is going.' },
   { icon: 'rss', title: 'Websites', text: 'Add any blog or site with an RSS, Atom or JSON feed as a profile that people across the fediverse can follow.' },
   { icon: 'article', title: 'Text', text: 'Short notes, long articles and topics, with drafts.' },
-  { icon: 'photo', title: 'Media', text: 'Photos, videos, GIFs and sounds: up to twenty photos in a post, each described; the rest ready for every screen.' },
+  { icon: 'photo', title: 'Media', text: 'Photos, audio, video and GIFs: up to twenty photos in a post, each described; the rest ready for every screen.' },
   { icon: 'label', title: 'Tagging', text: [['tag', 'Hashtags'], ', ', ['place', 'locations'], ', citations, and people in photos, with their approval.'] },
   { icon: 'visibility', title: 'Audiences', text: 'Choose who sees each post: public, signed-in people, followers, people you follow, mutuals, or only you.' },
   { icon: 'feed', title: 'Custom feeds', text: 'Feeds that people make for themselves.' },
