@@ -74,7 +74,7 @@ export const groups = [
         details: [
           ['One gate', 'feeds, search, notifications and recommendations all ask one check of who may see what.'],
           ['Identifiers for good', 'every node has a random UUID that never changes, used in every address other servers are given.'],
-          ['Threads in one go', 'up to ten notes written as a thread are saved together, all or none.'],
+          ['Threads in one go', 'up to ten notes, each with words, photos or both, saved together, all or none.'],
           ['Purges that finish', 'deleting a profile’s posts goes in batches it can resume, and keeps its handle from being taken.'],
         ],
       },
@@ -89,6 +89,7 @@ export const groups = [
         text: 'Notes, articles and topics.',
         doc: 'post-language',
         details: [
+          ['Short posts', '500 characters, as on Mastodon and Threads, a link counted as 23; longer writing is a thread, an article or a topic.'],
           ['Drafts', 'articles and topics can be kept as drafts and published when ready.'],
           ['Embeds and citations', 'an address on a line of its own shows the post or a card for the page; the posts that cite or quote a post are listed under it as “Cited by”.'],
           ['Quotes by consent', 'authors choose who may quote them, and can take their post out of any quote.'],
@@ -111,7 +112,7 @@ export const groups = [
       {
         name: 'video-service',
         icon: 'video',
-        text: 'Video posts. A worker makes each video ready for every screen.',
+        text: 'Video and audio posts. A worker makes each ready for every screen.',
         doc: 'videos',
         optional: true,
         details: [
@@ -119,6 +120,8 @@ export const groups = [
           ['Several sizes', 'MP4 at 1080, 720 and 360 by default, up to 4K, with a poster frame.'],
           ['Nothing hidden in the file', 'every file shown is encoded afresh, and the original is deleted.'],
           ['GIFs as loops', 'animated GIFs become silent looping videos, a fraction of the size.'],
+          ['Sounds', 'MP3, M4A, Ogg, Opus, WAV or FLAC, up to an hour, posted as a sound with its cover.'],
+          ['Videos from elsewhere', 'a video from Bluesky or the fediverse is copied here the first time it is played, and plays from this instance.'],
           ['Checked on every play', 'each play checks again that the viewer may see the post.'],
         ],
       },
