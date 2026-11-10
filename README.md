@@ -1,3 +1,6 @@
+<img src="docs/images/home.svg" alt="A home" width="120" align="right">
+<img src="docs/images/anahita-logo.svg" alt="Anahita" width="33%">
+
 # anahita.io
 
 The website of Anahita, at <https://www.anahita.io>: what Anahita is, who it

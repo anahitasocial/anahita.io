@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="160" height="160" role="img" aria-labelledby="title">
+  <title id="title">A home</title>
+  <!-- Material Icons' HomeOutlined (MIT licence, @mui/icons-material), as
+       www.anahita.io shows its products, in Anahita's ink. -->
+  <path fill="#1F2328" d="m12 5.69 5 4.5V18h-2v-6H9v6H7v-7.81zM12 3 2 12h3v8h6v-6h2v6h6v-8h3z"/>
+</svg>
