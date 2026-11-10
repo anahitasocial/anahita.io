@@ -10,10 +10,10 @@ export default function HeroBackground({ component = 'div', children, sx }) {
       sx={[
         {
           background:
-            'linear-gradient(to bottom, rgba(var(--mui-palette-primary-mainChannel) / 0.12), rgba(var(--mui-palette-primary-mainChannel) / 0.04) 60%, transparent)',
+            'linear-gradient(to bottom, rgba(var(--mui-palette-primary-mainChannel) / 0.18), rgba(var(--mui-palette-primary-mainChannel) / 0.06) 60%, transparent)',
           '.dark &': {
             background:
-              'linear-gradient(to bottom, rgba(var(--mui-palette-primary-mainChannel) / 0.14), rgba(var(--mui-palette-primary-mainChannel) / 0.04) 60%, transparent)',
+              'linear-gradient(to bottom, rgba(var(--mui-palette-primary-mainChannel) / 0.20), rgba(var(--mui-palette-primary-mainChannel) / 0.06) 60%, transparent)',
           },
           pb: { xs: 3, md: 5 },
         },
