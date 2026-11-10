@@ -3,8 +3,8 @@ import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 
 // A band of the page: a heading, a line under it, then what it holds. The
-// overline names the group it belongs to (Server, Apps); an icon, as the
-// cards have theirs, sits above the heading instead.
+// overline names the group it belongs to (Server, Apps); an icon, a third
+// larger than the cards' own, sits above the heading.
 export default function Section({ id, overline, icon, title, subtitle, small, children, sx }) {
   return (
     <Box component="section" id={id} sx={{ pt: small ? { xs: 6, md: 8 } : { xs: 8, md: 12 }, scrollMarginTop: 64, ...sx }}>
@@ -16,7 +16,8 @@ export default function Section({ id, overline, icon, title, subtitle, small, ch
                 {overline}
               </Typography>
             )}
-            {icon && <Box sx={{ display: 'flex', gap: 1, mb: 1 }}>{icon}</Box>}
+            {/* A third larger than a card's, as a heading's icon. */}
+            {icon && <Box sx={{ display: 'flex', gap: 1, mb: 1, '& .MuiSvgIcon-root': { fontSize: 32 } }}>{icon}</Box>}
             <Typography variant={small ? 'h3' : 'h2'} component="h2">
               {title}
             </Typography>
