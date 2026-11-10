@@ -43,7 +43,7 @@ export const recipes = [
   {
     icon: 'coffee',
     title: 'Coffeehouse',
-    text: 'Microblogging: notes and photos, people and groups, and nothing else, like Mastodon and Bluesky. It runs only what it offers.',
+    text: 'Microblogging: people and their notes, and nothing else, like Mastodon and Bluesky. It runs only what it offers.',
     href: `${recipesRepo}/coffeehouse`,
   },
   {
