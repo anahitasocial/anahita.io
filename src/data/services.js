@@ -76,6 +76,7 @@ export const groups = [
           ['One gate', 'feeds, search, notifications and recommendations all ask one check of who may see what.'],
           ['Identifiers for good', 'every node has a random UUID that never changes, used in every address other servers are given.'],
           ['Threads in one go', 'up to ten notes, each with words and photos, a GIF, a video or a sound, saved in order.'],
+          ['What a site offers', 'one file says which kinds of profile and post a site offers; every profile has only those, and the rest is refused.'],
           ['Purges that finish', 'deleting a profile’s posts goes in batches it can resume, and keeps its handle from being taken.'],
         ],
       },
