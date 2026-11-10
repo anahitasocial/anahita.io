@@ -49,17 +49,20 @@ export const recipes = [
   {
     icon: 'article',
     title: 'Journal',
-    text: 'Long-form content: articles first, for newsrooms, research groups and writers, like WordPress and Medium.',
+    text: 'Long writing: articles, with notes and photos beside them, for newsrooms, research groups and writers, like WordPress and Medium.',
+    href: `${recipesRepo}/journal`,
   },
   {
     icon: 'theatre',
     title: 'Theatre',
-    text: 'Video sharing: arts, music, news and lectures, on a channel of your own, like YouTube and PeerTube.',
+    text: 'Video and sound: arts, music, news and lectures, on a channel of your own, like YouTube and PeerTube.',
+    href: `${recipesRepo}/theatre`,
   },
   {
     icon: 'event',
     title: 'Gathering',
-    text: 'Organising meetups and events: what is on, first, with groups to host them, like Meetup and Luma.',
+    text: 'Meetups and events, with groups to host them and topics to talk them over, like Meetup and Luma.',
+    href: `${recipesRepo}/gathering`,
   },
   {
     icon: 'move',
