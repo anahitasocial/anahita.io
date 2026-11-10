@@ -49,7 +49,7 @@ export const recipes = [
   {
     icon: 'article',
     title: 'Journal',
-    text: 'Long writing: articles, with notes and photos beside them, for newsrooms, research groups and writers, like WordPress and Medium.',
+    text: 'Long writing: articles, with notes and photos beside them, each writer under their own name, like WordPress and Medium.',
     href: `${recipesRepo}/journal`,
   },
   {
