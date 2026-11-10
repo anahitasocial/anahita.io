@@ -18,6 +18,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Link from './Link';
 import Logo from './Logo';
 import ModeToggle from './ModeToggle';
+import ColourPicker from './ColourPicker';
 import Search from './Search';
 import { navigation, site } from '../data/site';
 
@@ -74,6 +75,7 @@ export default function Header({ api = false }) {
             ))}
           </Box>
           <Search />
+          <ColourPicker />
           <ModeToggle />
           <IconButton href={site.github} aria-label="GitHub" sx={{ color: 'text.secondary' }}>
             <GitHubIcon />
