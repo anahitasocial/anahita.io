@@ -18,12 +18,16 @@ export const questions = [
   {
     id: 'bluesky',
     question: 'What are the AT Protocol and Bluesky?',
-    answer: `Bluesky is a social network built on a different open protocol, the AT Protocol. There, each person's posts live in their own repository, which they can move from one host to another. Anahita takes part in Bluesky as an app does: people here can follow people on Bluesky, and whoever connects the Bluesky account they already have can post there from Anahita.`,
+    answer: `The AT Protocol is an open way for social apps to talk to each other. The apps built on it are called the ATmosphere, and Bluesky is the best known of them. Your posts there live in your own account, which you can take from one host to another. Anahita joins the ATmosphere the way an app does: people here can follow people on Bluesky, and anyone who connects the Bluesky account they already have can post there from Anahita.`,
   },
   {
     id: 'different',
-    question: 'How is Anahita different from Mastodon, Pixelfed or Akkoma?',
-    answer: `Each of those does one thing well: short posts, or photos. Anahita puts what a community needs in one install: people, groups, events, articles, photos, videos, topics, custom feeds and websites, with administration and moderation made for an organisation. It is a server of the fediverse as they are, and reads and writes Bluesky as well.`,
+    question: 'How is Anahita different from Mastodon or Pixelfed?',
+    answer: `Mastodon and Pixelfed are popular decentralized apps for sharing updates, photos and videos with friends and followers. They are monolithic applications that serve one purpose very well: helping people and communities launch their own social networks, and connecting them all.
+
+Anahita meets the same goals, and brings advantages of its own. It is built from many small services, on a graph of nodes and edges, so it is made to scale, to extend and to be customized. It is built for anything from one person to hundreds of thousands. It is also fluent in both ActivityPub and the AT Protocol, the two most common protocols of the decentralized web today, so people on an Anahita site connect with others across the fediverse and the ATmosphere.
+
+As it comes, Anahita is a great way to launch a social network for a neighbourhood, a library, a university, a city hall or a news agency, or a platform for organizing local arts and cultural meetups and events. It is also a framework: you can add services of your own to build knowledge systems, learning management systems, open data, open science and citizen science platforms, and tools for open-source journalism and open-source intelligence (OSINT). All of it rests on a social graph that scales and is easy to maintain.`,
   },
   {
     id: 'opt-in',
