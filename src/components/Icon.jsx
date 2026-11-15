@@ -17,6 +17,7 @@ import ExploreOutlined from '@mui/icons-material/ExploreOutlined';
 import FavoriteBorderOutlined from '@mui/icons-material/FavoriteBorderOutlined';
 import FingerprintOutlined from '@mui/icons-material/FingerprintOutlined';
 import FlagOutlined from '@mui/icons-material/FlagOutlined';
+import ForumOutlined from '@mui/icons-material/ForumOutlined';
 import GitHub from '@mui/icons-material/GitHub';
 import GroupsOutlined from '@mui/icons-material/GroupsOutlined';
 import InstallDesktopOutlined from '@mui/icons-material/InstallDesktopOutlined';
@@ -67,6 +68,7 @@ const icons = {
   feed: DynamicFeedOutlined,
   fingerprint: FingerprintOutlined,
   flag: FlagOutlined,
+  forum: ForumOutlined,
   github: GitHub,
   groups: GroupsOutlined,
   install: InstallDesktopOutlined,

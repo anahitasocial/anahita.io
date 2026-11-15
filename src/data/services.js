@@ -105,6 +105,8 @@ export const groups = [
         icon: 'photo',
         text: 'Photo posts.',
         doc: 'photos',
+        optional: true,
+        brings: 'Photo posts',
         details: [
           ['Up to twenty images', 'in one post, with one caption and one audience.'],
           ['Alt text', 'a description of up to 2,000 characters for each image.'],

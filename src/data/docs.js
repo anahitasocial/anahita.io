@@ -43,7 +43,7 @@ export const recipes = [
   {
     icon: 'coffee',
     title: 'Coffeehouse',
-    text: 'Microblogging: people and their notes, and nothing else, like Mastodon and Bluesky. It runs only what it offers.',
+    text: 'Microblogging: people, their notes and their photos, like Mastodon and Bluesky. It runs only what it offers.',
     href: `${recipesRepo}/coffeehouse`,
   },
   {
@@ -69,6 +69,12 @@ export const recipes = [
     title: 'Gathering',
     text: 'Meetups and events, with groups to host them and topics to talk them over, like Meetup and Luma.',
     href: `${recipesRepo}/gathering`,
+  },
+  {
+    icon: 'forum',
+    title: 'Forum',
+    text: 'Discussions that last: groups as boards, topics in them and the replies under them, like Discourse and NodeBB.',
+    href: `${recipesRepo}/forum`,
   },
   {
     icon: 'move',
