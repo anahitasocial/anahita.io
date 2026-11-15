@@ -17,6 +17,7 @@ const layoutOf = {
   FAQ: 4,
   Blog: 5,
   Donate: 6,
+  Instances: 7,
 };
 const seedOf = (text) => [...String(text)].reduce((n, c) => (n * 31 + c.charCodeAt(0)) | 0, 7);
 

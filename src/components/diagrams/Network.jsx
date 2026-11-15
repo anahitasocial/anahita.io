@@ -16,6 +16,33 @@ function random(seed) {
   };
 }
 
+// Instances around a globe, for the Instances page: at a longitude and a
+// latitude, in degrees, with how many people. `z` is how near each is, from
+// -1, behind, to 1, in front, which makes the near ones larger and darker
+// and the far ones smaller and fainter: the fediverse as a world, with
+// volume.
+const globe = [
+  [0, -8, 44],
+  [-58, 24, 28],
+  [62, 30, 26],
+  [-84, -34, 16],
+  [88, -24, 18],
+  [148, 14, 14],
+  [-142, -4, 12],
+  [18, 62, 12],
+  [-24, -62, 10],
+].map(([lon, lat, people]) => {
+  const l = (lon * Math.PI) / 180;
+  const a = (lat * Math.PI) / 180;
+  return {
+    x: 500 + 360 * Math.cos(a) * Math.sin(l),
+    y: 380 - 300 * Math.sin(a),
+    z: Math.cos(a) * Math.cos(l),
+    people,
+    spread: 30 + people * 1.7,
+  };
+});
+
 // Where the instances sit, and how many people each has. The first is the
 // home page's; the others give each page a variation of it.
 const layouts = [
@@ -70,7 +97,12 @@ const layouts = [
     { x: 280, y: 600, people: 18, spread: 75 },
     { x: 200, y: 300, people: 18, spread: 75 },
   ],
+  // Around a globe, near and far.
+  globe,
 ];
+
+// How much nearer or farther draws a point larger or fainter.
+const near = (z) => 1 + 0.4 * z;
 
 function network({ seed = 11, layout = 0 }) {
   const rand = random(seed);
@@ -85,8 +117,8 @@ function network({ seed = 11, layout = 0 }) {
     nodes[a].degree += 1;
     nodes[b].degree += 1;
   };
-  const add = (x, y, hub = false) => {
-    nodes.push({ x, y, degree: 0, hub });
+  const add = (x, y, z, hub = false) => {
+    nodes.push({ x, y, z, degree: 0, hub });
     return nodes.length - 1;
   };
   const distance = (a, b) => Math.hypot(nodes[a].x - nodes[b].x, nodes[a].y - nodes[b].y);
@@ -95,11 +127,12 @@ function network({ seed = 11, layout = 0 }) {
   // to it and to a neighbour or two. Three large ones, and two small ones at
   // the edges, so the network is larger than what is drawn.
   const instances = layouts[layout % layouts.length].map((instance) => {
-    const hub = add(instance.x, instance.y, true);
+    const z = instance.z || 0;
+    const hub = add(instance.x, instance.y, z, true);
     const people = Array.from({ length: instance.people }, () => {
       const angle = rand() * Math.PI * 2;
-      const r = instance.spread * (0.25 + Math.abs(gauss()) * 0.85);
-      return add(instance.x + Math.cos(angle) * r, instance.y + Math.sin(angle) * r);
+      const r = instance.spread * near(z) * (0.25 + Math.abs(gauss()) * 0.85);
+      return add(instance.x + Math.cos(angle) * r, instance.y + Math.sin(angle) * r, z + gauss() * 0.08);
     });
     people.forEach((person) => {
       if (rand() < 0.8) tie(person, hub);
@@ -150,10 +183,14 @@ function network({ seed = 11, layout = 0 }) {
     return {
       key,
       federated,
+      z: (from.z + to.z) / 2,
       d: `M${from.x.toFixed(1)} ${from.y.toFixed(1)} Q${cx.toFixed(1)} ${cy.toFixed(1)} ${to.x.toFixed(1)} ${to.y.toFixed(1)}`,
     };
   });
 
+  // Far first, so the near ones are drawn over them.
+  nodes.sort((p, q) => p.z - q.z);
+  curves.sort((p, q) => p.z - q.z);
   return { nodes, curves, viewBox };
 }
 
@@ -168,18 +205,24 @@ export default function Network({ seed = 11, layout = 0, sx }) {
     >
       <svg viewBox={viewBox} style={{ width: '100%', height: 'auto', display: 'block' }}>
         <g fill="none" stroke="currentColor">
-          {curves.map(({ key, d, federated }) => (
+          {curves.map(({ key, d, federated, z }) => (
             <path
               key={key}
               d={d}
-              strokeWidth={federated ? 1.2 : 0.8}
-              strokeOpacity={federated ? 0.35 : 0.22}
+              strokeWidth={(federated ? 1.2 : 0.8) * near(z)}
+              strokeOpacity={Math.min(0.6, (federated ? 0.35 : 0.22) * near(z))}
             />
           ))}
         </g>
-        <g fill="currentColor" fillOpacity="0.8">
+        <g fill="currentColor">
           {nodes.map((node, i) => (
-            <circle key={i} cx={node.x} cy={node.y} r={node.hub ? 8 + Math.min(node.degree, 45) * 0.1 : 3.2} />
+            <circle
+              key={i}
+              cx={node.x}
+              cy={node.y}
+              r={(node.hub ? 8 + Math.min(node.degree, 45) * 0.1 : 3.2) * near(node.z)}
+              fillOpacity={Math.min(0.95, 0.8 * near(node.z))}
+            />
           ))}
         </g>
       </svg>
