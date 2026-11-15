@@ -53,6 +53,11 @@ export const recipes = [
     href: `${recipesRepo}/journal`,
   },
   {
+    icon: 'photo',
+    title: 'Photo sharing',
+    text: 'Photos with the words that go with them, each person sharing their own, like Pixelfed and Instagram. Coming soon.',
+  },
+  {
     icon: 'theatre',
     title: 'Theatre',
     text: 'Video and sound: arts, music, news and lectures, on a channel of your own, like YouTube and PeerTube.',
