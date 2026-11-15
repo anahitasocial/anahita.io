@@ -321,17 +321,35 @@ export default function Network({ seed = 11, layout = 0, sx }) {
       data-pagefind-ignore
       sx={[{ color: 'text.primary' }, sx]}
     >
+      {/* The first frame is rounded as every later one is: the server and the
+          browser work out sines and cosines a last digit apart, and an
+          unrounded number would differ between them when the page hydrates. */}
       <svg ref={ref} viewBox={viewBox} style={{ width: '100%', height: 'auto', display: 'block' }}>
         <g fill="none" stroke="currentColor">
           {curveOrder.map((i) => {
             const c = first.curves[i];
-            return <path key={model.ties[i].key} d={c.d} strokeWidth={c.width} strokeOpacity={c.opacity} />;
+            return (
+              <path
+                key={model.ties[i].key}
+                d={c.d}
+                strokeWidth={c.width.toFixed(2)}
+                strokeOpacity={c.opacity.toFixed(3)}
+              />
+            );
           })}
         </g>
         <g fill="currentColor">
           {pointOrder.map((i) => {
             const p = first.points[i];
-            return <circle key={i} cx={p.x} cy={p.y} r={p.r} fillOpacity={p.opacity} />;
+            return (
+              <circle
+                key={i}
+                cx={p.x.toFixed(1)}
+                cy={p.y.toFixed(1)}
+                r={p.r.toFixed(2)}
+                fillOpacity={p.opacity.toFixed(3)}
+              />
+            );
           })}
         </g>
       </svg>
