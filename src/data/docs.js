@@ -54,8 +54,9 @@ export const recipes = [
   },
   {
     icon: 'photo',
-    title: 'Photo sharing',
-    text: 'Photos with the words that go with them, each person sharing their own, like Pixelfed and Instagram. Coming soon.',
+    title: 'Gallery',
+    text: 'Photo sharing: photos with the words that go with them, each person sharing their own, like Pixelfed and Instagram.',
+    href: `${recipesRepo}/gallery`,
   },
   {
     icon: 'theatre',
