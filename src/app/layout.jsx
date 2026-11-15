@@ -8,6 +8,7 @@ import { DiagramDefs } from '../components/diagrams/parts';
 import SiteTheme from '../components/SiteTheme';
 import { site } from '../data/site';
 import { getApi } from '../lib/api';
+import './transitions.css';
 
 // Downloaded at build time and served from this site: no request to Google.
 const roboto = Roboto({

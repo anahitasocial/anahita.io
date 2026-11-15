@@ -1,0 +1,44 @@
+/* From page to page (src/app/template.jsx): the page one leaves fades out
+   quickly, so it does not compete; the next fades in a little later and
+   more gently, rising a few pixels, so the eye settles on it. Only the
+   page's content moves: the top bar and the footer stay as they are. */
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+}
+
+/* Clicks go on to the page while it moves. */
+::view-transition {
+  pointer-events: none;
+}
+
+::view-transition-old(.page-out) {
+  animation: 140ms cubic-bezier(0.4, 0, 1, 1) both page-out;
+}
+
+::view-transition-new(.page-in) {
+  animation: 240ms cubic-bezier(0, 0, 0.2, 1) 80ms both page-in;
+}
+
+@keyframes page-out {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes page-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
+/* Somebody who asks their system for less motion sees none. */
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+}
