@@ -113,9 +113,11 @@ const layouts = [
 const near = (z) => 1 + 0.4 * z;
 
 // The motion: the globe's turn, in degrees a second (one turn a minute),
-// and how far a breathing point drifts, in the drawing's units.
+// and how far a breathing point drifts, in the drawing's units. The
+// breathing was quickened on 2026-11-15, at the user's word: slower, it
+// went unnoticed; the globe was right as it was.
 const TURN = 6;
-const DRIFT = 5;
+const DRIFT = 6;
 
 // The network's shape: the instances, each person's place beside its
 // instance, the ties, and how each point moves.
@@ -138,7 +140,7 @@ function network({ seed = 11, layout = 0 }) {
     nodes.push({
       instance, ox, oy, dz, hub, degree: 0,
       phase: motion() * Math.PI * 2,
-      period: 7 + motion() * 6,
+      period: 5 + motion() * 4,
     });
     return nodes.length - 1;
   };
