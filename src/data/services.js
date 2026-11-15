@@ -13,7 +13,7 @@ export const groups = [
     services: [
       {
         name: 'auth-service',
-        icon: 'key',
+        icon: 'fingerprint',
         text: 'Signing in and signing up, for Anahita’s own apps and anybody else’s.',
         doc: 'oauth',
         details: [

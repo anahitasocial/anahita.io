@@ -12,11 +12,11 @@ import DownloadOutlined from '@mui/icons-material/DownloadOutlined';
 import DynamicFeedOutlined from '@mui/icons-material/DynamicFeedOutlined';
 import ExploreOutlined from '@mui/icons-material/ExploreOutlined';
 import FavoriteBorderOutlined from '@mui/icons-material/FavoriteBorderOutlined';
+import FingerprintOutlined from '@mui/icons-material/FingerprintOutlined';
 import FlagOutlined from '@mui/icons-material/FlagOutlined';
 import FolderOutlined from '@mui/icons-material/FolderOutlined';
 import HubOutlined from '@mui/icons-material/HubOutlined';
 import InventoryOutlined from '@mui/icons-material/InventoryOutlined';
-import KeyOutlined from '@mui/icons-material/KeyOutlined';
 import LinkOutlined from '@mui/icons-material/LinkOutlined';
 import MailOutlined from '@mui/icons-material/MailOutlined';
 import MemoryOutlined from '@mui/icons-material/MemoryOutlined';
@@ -59,9 +59,9 @@ const icons = {
   feed: DynamicFeedOutlined,
   fediverse: HubOutlined,
   files: InventoryOutlined,
+  fingerprint: FingerprintOutlined,
   flag: FlagOutlined,
   folder: FolderOutlined,
-  key: KeyOutlined,
   like: FavoriteBorderOutlined,
   link: LinkOutlined,
   mail: MailOutlined,
