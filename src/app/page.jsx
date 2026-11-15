@@ -24,7 +24,7 @@ import { site } from '../data/site';
 // A word that matters in a line of grey text: in the text's own colour, bold.
 function Strong({ children }) {
   return (
-    <Box component="strong" sx={{ color: 'text.primary', fontWeight: 500 }}>
+    <Box component="strong" sx={{ color: 'text.primary', fontWeight: 700 }}>
       {children}
     </Box>
   );
@@ -178,12 +178,13 @@ export default function Home() {
             <BlueskyMark color="primary" aria-hidden="true" />
           </>
         }
-        title="Fediverse ready"
+        title="Fediverse & Bluesky ready"
         subtitle={
           <>
             Through <Strong>ActivityPub</Strong>, your instance joins the fediverse as an equal; through
-            the <Strong>AT Protocol</Strong>, it reaches Bluesky. Each profile chooses whether to take part, and
-            nothing leaves without consent.
+            the <Strong>AT{'\u00a0'}Protocol</Strong>, it reaches Bluesky and the rest of the ATmosphere. Anahita is
+            committed to both open networks and to growing with them. Each profile chooses whether to
+            participate in the fediverse or Bluesky, and no posted content leaves without consent.
           </>
         }
       >
