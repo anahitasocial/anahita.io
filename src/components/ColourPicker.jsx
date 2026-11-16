@@ -55,6 +55,11 @@ function Swatch({ palette, size }) {
 
 function Palettes({ current, choose, onClose, mobile }) {
   const size = mobile ? 40 : 32;
+  // The swatch whose name is shown, on a pointer over it. Closed when it is
+  // pressed: left open while the site takes on the new colours, the name
+  // was drawn again at the left edge of the screen (the user, 2026-11-16),
+  // and the card's title says the name by then.
+  const [named, setNamed] = useState(null);
   return (
     <Box sx={mobile ? { maxHeight: '50vh', display: 'flex', flexDirection: 'column' } : { width: 304 }}>
       <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, pl: 2, pr: 1, pt: 1 }}>
@@ -88,7 +93,10 @@ function Palettes({ current, choose, onClose, mobile }) {
                     key={palette.id}
                     aria-label={palette.name}
                     aria-pressed={selected}
-                    onClick={() => choose(palette)}
+                    onClick={() => {
+                      setNamed(null);
+                      choose(palette);
+                    }}
                     sx={{
                       borderRadius: '50%',
                       flexShrink: 0,
@@ -101,7 +109,14 @@ function Palettes({ current, choose, onClose, mobile }) {
                   </ButtonBase>
                 );
                 return mobile ? swatch : (
-                  <Tooltip key={palette.id} title={palette.name} placement="top">
+                  <Tooltip
+                    key={palette.id}
+                    title={palette.name}
+                    placement="top"
+                    open={named === palette.id}
+                    onOpen={() => setNamed(palette.id)}
+                    onClose={() => setNamed((shown) => (shown === palette.id ? null : shown))}
+                  >
                     {swatch}
                   </Tooltip>
                 );

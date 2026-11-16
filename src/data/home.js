@@ -15,7 +15,7 @@ export const promises = [
   },
   {
     icon: 'schedule',
-    title: 'Chronological',
+    title: 'Chronological feeds',
     text: 'Every feed, including the ones people build, shows posts in the order they were posted. Nothing is ranked to keep you scrolling.',
   },
 ];
@@ -29,7 +29,7 @@ export const features = [
   { icon: 'photo', title: 'Media', text: 'Photos, audio, video and GIFs: up to twenty photos in a post, each described; the rest ready for every screen.' },
   { icon: 'label', title: 'Tagging', text: [['tag', 'Hashtags'], ', ', ['place', 'locations'], ', citations, and people in photos, with their approval.'] },
   { icon: 'visibility', title: 'Audiences', text: 'Choose who sees each post: public, signed-in people, followers, people you follow, mutuals, or only you.' },
-  { icon: 'feed', title: 'Custom feeds', text: 'Feeds that people make for themselves.' },
+  { icon: 'feed', title: 'Chronological feeds', text: 'Including the ones people make for themselves, from profiles, hashtags, words and locations.' },
   { icon: 'search', title: 'Search', text: 'Results ranked by the graph and fine-tuned by each person.' },
   { icon: 'explore', title: 'Recommendations', text: 'Who to follow, worked out from the graph, each with its reason.' },
   { icon: 'notifications', title: 'Notifications', text: 'Grouped, answered in place, and never emailed.' },

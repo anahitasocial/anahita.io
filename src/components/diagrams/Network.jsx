@@ -10,8 +10,8 @@ import Box from '@mui/material/Box';
 // colour, black or white, like the logo.
 //
 // It moves, slowly, only while it is on screen, and not at all for somebody
-// who asks for less motion: the globe on the Instances page turns, once a
-// minute; every other network breathes, each point drifting a few units on
+// who asks for less motion: the globes on the home page and the Instances
+// page turn, once a minute; every other network breathes, each point drifting a few units on
 // a cycle of its own, the ties following. The first frame is the drawing
 // as it stands still, so the page is the same without JavaScript.
 
@@ -39,7 +39,7 @@ const project = (lon, lat) => {
     z: Math.cos(a) * Math.cos(l),
   };
 };
-const globe = [
+const instancesOnGlobe = [
   [0, -8, 44],
   [-58, 24, 28],
   [62, 30, 26],
@@ -49,18 +49,17 @@ const globe = [
   [-142, -4, 12],
   [18, 62, 12],
   [-24, -62, 10],
-].map(([lon, lat, people]) => ({ lon, lat, people, spread: 30 + people * 1.7, ...project(lon, lat) }));
+];
+const onGlobe = (lon, lat, people) => ({ lon, lat, people, spread: 30 + people * 1.7, ...project(lon, lat) });
+const globe = instancesOnGlobe.map(([lon, lat, people]) => onGlobe(lon, lat, people));
 
 // Where the instances sit, and how many people each has. The first is the
-// home page's; the others give each page a variation of it.
+// home page's: a globe turning as the Instances page's does, in the same
+// direction and at the same speed (the user, 2026-11-16), its instances
+// turned a little and mirrored north to south, so that the two differ. The
+// others give each page a variation of it.
 const layouts = [
-  [
-    { x: 330, y: 300, people: 42, spread: 120 },
-    { x: 660, y: 260, people: 36, spread: 110 },
-    { x: 520, y: 560, people: 38, spread: 115 },
-    { x: 860, y: 520, people: 10, spread: 60 },
-    { x: 170, y: 560, people: 9, spread: 55 },
-  ],
+  instancesOnGlobe.map(([lon, lat, people]) => onGlobe(lon + 20, -lat, people)),
   // Two large instances side by side, a small one between them.
   [
     { x: 260, y: 380, people: 46, spread: 130 },
