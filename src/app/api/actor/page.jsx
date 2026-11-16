@@ -14,7 +14,7 @@ export default function Moved() {
   return (
     <>
       <meta httpEquiv="refresh" content={`0; url=${to}`} />
-      <PageHeader title="Profiles" subtitle="People, groups, events and websites each have a page of their own now, after what every profile has.">
+      <PageHeader title="Profiles" subtitle="People, groups, events and channels each have a page of their own now, after what every profile has.">
         <Button href={to} variant="contained" sx={{ mt: 4 }}>
           Profiles
         </Button>

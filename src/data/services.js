@@ -41,7 +41,7 @@ export const groups = [
           ['People', 'a profile at a username, made when somebody signs up.'],
           ['Groups', 'made by members, with admins and followers, and who may see each chosen as it is made; a group can host events.'],
           ['Events', 'a start and an end in their own time zone, how many may go, and where to join online; going or maybe, calling it off, and a calendar file. What is on, soonest first, for anybody each is open to.'],
-          ['Websites', 'a website’s feed, followed like a profile.'],
+          ['Channels', 'an organization or a project posting as itself: its admins write for it, and only they post on it; private as a group may be, hosting events, and reading a website’s feed if it has one.'],
           ['Every kind', 'a profile photo and a cover photo, followers, invitations, who may see and do what, and the same life from enabled to archived to deleted.'],
         ],
       },
@@ -261,15 +261,15 @@ export const groups = [
       {
         name: 'syndication-service',
         icon: 'rss',
-        text: 'Follow a website’s feed like a profile. A worker reads every feed and posts what is new.',
-        doc: 'websites',
+        text: 'A channel’s website feed: a blog or a site, posted on the channel as it publishes. A worker reads every feed and posts what is new.',
+        doc: 'channels',
         optional: true,
-        brings: 'Websites’ feeds',
+        brings: 'Channels’ feeds',
         details: [
           ['Any feed', 'RSS, Atom or JSON Feed, from WordPress, a static site or a podcast; followed here and from the fediverse.'],
           ['Proven domains', 'a DNS record or a file on the site, checked again every day.'],
           ['Polite', 'feeds are read every 30 minutes, or at once through WebSub, and less often when they fail.'],
-          ['Replies as the site', 'its administrators can answer readers as the website.'],
+          ['In its settings', 'connected and disconnected by the channel’s admins, one feed a channel; what it brought stays.'],
         ],
       },
       {

@@ -61,7 +61,7 @@ export const recipes = [
   {
     icon: 'theatre',
     title: 'Theatre',
-    text: 'Video and sound: arts, music, news and lectures, on a channel of your own, like YouTube and PeerTube.',
+    text: 'Video and sound: arts, music, news and lectures, each person’s own, like YouTube and PeerTube.',
     href: `${recipesRepo}/theatre`,
   },
   {
