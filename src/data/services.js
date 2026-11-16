@@ -177,7 +177,7 @@ export const groups = [
         doc: 'feeds',
         details: [
           ['Chronological first', 'the first tab is always who you follow, newest first, and it cannot be removed.'],
-          ['Custom feeds', 'made from sources, filtered by hashtag, keyword, location, language and kind of post.'],
+          ['Custom feeds', 'made from sources, hashtags, keywords, locations and an area, matching any of them or all; narrowed by language and kind of post.'],
           ['Near me', 'posts within 1 to 500 km, with the reader’s position never kept.'],
           ['Never wider', 'a shared feed shows each reader only what they could already see.'],
           ['Share, copy, pin', 'feeds can be shared, found, copied and kept on the home page.'],
