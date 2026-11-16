@@ -97,7 +97,8 @@ export const groups = [
           ['Quotes by consent', 'authors choose who may quote them, and can take their post out of any quote.'],
           ['Who may reply', 'anyone, nobody, followers, people they follow or people mentioned; and replies can be hidden.'],
           ['Private saves', 'what somebody saves is seen by them alone: nothing is counted, and the author is never told.'],
-          ['Content warnings', 'any post can carry one, and it goes with the post to the fediverse and Bluesky; its pictures stay blurred until somebody chooses to see them.'],
+          ['Content warnings', 'any post can carry one, given by its author or by the administrators, and it goes with the post to the fediverse and Bluesky; each reader chooses, kind by kind, to show it, be warned or hide it.'],
+          ['Made with AI', 'a mark for pictures and video made or changed by AI, chosen for the author when the file says so; shown under the post, not over it.'],
         ],
       },
       {
