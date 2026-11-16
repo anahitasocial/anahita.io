@@ -18,6 +18,11 @@ function read(file) {
     date: new Date(data.date).toISOString().slice(0, 10),
     summary: data.summary,
     author: data.author,
+    // The card shown where the post is shared, 1200 by 630, in
+    // public/images/blog/, and what it shows in words; the site's card when
+    // there is none.
+    image: data.image,
+    imageAlt: data.imageAlt,
     draft: Boolean(data.draft),
     content,
   };

@@ -3,6 +3,8 @@ title: The title of the post
 date: 2026-01-31
 summary: One line, shown in the blog's list, the feed and link previews.
 author: Rastin Mehr
+image: /images/blog/the-address.png
+imageAlt: What the card shows, in words.
 draft: true
 ---
 
@@ -16,6 +18,9 @@ Write in Markdown. While `draft: true` is above, the post shows under
 
 Links: [the FAQ](/faq/), or [another site](https://example.org), which opens
 in a new tab.
+
+`image` is the card shown where the post is shared, 1200 by 630 pixels, and
+`imageAlt` says what it shows; without them, the site's own card is shown.
 
 Pictures go in `public/images/blog/`:
 

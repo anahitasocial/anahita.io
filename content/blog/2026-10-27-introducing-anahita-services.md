@@ -3,9 +3,9 @@ title: Introducing Anahita Services
 date: 2026-10-27
 summary: Anahita has been rewritten from the ground up in Go as a microservices architecture with an improved graph core, now fluent in both ActivityPub and ATProtocol, and still fully open source.
 author: Rastin Mehr
+image: /images/blog/introducing-anahita-services.png
+imageAlt: "A line drawing: Web, Mobile and CLI reach your instance, Anahita Services, which speaks to the fediverse and to Bluesky."
 ---
-
-# Introducing Anahita Services
 
 Hello everyone, you may be wondering what's happening to the old Anahita website, the social network powered by Anahita's PHP version. I have great news: 3 years ago, I decided to rewrite the Anahita codebase from the ground up as a microservices architecture in Go, with a new vision, an improved graph architecture at its core, and Fediverse readiness!
 

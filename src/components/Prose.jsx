@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 import Box from '@mui/material/Box';
+import { polaroidCaption, polaroidFrame } from './Polaroid';
 
 // The language last chosen in a group of code tabs (lib/markdown.js,
 // codeTabs), for every group on every page.
@@ -159,6 +160,22 @@ export default function Prose({ html }) {
           pl: 2,
         },
         '& img': { maxWidth: '100%', borderRadius: 2 },
+        // Every picture on a line of its own, as a Polaroid (lib/markdown.js,
+        // polaroids; components/Polaroid.jsx): its caption, if it has one,
+        // in the wide bottom; tilted a little one way and the next the
+        // other, as if laid on the page by hand.
+        '& figure.polaroid': {
+          ...polaroidFrame,
+          mx: 'auto',
+          my: 5,
+          width: 'fit-content',
+          maxWidth: { xs: '100%', sm: 480 },
+          transform: 'rotate(-1deg)',
+        },
+        '& figure.polaroid.wide': { maxWidth: '100%' },
+        '& figure.polaroid:nth-of-type(even)': { transform: 'rotate(1deg)' },
+        '& figure.polaroid img': { display: 'block', width: '100%', height: 'auto', borderRadius: 0 },
+        '& figure.polaroid figcaption': { ...theme.typography.body2, ...polaroidCaption },
         // Wide tables scroll inside the page rather than widening it.
         '& table': {
           display: 'block',

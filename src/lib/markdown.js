@@ -120,6 +120,33 @@ export function codeTabs() {
   };
 }
 
+// A picture on a line of its own becomes a Polaroid, as the About page has
+// them (components/Polaroid.jsx): every picture on the site is shown so (the
+// user, 2026-11-16). Its caption, if it has one, is Markdown's title
+// (![What it shows](/images/blog/a.webp "On Mastodon")), written in the
+// frame's wide bottom. A diagram (an SVG) takes the page's whole width; a
+// screenshot or a photo, at most 480. Prose draws the frame.
+export function polaroids() {
+  return (tree) => {
+    visit(tree, 'element', (node, index, parent) => {
+      if (node.tagName !== 'p' || !parent) return;
+      const kids = node.children.filter((kid) => !(kid.type === 'text' && !kid.value.trim()));
+      const img = kids[0];
+      if (kids.length !== 1 || img.tagName !== 'img') return;
+      const caption = img.properties.title || '';
+      delete img.properties.title;
+      img.properties.loading = 'lazy';
+      const wide = /\.svg$/i.test(img.properties.src || '');
+      parent.children[index] = {
+        type: 'element',
+        tagName: 'figure',
+        properties: { className: ['polaroid', ...(wide ? ['wide'] : [])] },
+        children: [img, { type: 'element', tagName: 'figcaption', properties: {}, children: caption ? [{ type: 'text', value: caption }] : [] }],
+      };
+    });
+  };
+}
+
 export async function toHtml(markdown) {
   const file = await unified()
     .use(remarkParse)
@@ -130,6 +157,7 @@ export async function toHtml(markdown) {
     // gives the colours.
     .use(rehypeHighlight, { detect: false })
     .use(codeTabs)
+    .use(polaroids)
     .use(outboundLinks)
     .use(rehypeStringify)
     .process(markdown);
