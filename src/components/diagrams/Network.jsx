@@ -10,10 +10,9 @@ import Box from '@mui/material/Box';
 // colour, black or white, like the logo.
 //
 // It moves, slowly, only while it is on screen, and not at all for somebody
-// who asks for less motion: the globes on the home page and the Instances
-// page turn, once a minute; every other network breathes, each point drifting a few units on
-// a cycle of its own, the ties following. The first frame is the drawing
-// as it stands still, so the page is the same without JavaScript.
+// who asks for less motion: every network is a globe, and turns once a
+// minute, the same way on every page. The first frame is the drawing as it
+// stands still, so the page is the same without JavaScript.
 
 function random(seed) {
   let t = seed;
@@ -53,77 +52,40 @@ const instancesOnGlobe = [
 const onGlobe = (lon, lat, people) => ({ lon, lat, people, spread: 30 + people * 1.7, ...project(lon, lat) });
 const globe = instancesOnGlobe.map(([lon, lat, people]) => onGlobe(lon, lat, people));
 
-// Where the instances sit, and how many people each has. The first is the
-// home page's: a globe turning as the Instances page's does, in the same
-// direction and at the same speed (the user, 2026-11-16), its instances
-// turned a little and mirrored north to south, so that the two differ. The
-// others give each page a variation of it.
-const layouts = [
-  instancesOnGlobe.map(([lon, lat, people]) => onGlobe(lon + 20, -lat, people)),
-  // Two large instances side by side, a small one between them.
-  [
-    { x: 260, y: 380, people: 46, spread: 130 },
-    { x: 760, y: 340, people: 44, spread: 125 },
-    { x: 520, y: 620, people: 12, spread: 60 },
-    { x: 520, y: 110, people: 8, spread: 50 },
-  ],
-  // A row of four, rising and falling.
-  [
-    { x: 150, y: 420, people: 26, spread: 95 },
-    { x: 420, y: 280, people: 34, spread: 110 },
-    { x: 690, y: 450, people: 30, spread: 105 },
-    { x: 940, y: 300, people: 22, spread: 90 },
-  ],
+// Where the instances sit, on a globe, and how many people each has: a
+// longitude, a latitude and a count. Every network turns, in the same
+// direction and at the same speed (the user, 2026-11-16, for the home page;
+// 2026-11-17, for every page). The first is the home page's, the Instances
+// page's turned a little and mirrored north to south, so that the two
+// differ; the others give each page a variation of it, a few small
+// instances on the far side so that no turn leaves the globe bare.
+const globes = [
+  instancesOnGlobe.map(([lon, lat, people]) => [lon + 20, -lat, people]),
+  // Two large instances, east and west, a small one between them.
+  [[-60, 10, 46], [60, -5, 44], [0, -45, 12], [0, 48, 8], [180, 20, 14], [130, -35, 10], [-130, 35, 10]],
+  // A row of four round the equator, rising and falling.
+  [[-135, -15, 26], [-45, 18, 34], [45, -14, 30], [135, 16, 22], [0, 55, 8], [90, -55, 8], [180, 40, 12], [-90, -45, 12]],
   // One large instance, with smaller ones around it.
-  [
-    { x: 500, y: 380, people: 56, spread: 150 },
-    { x: 150, y: 200, people: 12, spread: 60 },
-    { x: 860, y: 190, people: 14, spread: 65 },
-    { x: 840, y: 620, people: 10, spread: 55 },
-    { x: 170, y: 610, people: 11, spread: 58 },
-  ],
+  [[0, 0, 56], [-70, 40, 12], [70, 38, 14], [75, -40, 10], [-72, -38, 11], [180, 0, 16], [120, 30, 12], [-120, -25, 12]],
   // A triangle, close together.
-  [
-    { x: 330, y: 260, people: 38, spread: 115 },
-    { x: 700, y: 300, people: 38, spread: 115 },
-    { x: 500, y: 600, people: 38, spread: 115 },
-  ],
+  [[-35, 20, 38], [35, 20, 38], [0, -30, 38], [180, -10, 14], [120, 40, 12], [-120, -35, 12]],
   // Three rising on a diagonal, a small one beside each end.
-  [
-    { x: 200, y: 560, people: 30, spread: 105 },
-    { x: 500, y: 380, people: 36, spread: 115 },
-    { x: 800, y: 200, people: 30, spread: 105 },
-    { x: 860, y: 520, people: 9, spread: 50 },
-    { x: 150, y: 220, people: 8, spread: 50 },
-  ],
+  [[-60, -40, 30], [0, 0, 36], [60, 40, 30], [70, -35, 9], [-70, 38, 8], [180, 10, 14], [130, -20, 12], [-130, 25, 12]],
   // A ring of small instances.
-  [
-    { x: 500, y: 150, people: 18, spread: 75 },
-    { x: 800, y: 300, people: 18, spread: 75 },
-    { x: 720, y: 600, people: 18, spread: 75 },
-    { x: 280, y: 600, people: 18, spread: 75 },
-    { x: 200, y: 300, people: 18, spread: 75 },
-  ],
-  // Around a globe, near and far, turning.
-  globe,
+  [[0, 20, 18], [72, -20, 18], [144, 20, 18], [216, -20, 18], [288, 20, 18], [36, 60, 10], [180, -60, 10]],
 ];
+const layouts = [...globes.map((places) => places.map(([lon, lat, people]) => onGlobe(lon, lat, people))), globe];
 
 // How much nearer or farther draws a point larger or fainter.
 const near = (z) => 1 + 0.4 * z;
 
-// The motion: the globe's turn, in degrees a second (one turn a minute),
-// and how far a breathing point drifts, in the drawing's units. The
-// breathing was quickened on 2026-11-15, at the user's word: slower, it
-// went unnoticed; the globe was right as it was.
+// The motion: the globe's turn, in degrees a second (one turn a minute).
 const TURN = 6;
-const DRIFT = 6;
 
 // The network's shape: the instances, each person's place beside its
 // instance, the ties, and how each point moves.
 function network({ seed = 11, layout = 0 }) {
   const rand = random(seed);
-  // The motion has a sequence of its own, so the drawing is the same.
-  const motion = random(seed ^ 0x5bd1e995);
   const gauss = () => (rand() + rand() + rand() - 1.5) / 1.5;
   const nodes = [];
   const edges = new Set();
@@ -136,11 +98,7 @@ function network({ seed = 11, layout = 0 }) {
     nodes[b].degree += 1;
   };
   const add = (instance, ox, oy, dz, hub = false) => {
-    nodes.push({
-      instance, ox, oy, dz, hub, degree: 0,
-      phase: motion() * Math.PI * 2,
-      period: 5 + motion() * 4,
-    });
+    nodes.push({ instance, ox, oy, dz, hub, degree: 0 });
     return nodes.length - 1;
   };
   const at = (i) => {
@@ -211,13 +169,8 @@ function place({ nodes, ties, placesOf, turning }, t) {
     const instance = instances[node.instance];
     const z = (instance.z || 0) + node.dz;
     const scale = near(instance.z || 0);
-    let x = instance.x + node.ox * scale;
-    let y = instance.y + node.oy * scale;
-    if (!turning && t) {
-      const w = (t * Math.PI * 2) / node.period;
-      x += DRIFT * (Math.sin(w + node.phase) - Math.sin(node.phase));
-      y += DRIFT * (Math.cos(w * 0.8 + node.phase) - Math.cos(node.phase));
-    }
+    const x = instance.x + node.ox * scale;
+    const y = instance.y + node.oy * scale;
     return { x, y, z, r: (node.hub ? 8 + Math.min(node.degree, 45) * 0.1 : 3.2) * near(z), opacity: Math.min(0.95, 0.8 * near(z)) };
   });
   const curves = ties.map(({ a, b, bend, federated }) => {
