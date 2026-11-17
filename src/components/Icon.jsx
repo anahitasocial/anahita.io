@@ -38,6 +38,7 @@ import ScheduleOutlined from '@mui/icons-material/ScheduleOutlined';
 import SearchOutlined from '@mui/icons-material/SearchOutlined';
 import SettingsOutlined from '@mui/icons-material/SettingsOutlined';
 import SmartToyOutlined from '@mui/icons-material/SmartToyOutlined';
+import StorefrontOutlined from '@mui/icons-material/StorefrontOutlined';
 import TagOutlined from '@mui/icons-material/TagOutlined';
 import TerminalOutlined from '@mui/icons-material/TerminalOutlined';
 import TheatersOutlined from '@mui/icons-material/TheatersOutlined';
@@ -89,6 +90,7 @@ const icons = {
   search: SearchOutlined,
   settings: SettingsOutlined,
   smart_toy: SmartToyOutlined,
+  storefront: StorefrontOutlined,
   tag: TagOutlined,
   terminal: TerminalOutlined,
   theatre: TheatersOutlined,
