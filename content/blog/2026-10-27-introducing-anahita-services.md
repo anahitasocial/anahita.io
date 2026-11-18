@@ -1,6 +1,6 @@
 ---
 title: Introducing Anahita Services
-date: 2026-10-27
+date: 2026-10-27T02:42:47-07:00
 summary: Anahita has been rewritten from the ground up in Go as a microservices architecture with an improved graph core, now fluent in both ActivityPub and ATProtocol, and still fully open source.
 author: Rastin Mehr
 image: /images/blog/introducing-anahita-services.png

@@ -1,6 +1,6 @@
 ---
 title: Introducing Anahita MCP
-date: 2026-11-16
+date: 2026-11-16T03:12:26-07:00
 summary: Anahita's docs and API reference for AI agents, an MCP server that runs on your computer or at mcp.anahita.io, so your agent answers from the docs as they are today.
 author: Rastin Mehr
 image: /images/blog/introducing-anahita-mcp.png

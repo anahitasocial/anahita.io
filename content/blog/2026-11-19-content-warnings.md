@@ -1,6 +1,6 @@
 ---
 title: Content warnings, and the reader's choice
-date: 2026-11-19
+date: 2026-11-19T09:00:00-07:00
 summary: In Anahita Services v1.3.4, a post can carry a content warning, each reader chooses what they see of each kind, and Made with AI says what a picture is.
 author: Rastin Mehr
 image: /images/blog/content-warnings.png

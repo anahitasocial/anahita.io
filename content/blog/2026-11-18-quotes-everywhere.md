@@ -1,6 +1,6 @@
 ---
 title: Quotes that reach Mastodon and Bluesky
-date: 2026-11-18
+date: 2026-11-18T06:19:05-07:00
 summary: A quote written on Anahita is now a quote on Mastodon and on Bluesky, by the quoted author's consent, and quotes from both come in as quotes.
 author: Rastin Mehr
 image: /images/blog/quotes-everywhere.png

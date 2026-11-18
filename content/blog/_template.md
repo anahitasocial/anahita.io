@@ -1,6 +1,6 @@
 ---
 title: The title of the post
-date: 2026-01-31
+date: 2026-01-31T09:00:00-07:00
 summary: One line, shown in the blog's list, the feed and link previews.
 author: Rastin Mehr
 image: /images/blog/the-address.png
@@ -13,9 +13,8 @@ the post's address, so `2026-11-02-hello.md` is published at `/blog/hello/`.
 
 Write in Markdown. While `draft: true` is above, the post shows under
 `yarn dev` only. Take that line out when it is ready, and push to `main`.
-The feed dates the post at the commit that takes it out, and a channel that
-follows the feed dates its post the same; a time written in the date
-(`2026-11-18T06:19:00-07:00`) is used instead.
+Set `date:` to the moment you publish, as `date -Iseconds` prints it: the
+feed carries it, and a channel that follows the feed dates its post by it.
 
 ## A heading
 
