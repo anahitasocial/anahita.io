@@ -41,7 +41,7 @@ export default async function Service({ params }) {
         <Typography variant="body2" color="text.secondary">
           {group}
         </Typography>
-        <Typography variant="h1" sx={{ mt: 1, mb: 1, fontSize: { xs: '2rem', md: '2.5rem' } }}>
+        <Typography variant="h1" sx={{ mt: 1, mb: 1, fontSize: { xs: '2rem', md: '2.3rem' } }}>
           {page.title}
         </Typography>
         <Typography variant="body2" color="text.secondary" component="p" sx={{ fontFamily: 'ui-monospace, SFMono-Regular, Menlo, monospace', mb: 3 }}>

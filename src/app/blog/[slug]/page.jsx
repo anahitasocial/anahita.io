@@ -62,7 +62,7 @@ export default async function Post({ params }) {
             <Box sx={{ minHeight: polaroidCaption.minHeight }} />
           </Box>
         )}
-        <Typography variant="h1" sx={{ mt: 2, fontSize: { xs: '2rem', md: '2.5rem' } }}>
+        <Typography variant="h1" sx={{ mt: 2, fontSize: { xs: '2rem', md: '2.3rem' } }}>
           {post.title}
         </Typography>
         {/* Who wrote it, with their profile photo where there is one

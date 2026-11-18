@@ -17,7 +17,7 @@ export default function Shapes() {
       <Typography variant="body2" color="text.secondary">
         Reference
       </Typography>
-      <Typography variant="h1" sx={{ mt: 1, mb: 2, fontSize: { xs: '2rem', md: '2.5rem' } }}>
+      <Typography variant="h1" sx={{ mt: 1, mb: 2, fontSize: { xs: '2rem', md: '2.3rem' } }}>
         Shapes
       </Typography>
       <Typography variant="body1" color="text.secondary" sx={{ mb: 4 }}>

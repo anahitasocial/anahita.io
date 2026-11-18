@@ -98,7 +98,7 @@ export default function DocPage({ doc, eyebrow, title: heading, groups = [], nei
         <Typography variant="body2" color="text.secondary">
           {eyebrow || source.title}
         </Typography>
-        <Typography variant="h1" sx={{ mt: 1, mb: 4, fontSize: { xs: '2rem', md: '2.5rem' } }}>
+        <Typography variant="h1" sx={{ mt: 1, mb: 4, fontSize: { xs: '2rem', md: '2.3rem' } }}>
           {title}
         </Typography>
         <Prose html={html} />
