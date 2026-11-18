@@ -20,7 +20,7 @@ export default function sitemap() {
     page('/blog/', 0.6),
     page('/about/', 0.6),
     ...(site.donations ? [page('/donate/', 0.4)] : []),
-    ...getPosts().map((post) => ({ ...page(`/blog/${post.slug}/`, 0.5), lastModified: post.date })),
+    ...getPosts().map((post) => ({ ...page(`/blog/${post.slug}/`, 0.5), lastModified: post.published })),
     ...getSources().flatMap(({ key }) => [
       page(`/docs/${key}/`, 0.6),
       ...getPages(key).map(({ slug }) => page(`/docs/${key}/${slug}/`, 0.5)),

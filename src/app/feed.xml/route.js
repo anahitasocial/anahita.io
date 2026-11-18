@@ -17,7 +17,8 @@ export async function GET() {
     <title>${escape(post.title)}</title>
     <link href="${url}"/>
     <id>${url}</id>
-    <updated>${post.date}T00:00:00Z</updated>
+    <published>${post.published}</published>
+    <updated>${post.published}</updated>
     <author><name>${escape(post.author)}</name></author>
     <summary>${escape(post.summary)}</summary>
     <content type="html">${escape(await toHtml(post.content))}</content>
@@ -32,7 +33,7 @@ export async function GET() {
   <link href="${site.url}/blog/"/>
   <link rel="self" href="${site.url}/feed.xml"/>
   <id>${site.url}/blog/</id>
-  <updated>${posts[0]?.date ?? '2026-10-24'}T00:00:00Z</updated>
+  <updated>${posts[0]?.published ?? '2026-10-24T00:00:00Z'}</updated>
 ${entries.join('\n')}
 </feed>
 `;

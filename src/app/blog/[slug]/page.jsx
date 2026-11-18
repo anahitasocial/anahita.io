@@ -29,7 +29,7 @@ export async function generateMetadata({ params }) {
   return {
     title: post.title,
     description: post.summary,
-    openGraph: { type: 'article', publishedTime: post.date, authors: [post.author], images: [card] },
+    openGraph: { type: 'article', publishedTime: post.published, authors: [post.author], images: [card] },
     twitter: { card: 'summary_large_image', images: [card.url] },
   };
 }
@@ -71,7 +71,7 @@ export default async function Post({ params }) {
           {author && <Avatar src={author.photo} alt="" sx={{ width: 48, height: 48 }} />}
           <Box sx={{ minWidth: 0 }}>
             <Typography variant="body2" color="text.secondary">
-              {post.author} · <time dateTime={post.date}>{formatDate(post.date)}</time>
+              {post.author} · <time dateTime={post.published}>{formatDate(post.date)}</time>
             </Typography>
             {/* Short: each network by its mark, its name said to a screen
                 reader (the user, 2026-11-16). */}

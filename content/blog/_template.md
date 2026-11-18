@@ -13,6 +13,9 @@ the post's address, so `2026-11-02-hello.md` is published at `/blog/hello/`.
 
 Write in Markdown. While `draft: true` is above, the post shows under
 `yarn dev` only. Take that line out when it is ready, and push to `main`.
+The feed dates the post at the commit that takes it out, and a channel that
+follows the feed dates its post the same; a time written in the date
+(`2026-11-18T06:19:00-07:00`) is used instead.
 
 ## A heading
 

@@ -55,7 +55,7 @@ export default function Blog() {
                     <Box sx={{ minHeight: polaroidCaption.minHeight }} />
                   </Box>
                 )}
-                <Typography variant="body2" color="text.secondary" component="time" dateTime={post.date}>
+                <Typography variant="body2" color="text.secondary" component="time" dateTime={post.published}>
                   {formatDate(post.date)}
                 </Typography>
                 {/* Seen under yarn dev only: drafts are left out of the built site. */}
