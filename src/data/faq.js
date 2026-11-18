@@ -23,11 +23,13 @@ export const questions = [
   {
     id: 'different',
     question: 'How is Anahita different from Mastodon or Pixelfed?',
-    answer: `Mastodon and Pixelfed are popular decentralized apps for sharing updates, photos and videos with friends and followers. They are monolithic applications that serve one purpose very well: helping people and communities launch their own social networks, and connecting them all.
+    answer: `Mastodon and Pixelfed are popular decentralized apps for sharing updates, photos and videos with friends and followers. They are monolithic applications that serve one purpose very well: helping people and communities launch their own social networks and connecting them all.
 
-Anahita meets the same goals, and brings advantages of its own. It is built from many small services, on a graph of nodes and edges, so it is made to scale, to extend and to be customized. It is built for anything from one person to hundreds of thousands. It is also fluent in both ActivityPub and the AT Protocol, the two most common protocols of the decentralized web today, so people on an Anahita site connect with others across the fediverse and the ATmosphere.
+Anahita offers a flexible foundation for social networks that can grow and evolve. Its modular services and social graph make it adaptable, from a small community to a network serving hundreds of thousands, and easier to extend with new capabilities. In addition, support for both ActivityPub and the Bluesky ATProtocol connects Anahita communities with people across the Fediverse and the ATmosphere.
 
-As it comes, Anahita is a great way to launch a social network for a neighbourhood, a library, a university, a city hall or a news agency, or a platform for organizing local arts and cultural meetups and events. It is also a framework: you can add services of your own to build knowledge systems, learning management systems, open data, open science and citizen science platforms, and tools for open-source journalism and open-source intelligence (OSINT). All of it rests on a social graph that scales and is easy to maintain.`,
+Use Anahita to launch a social platform for a neighbourhood, library, university, city hall, news agency, or local arts and events community. Then, build your own custom services and client-side apps to extend Anahita and create knowledge systems, learning management systems, open data, open science and citizen science platforms, and tools for open-source journalism and open-source intelligence (OSINT).
+
+That said, Mastodon and Pixelfed are great projects maintained by hard-working volunteers and community members; if you decide to use their software, please send them funds, and donate your time and software development skills.`,
   },
   {
     id: 'opt-in',
