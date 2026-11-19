@@ -16,12 +16,26 @@ export default function Footer() {
       <Container
         sx={{
           display: 'flex',
-          flexDirection: { xs: 'column', sm: 'row' },
+          flexDirection: { xs: 'column', md: 'row' },
           gap: 2,
           justifyContent: 'space-between',
         }}
       >
-        <Box component="nav" aria-label="Footer" sx={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', columnGap: 3, rowGap: 1 }}>
+        <Box
+          component="nav"
+          aria-label="Footer"
+          sx={{
+            display: 'flex',
+            flexDirection: { xs: 'column', sm: 'row' },
+            flexWrap: { sm: 'wrap' },
+            alignItems: { xs: 'flex-start', sm: 'center' },
+            columnGap: 3,
+            rowGap: { xs: 2, sm: 1 },
+          }}
+        >
+          {/* On a mobile, one link to a line, on the left, as the list grows;
+              from a tablet up, one row. The copyright goes under it until
+              there is room beside it, on a desktop. */}
           {footer.map(({ label, href }) => (
             <MuiLink
               key={label}
@@ -35,28 +49,31 @@ export default function Footer() {
             </MuiLink>
           ))}
           {/* Anahita's own profiles to follow: @anahita@banu.io on the fediverse
-              (rel="me", so Mastodon can verify the link), @anahita.io on Bluesky. */}
-          <IconButton
-            href={site.fediverse}
-            rel="me"
-            aria-label="Anahita on the fediverse, @anahita@banu.io"
-            title="@anahita@banu.io"
-            size="small"
-            sx={{ color: 'text.secondary', ml: -1, '&:hover': { color: 'primary.main' } }}
-          >
-            <HubOutlined fontSize="small" />
-          </IconButton>
-          <IconButton
-            href={site.bluesky}
-            aria-label="Anahita on Bluesky"
-            title="Anahita on Bluesky"
-            size="small"
-            sx={{ color: 'text.secondary', ml: -2, '&:hover': { color: '#1185FE' } }}
-          >
-            <BlueskyIcon fontSize="small" />
-          </IconButton>
+              (rel="me", so Mastodon can verify the link), @anahita.io on Bluesky.
+              Side by side, after the links. */}
+          <Box sx={{ display: 'flex', alignItems: 'center', ml: -1 }}>
+            <IconButton
+              href={site.fediverse}
+              rel="me"
+              aria-label="Anahita on the fediverse, @anahita@banu.io"
+              title="@anahita@banu.io"
+              size="small"
+              sx={{ color: 'text.secondary', '&:hover': { color: 'primary.main' } }}
+            >
+              <HubOutlined fontSize="small" />
+            </IconButton>
+            <IconButton
+              href={site.bluesky}
+              aria-label="Anahita on Bluesky"
+              title="Anahita on Bluesky"
+              size="small"
+              sx={{ color: 'text.secondary', '&:hover': { color: '#1185FE' } }}
+            >
+              <BlueskyIcon fontSize="small" />
+            </IconButton>
+          </Box>
         </Box>
-        <Box sx={{ textAlign: { sm: 'right' } }}>
+        <Box sx={{ textAlign: { md: 'right' } }}>
           <Typography variant="body2" color="text.secondary">
             © 2008–{year} rmd studio. No cookies, no tracking.
           </Typography>
