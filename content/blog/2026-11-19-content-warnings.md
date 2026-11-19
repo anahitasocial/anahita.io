@@ -5,6 +5,7 @@ summary: In Anahita Services v1.3.4, a post can carry a content warning, each re
 author: Rastin Mehr
 image: /images/blog/content-warnings.png
 imageAlt: "A line drawing: a post whose picture is held back behind its warning and View, beside the reader’s three choices: Show, Warn and Hide."
+tags: [Fediverse, Atmosphere, ActivityPub, Atproto, SocialWeb]
 draft: true
 ---
 

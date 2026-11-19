@@ -21,7 +21,7 @@ export async function GET() {
     <updated>${post.published}</updated>
     <author><name>${escape(post.author)}</name></author>
     <summary>${escape(post.summary)}</summary>
-    <content type="html">${escape(await toHtml(post.content))}</content>
+${post.tags.map((tag) => `    <category term="${escape(tag)}"/>\n`).join('')}    <content type="html">${escape(await toHtml(post.content))}</content>
   </entry>`;
     }),
   );

@@ -5,6 +5,7 @@ summary: One line, shown in the blog's list, the feed and link previews.
 author: Rastin Mehr
 image: /images/blog/the-address.png
 imageAlt: What the card shows, in words.
+tags: [Fediverse, Atmosphere, ActivityPub, Atproto, SocialWeb]
 draft: true
 ---
 
@@ -23,6 +24,9 @@ in a new tab.
 
 `image` is the card shown where the post is shared, 1200 by 630 pixels, and
 `imageAlt` says what it shows; without them, the site's own card is shown.
+
+`tags` are the post's hashtags, without the `#`: the feed carries them, and a
+channel that follows the feed adds them to its post, five at most.
 
 Pictures go in `public/images/blog/`:
 

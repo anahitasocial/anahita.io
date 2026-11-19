@@ -5,6 +5,7 @@ summary: Anahita's docs and API reference for AI agents, an MCP server that runs
 author: Rastin Mehr
 image: /images/blog/introducing-anahita-mcp.png
 imageAlt: "A line drawing: your agent asks Anahita MCP, whose six read-only tools read the docs and the API reference."
+tags: [Fediverse, Atmosphere, ActivityPub, Atproto, SocialWeb]
 ---
 
 For those of you who don’t like reading technical documentation, we’ve set up an MCP server for you so your AI agent can read Anahita’s latest documentation and API reference, rather than relying on what it remembers. You can add it to Claude, Cursor, VS Code, or any other MCP client. Then, ask questions like how to set up a site, how federation works, or which API route follows a profile and what it sends back.

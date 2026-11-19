@@ -36,6 +36,9 @@ function read(file) {
     // there is none.
     image: data.image,
     imageAlt: data.imageAlt,
+    // Its hashtags, without the #: written in the feed as categories, which a
+    // channel following the feed adds to its post as hashtags, five at most.
+    tags: data.tags ?? [],
     draft: Boolean(data.draft),
     content,
   };

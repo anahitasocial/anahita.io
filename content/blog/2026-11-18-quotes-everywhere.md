@@ -5,6 +5,7 @@ summary: A quote written on Anahita is now a quote on Mastodon and on Bluesky, b
 author: Rastin Mehr
 image: /images/blog/quotes-everywhere.png
 imageAlt: "A line drawing: your post, a quotation mark before your words, and inside it the post you quote, with its own author and picture."
+tags: [Fediverse, Atmosphere, ActivityPub, Atproto, SocialWeb]
 draft: false
 ---
 
