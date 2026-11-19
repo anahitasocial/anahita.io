@@ -1,12 +1,12 @@
 ---
 title: Content warnings, and the reader's choice
-date: 2026-11-19T09:00:00-07:00
+date: 2026-11-19T11:00:00-07:00
 summary: In Anahita Services v1.3.4, a post can carry a content warning, each reader chooses what they see of each kind, and Made with AI says what a picture is.
 author: Rastin Mehr
 image: /images/blog/content-warnings.png
 imageAlt: "A line drawing: a post whose picture is held back behind its warning and View, beside the reader’s three choices: Show, Warn and Hide."
 tags: [Fediverse, Atmosphere, ActivityPub, Atproto, SocialWeb]
-draft: true
+draft: false
 ---
 
 Some posts aren’t suitable for every reader at every time.  These include topics like grief, violence, nudity, or movie spoilers.  When we introduced content warnings, our primary goal was to avoid censorship while still providing readers with the option to consent.  Anahita doesn’t remove sensitive content; it simply asks.
