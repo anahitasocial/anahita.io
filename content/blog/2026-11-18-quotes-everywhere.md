@@ -17,13 +17,9 @@ Mastodon’s quotes are built on consent, and so are Anahita’s, making them a 
 
 This system works the other way around as well.  If someone on Mastodon requests to quote a post written here, Anahita responds according to the author’s preference: yes for everyone, yes for their followers only, or no.
 
-![A quote on Mastodon: Rastin Mehr's post about Anahita channels, from banu.io, with the Anahita.io channel's post and its picture shown inside it](/images/blog/quote-repost-mastodon.webp "On Mastodon")
-
 ## On Bluesky
 
 On Bluesky, quoting a post displays the quoted post, including any accompanying pictures, within your post.  Quote a post from here that’s on Bluesky too, and Bluesky shows its copy there inside yours.
-
-![The same quote on Bluesky: Rastin Mehr's post, with the Anahita.io post and its picture shown inside it](/images/blog/quote-repost-bsky.webp "On Bluesky")
 
 ## Coming in
 
