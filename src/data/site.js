@@ -39,6 +39,7 @@ export const footer = [
   { label: 'Anahita AI', href: '/ai/' },
   { label: 'FAQ', href: '/faq/' },
   { label: 'Blog', href: '/blog/' },
+  { label: 'Releases', href: '/releases/' },
   { label: 'About', href: '/about/' },
   { label: 'rmd studio', href: site.rmdStudio },
 ];

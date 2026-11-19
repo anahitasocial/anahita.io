@@ -1,6 +1,7 @@
 // Copies the docs of each repository in src/data/docSources.mjs into
 // .docs-src/<key>/, for the site to render, with the commit they came from.
-// The working notes in docs/plans/ are left behind. Images go to
+// The working notes in docs/plans/ are left behind. Each one's CHANGELOG.md
+// goes to .docs-src/changelogs/<key>.md, for the releases (lib/releases.js). Images go to
 // public/docs-assets/<key>/. anahita-services' OpenAPI documents, one for
 // each service and anahita.json of them all, go to .docs-src/api/, which the
 // API reference at /api/ is made from (lib/api.js), and anahita.json also to
@@ -23,18 +24,20 @@ const git = (args, cwd) => execFileSync('git', args, { cwd, encoding: 'utf8' }).
 
 for (const source of docSources) {
   const target = path.join(root, '.docs-src', source.key);
+  const changelog = path.join(root, '.docs-src', 'changelogs', `${source.key}.md`);
   const local = process.env[source.localEnv];
 
   if (!source.repo && !local) {
     fs.rmSync(target, { recursive: true, force: true });
     fs.rmSync(path.join(root, 'public', 'docs-assets', source.key), { recursive: true, force: true });
+    fs.rmSync(changelog, { force: true });
     if (source.key === 'services') {
       fs.rmSync(path.join(root, 'public', 'api'), { recursive: true, force: true });
       fs.rmSync(path.join(root, '.docs-src', 'api'), { recursive: true, force: true });
     }
     continue;
   }
-  if (fs.existsSync(target) && !force && !local) {
+  if (fs.existsSync(target) && fs.existsSync(changelog) && !force && !local) {
     continue;
   }
 
@@ -62,6 +65,12 @@ for (const source of docSources) {
       date: git(['log', '-1', '--format=%cs'], checkout),
     }),
   );
+
+  fs.mkdirSync(path.dirname(changelog), { recursive: true });
+  fs.rmSync(changelog, { force: true });
+  if (fs.existsSync(path.join(checkout, 'CHANGELOG.md'))) {
+    fs.copyFileSync(path.join(checkout, 'CHANGELOG.md'), changelog);
+  }
 
   const images = path.join(checkout, 'docs', 'images');
   const assets = path.join(root, 'public', 'docs-assets', source.key);

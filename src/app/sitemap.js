@@ -1,5 +1,6 @@
 import { site } from '../data/site';
 import { getPosts } from '../lib/blog';
+import { getReleaseDays } from '../lib/releases';
 import { getApi, getServices } from '../lib/api';
 import { getPages, getSources } from '../lib/docs';
 
@@ -21,6 +22,8 @@ export default function sitemap() {
     page('/about/', 0.6),
     ...(site.donations ? [page('/donate/', 0.4)] : []),
     ...getPosts().map((post) => ({ ...page(`/blog/${post.slug}/`, 0.5), lastModified: post.published })),
+    page('/releases/', 0.5),
+    ...getReleaseDays({ all: true }).map((day) => ({ ...page(`/releases/${day.date}/`, 0.3), lastModified: day.published })),
     ...getSources().flatMap(({ key }) => [
       page(`/docs/${key}/`, 0.6),
       ...getPages(key).map(({ slug }) => page(`/docs/${key}/${slug}/`, 0.5)),

@@ -107,6 +107,9 @@ export default function Prose({ html }) {
           bgcolor: 'action.hover',
           borderRadius: 1,
           px: 0.5,
+          // A long address or name breaks rather than widen the page on a
+          // mobile; code blocks scroll instead (pre).
+          overflowWrap: 'anywhere',
         },
         '& pre': {
           bgcolor: 'action.hover',

@@ -48,6 +48,20 @@ DOCS_SERVICES_PATH=../anahita-services yarn dev
 `yarn build` makes the static site in `out/`, which is not committed; GitHub
 Actions builds and publishes it to GitHub Pages on every push to `main`.
 
+## Releases and the feed
+
+`/feed.xml` carries the blog's posts and the release days together, newest
+first; the Anahita channel on banu.io reads it and posts each entry once.
+A release day is every Birth release of Anahita Services and Anahita Web
+made that day, read from their `CHANGELOG.md` by their headings
+(`## v1.4.0 Birth, 2026-11-18`; `src/lib/releases.js`), each with a page at
+`/releases/<date>/` and listed at `/releases/`. A day goes into the feed
+only once it is over in Vancouver, so the nightly build adds the day
+before: a channel never edits a post, and a day posted early would leave
+out a release made later that day. Days before 2026-11-18
+(`RELEASES_SINCE`) are on `/releases/` but not in the feed.
+`RELEASES_TODAY=2026-11-19 yarn build` builds the site as on another day.
+
 ## Security
 
 To report a vulnerability, see [SECURITY.md](SECURITY.md). Please don't open

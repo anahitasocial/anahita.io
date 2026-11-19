@@ -143,6 +143,23 @@ export async function getDoc(key, slug) {
   return { title, html, headings, source };
 }
 
+// A part of a repository's CHANGELOG.md as HTML, its links leading where
+// the docs' do: a doc on this site, anything else on GitHub. The changelog
+// is at the repository's root, beside docs/.
+export async function changelogToHtml(key, markdown) {
+  const source = getSource(key) ?? docSources.find((d) => d.key === key);
+  return String(
+    await unified()
+      .use(remarkParse)
+      .use(remarkGfm)
+      .use(remarkRehype)
+      .use(rewriteLinks, { source, slug: '../CHANGELOG' })
+      .use(outboundLinks)
+      .use(rehypeStringify)
+      .process(markdown),
+  );
+}
+
 // Where a link in the docs should go on this site.
 export function resolveHref(href, { source, slug }) {
   if (!href || href.startsWith('#') || href.startsWith('mailto:')) return href;
