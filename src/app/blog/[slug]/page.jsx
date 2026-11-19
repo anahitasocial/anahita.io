@@ -4,6 +4,7 @@ import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import MuiLink from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
+import JsonLd from '../../../components/JsonLd';
 import Link from '../../../components/Link';
 import Prose from '../../../components/Prose';
 import { BlueskyMark } from '../../../components/diagrams/marks';
@@ -42,6 +43,20 @@ export default async function Post({ params }) {
 
   return (
     <Container component="article" sx={{ pt: { xs: 8, md: 12 } }}>
+      <JsonLd
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'BlogPosting',
+          headline: post.title,
+          description: post.summary,
+          datePublished: post.published,
+          author: { '@type': 'Person', name: post.author },
+          publisher: { '@type': 'Organization', name: site.name, url: site.url },
+          image: `${site.url}${post.image || site.card.url}`,
+          url: `${site.url}/blog/${post.slug}/`,
+          keywords: post.tags,
+        }}
+      />
       <Box sx={{ maxWidth: 680 }}>
         <MuiLink component={Link} href="/blog/" variant="body2" underline="hover">
           Blog

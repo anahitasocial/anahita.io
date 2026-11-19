@@ -44,7 +44,7 @@ export default function Header({ api = false }) {
         <Toolbar disableGutters sx={{ gap: 1 }}>
           <Logo />
           <Box sx={{ flexGrow: 1 }} />
-          <Box component="nav" sx={{ display: { xs: 'none', sm: 'flex' }, gap: 0.5, mr: 1 }}>
+          <Box component="nav" aria-label="Main" sx={{ display: { xs: 'none', sm: 'flex' }, gap: 0.5, mr: 1 }}>
             {links.map(({ label, href }) => (
               <Button
                 key={href}
@@ -99,7 +99,7 @@ export default function Header({ api = false }) {
             </IconButton>
           </Toolbar>
         </Container>
-        <List sx={{ pb: 2 }}>
+        <List component="nav" aria-label="Main" sx={{ pb: 2 }}>
           {links.map(({ label, href }) => (
             <ListItemButton
               key={href}

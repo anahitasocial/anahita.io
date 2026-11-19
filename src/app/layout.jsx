@@ -1,3 +1,4 @@
+import Box from '@mui/material/Box';
 import { Roboto } from 'next/font/google';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v16-appRouter';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -45,10 +46,31 @@ export default function RootLayout({ children }) {
           <SiteTheme>
             <CssBaseline />
             <DiagramDefs />
+            {/* For the keyboard: past the menu to the page itself, seen only
+                when it has the focus. */}
+            <Box
+              component="a"
+              href="#main"
+              sx={{
+                position: 'absolute',
+                left: 16,
+                top: -64,
+                zIndex: 'tooltip',
+                px: 2,
+                py: 1,
+                borderRadius: 1,
+                bgcolor: 'background.paper',
+                color: 'text.primary',
+                boxShadow: 2,
+                '&:focus': { top: 16 },
+              }}
+            >
+              Skip to content
+            </Box>
             {/* API in the top bar once the reference is on the site. */}
             <Header api={Boolean(getApi())} />
             {/* Only what is in <main> goes into the search index. */}
-            <main data-pagefind-body>{children}</main>
+            <main id="main" tabIndex={-1} data-pagefind-body style={{ outline: 'none' }}>{children}</main>
             <Footer />
           </SiteTheme>
         </AppRouterCacheProvider>

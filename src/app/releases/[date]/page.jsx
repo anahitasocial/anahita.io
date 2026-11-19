@@ -2,11 +2,13 @@ import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import MuiLink from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
+import JsonLd from '../../../components/JsonLd';
 import Link from '../../../components/Link';
 import Prose from '../../../components/Prose';
 import { polaroidCaption, polaroidFrame } from '../../../components/Polaroid';
 import { formatDate } from '../../../lib/blog';
-import { getReleaseDay, getReleaseDays, getReleaseHtml } from '../../../lib/releases';
+import { getReleaseDay, getReleaseDays, getReleaseHtml, releaseTags } from '../../../lib/releases';
+import { site } from '../../../data/site';
 
 export const dynamicParams = false;
 
@@ -42,6 +44,20 @@ export default async function ReleaseDay({ params }) {
 
   return (
     <Container component="article" sx={{ pt: { xs: 8, md: 12 } }}>
+      <JsonLd
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'BlogPosting',
+          headline: day.title,
+          description: day.summary,
+          datePublished: day.published,
+          author: { '@type': 'Organization', name: site.name, url: site.url },
+          publisher: { '@type': 'Organization', name: site.name, url: site.url },
+          image: `${site.url}${day.card}`,
+          url: `${site.url}/releases/${day.date}/`,
+          keywords: releaseTags,
+        }}
+      />
       <Box sx={{ maxWidth: 680 }}>
         <MuiLink component={Link} href="/releases/" variant="body2" underline="hover">
           Releases

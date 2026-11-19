@@ -21,7 +21,7 @@ export default function Footer() {
           justifyContent: 'space-between',
         }}
       >
-        <Box component="nav" sx={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', columnGap: 3, rowGap: 1 }}>
+        <Box component="nav" aria-label="Footer" sx={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', columnGap: 3, rowGap: 1 }}>
           {footer.map(({ label, href }) => (
             <MuiLink
               key={label}

@@ -9,6 +9,7 @@ import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import Icon from '../components/Icon';
+import JsonLd from '../components/JsonLd';
 import Link from '../components/Link';
 import Section from '../components/Section';
 import Graph from '../components/diagrams/Graph';
@@ -50,6 +51,35 @@ export default function Home() {
   const servicesDocs = Boolean(getSource('services'));
   return (
     <>
+      <JsonLd
+        data={[
+          {
+            '@context': 'https://schema.org',
+            '@type': 'Organization',
+            name: site.name,
+            url: site.url,
+            logo: `${site.url}/images/logo-512.png`,
+            sameAs: [site.github, site.bluesky, site.fediverse],
+          },
+          {
+            '@context': 'https://schema.org',
+            '@type': 'WebSite',
+            name: site.name,
+            url: site.url,
+          },
+          {
+            '@context': 'https://schema.org',
+            '@type': 'SoftwareApplication',
+            name: site.name,
+            description: site.description,
+            url: site.url,
+            applicationCategory: 'SocialNetworkingApplication',
+            operatingSystem: 'Linux',
+            isAccessibleForFree: true,
+            offers: { '@type': 'Offer', price: '0', priceCurrency: 'CAD' },
+          },
+        ]}
+      />
       <HeroBackground component="section">
         <Container
           sx={{
