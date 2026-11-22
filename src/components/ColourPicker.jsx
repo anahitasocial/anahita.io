@@ -9,6 +9,7 @@ import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
 import Paper from '@mui/material/Paper';
 import Popper from '@mui/material/Popper';
+import Slider from '@mui/material/Slider';
 import Portal from '@mui/material/Portal';
 import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
@@ -16,6 +17,10 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import CloseIcon from '@mui/icons-material/Close';
 import palettes from '../data/palettes';
 import { usePalette } from './SiteTheme';
+import { DEFAULT_PALETTE } from '../theme';
+import rounder, { CORNER_RADII, DEFAULT_CORNERS } from '../lib/corners';
+
+const STEP_NAMES = Object.keys(CORNER_RADII);
 
 // The colour picker, as anahita-web has it (src/components/ColourPicker.jsx
 // there): the button beside the light and dark one, showing the colours in
@@ -23,7 +28,10 @@ import { usePalette } from './SiteTheme';
 // swatches under their groups. On a wider screen a small card under the
 // button; on a mobile a sheet across the bottom, so that the page above it
 // shows what each does. The one chosen is the site's colours at once, in
-// light mode and dark, kept in this browser; Reset goes back to Anahita's.
+// light mode and dark, kept in this browser. Under them, how round the
+// corners are, on a slider over Material UI's names. Until somebody chooses,
+// the site's own are shown chosen: Peacock + copper, and sm. Reset goes back
+// to them.
 
 // The palettes under their groups (Bauhaus, Mid-Century…), in the order of
 // the list.
@@ -53,7 +61,9 @@ function Swatch({ palette, size }) {
   );
 }
 
-function Palettes({ current, choose, onClose, mobile }) {
+function Palettes({ current, choose, corners, chooseCorners, onClose, mobile }) {
+  const shown = current || DEFAULT_PALETTE;
+  const shownCorners = corners || DEFAULT_CORNERS;
   const size = mobile ? 40 : 32;
   // The swatch whose name is shown, on a pointer over it. Closed when it is
   // pressed: left open while the site takes on the new colours, the name
@@ -61,10 +71,10 @@ function Palettes({ current, choose, onClose, mobile }) {
   // and the card's title says the name by then.
   const [named, setNamed] = useState(null);
   return (
-    <Box sx={mobile ? { maxHeight: '50vh', display: 'flex', flexDirection: 'column' } : { width: 304 }}>
+    <Box sx={mobile ? { maxHeight: '67vh', display: 'flex', flexDirection: 'column' } : { width: 304 }}>
       <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, pl: 2, pr: 1, pt: 1 }}>
         <Typography variant="subtitle1" noWrap sx={{ flexGrow: 1, minWidth: 0, fontWeight: 500 }}>
-          {current ? current.name : 'Anahita’s colours'}
+          {shown.name}
         </Typography>
         <IconButton aria-label="Close" onClick={onClose}>
           <CloseIcon fontSize="small" />
@@ -87,7 +97,7 @@ function Palettes({ current, choose, onClose, mobile }) {
               }}
             >
               {group.palettes.map((palette) => {
-                const selected = Boolean(current) && current.id === palette.id;
+                const selected = shown.id === palette.id;
                 const swatch = (
                   <ButtonBase
                     key={palette.id}
@@ -125,8 +135,34 @@ function Palettes({ current, choose, onClose, mobile }) {
           </Box>
         ))}
       </Box>
+      {/* The corners: five steps, 0 for none, which is shorter. */}
+      <Box sx={{ px: 2, mt: 1 }}>
+        <Typography id="colour-picker-corners" variant="overline" color="text.secondary" component="p" sx={{ lineHeight: 2 }}>
+          Corners
+        </Typography>
+        <Box sx={{ px: 1 }}>
+          <Slider
+            aria-labelledby="colour-picker-corners"
+            value={Math.max(STEP_NAMES.indexOf(shownCorners), 0)}
+            min={0}
+            max={STEP_NAMES.length - 1}
+            step={1}
+            marks={STEP_NAMES.map((name, at) => ({ value: at, label: name === 'none' ? '0' : name }))}
+            getAriaValueText={(at) => STEP_NAMES[at]}
+            onChange={(event, at) => chooseCorners(STEP_NAMES[at])}
+            size="small"
+          />
+        </Box>
+      </Box>
       <Box sx={{ display: 'flex', justifyContent: 'flex-end', px: 1, py: 1 }}>
-        <Button size="small" onClick={() => choose(undefined)} disabled={!current}>
+        <Button
+          size="small"
+          onClick={() => {
+            choose(undefined);
+            chooseCorners(undefined);
+          }}
+          disabled={!current && !corners}
+        >
           Reset
         </Button>
       </Box>
@@ -135,7 +171,7 @@ function Palettes({ current, choose, onClose, mobile }) {
 }
 
 export default function ColourPicker() {
-  const { palette, choose } = usePalette();
+  const { palette, choose, corners, chooseCorners } = usePalette();
   const mobile = useMediaQuery((theme) => theme.breakpoints.down('sm'));
   const [anchor, setAnchor] = useState(null);
   const open = Boolean(anchor);
@@ -156,7 +192,14 @@ export default function ColourPicker() {
   const body = (
     <ClickAwayListener onClickAway={listening ? close : () => {}}>
       <Box sx={{ display: 'contents' }}>
-        <Palettes current={palette} choose={choose} onClose={close} mobile={mobile} />
+        <Palettes
+          current={palette}
+          choose={choose}
+          corners={corners}
+          chooseCorners={chooseCorners}
+          onClose={close}
+          mobile={mobile}
+        />
       </Box>
     </ClickAwayListener>
   );
@@ -207,7 +250,7 @@ export default function ColourPicker() {
           modifiers={[{ name: 'offset', options: { offset: [0, 8] } }]}
           sx={{ zIndex: (theme) => theme.zIndex.modal }}
         >
-          <Paper elevation={0} sx={{ borderRadius: 3, border: 1, borderColor: 'divider', boxShadow: '0 8px 32px rgba(0, 0, 0, 0.12)' }}>
+          <Paper elevation={0} sx={{ borderRadius: rounder(3), border: 1, borderColor: 'divider', boxShadow: '0 8px 32px rgba(0, 0, 0, 0.12)' }}>
             {body}
           </Paper>
         </Popper>

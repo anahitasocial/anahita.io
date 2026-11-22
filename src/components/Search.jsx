@@ -13,6 +13,7 @@ import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import SearchIcon from '@mui/icons-material/Search';
+import rounder from '../lib/corners';
 
 // Search through Pagefind: `yarn build` indexes the finished pages into
 // out/pagefind/, and the visitor's browser searches that index. Nothing is
@@ -69,7 +70,7 @@ function Results({ query, onPick }) {
         <ListItemButton
           key={result.url}
           onClick={() => onPick(result.url)}
-          sx={{ display: 'block', borderRadius: 2, mx: 1 }}
+          sx={{ display: 'block', borderRadius: rounder(2), mx: 1 }}
         >
           <Typography variant="subtitle1" sx={{ fontWeight: 500 }}>
             {result.meta.title}
@@ -135,7 +136,7 @@ export default function Search() {
           px: 1.5,
           border: 1,
           borderColor: 'divider',
-          borderRadius: 2,
+          borderRadius: rounder(2),
           color: 'text.secondary',
           justifyContent: 'flex-start',
         }}

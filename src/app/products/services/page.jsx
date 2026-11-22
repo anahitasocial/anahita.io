@@ -41,6 +41,7 @@ import WhatRuns from '../../../components/diagrams/WhatRuns';
 import { BlueskyMark } from '../../../components/diagrams/marks';
 import { getSource } from '../../../lib/docs';
 import { backing, groups } from '../../../data/services';
+import rounder from '../../../lib/corners';
 
 export const metadata = {
   title: 'Anahita Services',
@@ -95,7 +96,7 @@ function ServiceIcon({ name }) {
         width: 40,
         height: 40,
         flexShrink: 0,
-        borderRadius: 2,
+        borderRadius: rounder(2),
         display: 'grid',
         placeItems: 'center',
         bgcolor: 'action.hover',

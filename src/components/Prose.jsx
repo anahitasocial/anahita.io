@@ -3,6 +3,7 @@
 import { useEffect, useRef } from 'react';
 import Box from '@mui/material/Box';
 import { polaroidCaption, polaroidFrame } from './Polaroid';
+import rounder from '../lib/corners';
 
 // The language last chosen in a group of code tabs (lib/markdown.js,
 // codeTabs), for every group on every page.
@@ -113,7 +114,7 @@ export default function Prose({ html }) {
         },
         '& pre': {
           bgcolor: 'action.hover',
-          borderRadius: 2,
+          borderRadius: rounder(2),
           p: 2,
           overflowX: 'auto',
           lineHeight: 1.5,
@@ -127,7 +128,7 @@ export default function Prose({ html }) {
           my: 3,
           border: 1,
           borderColor: 'divider',
-          borderRadius: 2,
+          borderRadius: rounder(2),
           overflow: 'hidden',
           '& pre': { m: 0, borderRadius: 0 },
         },
@@ -162,7 +163,7 @@ export default function Prose({ html }) {
           m: 0,
           pl: 2,
         },
-        '& img': { maxWidth: '100%', borderRadius: 2 },
+        '& img': { maxWidth: '100%', borderRadius: rounder(2) },
         // Every picture on a line of its own, as a Polaroid (lib/markdown.js,
         // polaroids; components/Polaroid.jsx): its caption, if it has one,
         // in the wide bottom; tilted a little one way and the next the

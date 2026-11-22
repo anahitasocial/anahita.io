@@ -1,26 +1,31 @@
 'use client';
 
 import { createTheme } from '@mui/material/styles';
+import palettes from './data/palettes';
+import { CORNER_RADII, DEFAULT_CORNERS } from './lib/corners';
 
-// Anahita's colours: ink and signal red, chosen by the user on 2026-10-25
-// (shared with anahita-web). Ink matches the black-and-white logo; in dark
-// mode it turns to near-white. The red is an accent, used sparingly: red
-// also means an error. Light or dark is a class on <html>: set from the
+// The site's colours: Peacock + copper, from the picker's palettes, chosen
+// by the user on 2026-11-21 for anahita.io (anahita-web keeps ink and signal
+// red, chosen 2026-10-25). Light or dark is a class on <html>: set from the
 // operating system before the page paints (InitColorSchemeScript), then by
-// the toggle in the header. A palette from the colour picker takes the
-// place of Anahita's own, in this browser (components/SiteTheme.jsx).
-const anahita = {
-  light: { primary: '#1F2328', secondary: '#D62828' },
-  dark: { primary: '#E6E8EB', secondary: '#E57575' },
-};
+// the toggle in the header. A palette from the colour picker takes the place
+// of the site's own, in this browser (components/SiteTheme.jsx), and so do
+// the corners chosen there: sm, Material UI's own 4 pixels, unless chosen.
+export const DEFAULT_PALETTE = palettes.find((each) => each.id === 'peacock-copper');
 
-export const makeTheme = (palette = anahita) => createTheme({
+export const makeTheme = (palette = DEFAULT_PALETTE, corners = CORNER_RADII[DEFAULT_CORNERS]) => createTheme({
   cssVariables: { colorSchemeSelector: 'class' },
   colorSchemes: {
     light: { palette: { primary: { main: palette.light.primary }, secondary: { main: palette.light.secondary } } },
     dark: { palette: { primary: { main: palette.dark.primary }, secondary: { main: palette.dark.secondary } } },
   },
-  shape: { borderRadius: 12 },
+  shape: {
+    borderRadius: corners,
+    borderRadiusSm: CORNER_RADII.sm,
+    borderRadiusMd: CORNER_RADII.md,
+    borderRadiusLg: CORNER_RADII.lg,
+    borderRadiusXl: CORNER_RADII.xl,
+  },
   typography: {
     h1: { fontSize: '3rem', fontWeight: 500, letterSpacing: '-0.02em', lineHeight: 1.1 },
     h2: { fontSize: '2rem', fontWeight: 500, letterSpacing: '-0.01em', lineHeight: 1.2 },

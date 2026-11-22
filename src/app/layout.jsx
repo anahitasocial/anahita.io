@@ -42,7 +42,7 @@ export default function RootLayout({ children }) {
       <body>
         <InitColorSchemeScript attribute="class" />
         <AppRouterCacheProvider>
-          {/* Anahita's colours, or the palette chosen in this browser. */}
+          {/* The site's colours and corners, or those chosen in this browser. */}
           <SiteTheme>
             <CssBaseline />
             <DiagramDefs />

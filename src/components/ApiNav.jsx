@@ -11,6 +11,7 @@ import ListItemText from '@mui/material/ListItemText';
 import ApiOutlined from '@mui/icons-material/ApiOutlined';
 import Link from './Link';
 import Method from './Method';
+import rounder from '../lib/corners';
 
 // The route being read: the last whose top has passed under the header.
 function useReading(pathname) {
@@ -42,7 +43,7 @@ function Services({ groups, onPick }) {
   const pathname = usePathname();
   const reading = useReading(pathname);
   const item = (href, label, selected) => (
-    <ListItemButton component={Link} href={href} selected={selected} onClick={onPick} sx={{ borderRadius: 2, px: 1.5 }}>
+    <ListItemButton component={Link} href={href} selected={selected} onClick={onPick} sx={{ borderRadius: rounder(2), px: 1.5 }}>
       <ListItemText primary={label} />
     </ListItemButton>
   );
@@ -70,7 +71,7 @@ function Services({ groups, onPick }) {
                             title={summary}
                             selected={reading === id}
                             onClick={onPick}
-                            sx={{ borderRadius: 2, pl: 3, pr: 1.5, py: 0.25, gap: 1, alignItems: 'baseline' }}
+                            sx={{ borderRadius: rounder(2), pl: 3, pr: 1.5, py: 0.25, gap: 1, alignItems: 'baseline' }}
                           >
                             <Method method={method} />
                             <ListItemText

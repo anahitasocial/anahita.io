@@ -1,5 +1,6 @@
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
+import rounder from '../lib/corners';
 
 const mono = 'ui-monospace, SFMono-Regular, Menlo, monospace';
 
@@ -69,7 +70,7 @@ export default function ApiFields({ fields, requiredWord = 'required' }) {
                 mt: 1,
                 border: 1,
                 borderColor: 'divider',
-                borderRadius: 2,
+                borderRadius: rounder(2),
                 '& > summary': { cursor: 'pointer', px: 1.5, py: 0.75, typography: 'body2', color: 'text.secondary' },
                 '&[open] > summary': { borderBottom: 1, borderColor: 'divider' },
                 '& > ul': { px: 1.5 },

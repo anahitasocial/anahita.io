@@ -11,6 +11,7 @@ import ListItemText from '@mui/material/ListItemText';
 import ListSubheader from '@mui/material/ListSubheader';
 import MenuBookOutlined from '@mui/icons-material/MenuBookOutlined';
 import Link from './Link';
+import rounder from '../lib/corners';
 
 // The pages of every source under its name, and under a small heading for
 // each of its groups where its README has them. Beside the page on wide
@@ -50,7 +51,7 @@ function Pages({ sources, onPick }) {
                   {...(href.startsWith('http') && { target: '_blank', rel: 'noopener noreferrer' })}
                   selected={pathname === href}
                   onClick={onPick}
-                  sx={{ borderRadius: 2, px: 1.5 }}
+                  sx={{ borderRadius: rounder(2), px: 1.5 }}
                 >
                   <ListItemText primary={label} />
                 </ListItemButton>

@@ -9,6 +9,7 @@ import Prose from './Prose';
 import Link from './Link';
 import WrittenBy from './WrittenBy';
 import { groupIcons } from '../data/docs';
+import rounder from '../lib/corners';
 
 // A docs overview's groups of pages, as cards: each group's name, its icon,
 // and its pages, two cards to a row on wider screens.
@@ -58,7 +59,7 @@ function Neighbours({ previous, next }) {
         textAlign: align,
         border: 1,
         borderColor: 'divider',
-        borderRadius: 2,
+        borderRadius: rounder(2),
         px: 2,
         py: 1.5,
         '&:hover': { borderColor: 'text.secondary' },
