@@ -27,7 +27,7 @@ export default function Donate() {
         <Grid container spacing={3}>
           {uses.map(({ title, text }) => (
             <Grid key={title} size={{ xs: 12, md: 4 }}>
-              <Box sx={{ borderTop: 2, borderColor: 'primary.main', pt: 2 }}>
+              <Box sx={{ borderTop: 1, borderColor: 'divider', pt: 2 }}>
                 <Typography variant="subtitle1" component="h3" sx={{ fontWeight: 500 }}>
                   {title}
                 </Typography>

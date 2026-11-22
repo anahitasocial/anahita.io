@@ -158,7 +158,7 @@ export default function Home() {
         <Grid container spacing={3}>
           {audiences.map(({ title, text }) => (
             <Grid key={title} size={{ xs: 12, sm: 6, md: 'grow' }}>
-              <Box sx={{ borderTop: 2, borderColor: 'primary.main', pt: 2 }}>
+              <Box sx={{ borderTop: 1, borderColor: 'divider', pt: 2 }}>
                 <Typography variant="subtitle1" component="h3" sx={{ fontWeight: 500 }}>
                   {title}
                 </Typography>
