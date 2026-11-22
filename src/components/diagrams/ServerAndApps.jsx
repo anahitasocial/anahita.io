@@ -58,7 +58,7 @@ function Server({ x, y, w, width }) {
             {line}
           </text>
         ))}
-        <Node x={inner.x} y={data} w={inner.w} h={52} title="Data, events and files" lines={['MySQL, Redis, RabbitMQ, object storage']} size={14} />
+        <Node x={inner.x} y={data} w={inner.w} h={52} title="Data, events and files" lines={['MySQL, Valkey, RabbitMQ, object storage']} size={14} />
       </g>
     ),
   };

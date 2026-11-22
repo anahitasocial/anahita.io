@@ -79,11 +79,11 @@ const COLOURS = {
   offered: '#C026D3',
 };
 const accent = (kind) => (TONE === 'colour' ? COLOURS[kind] : color.text);
-const STORE_COLOURS = { MySQL: '#00758F', Redis: '#DC2626', RabbitMQ: '#F97316' };
+const STORE_COLOURS = { MySQL: '#00758F', Valkey: '#DC2626', RabbitMQ: '#F97316' };
 // What each store keeps, short enough for its card.
 const keeps = {
   MySQL: 'everything kept',
-  Redis: 'sessions',
+  Valkey: 'sessions',
   RabbitMQ: "the services' events",
   'Object storage': 'files, photos, videos',
 };

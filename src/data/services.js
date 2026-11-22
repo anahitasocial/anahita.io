@@ -387,7 +387,7 @@ export const groups = [
 
 export const backing = [
   { name: 'MySQL', icon: 'database', text: 'Everything that is kept.' },
-  { name: 'Redis', icon: 'memory', text: 'Sessions.' },
+  { name: 'Valkey', icon: 'memory', text: 'Sessions and rate limits.' },
   { name: 'RabbitMQ', icon: 'events', text: 'Events between the services.' },
   { name: 'Object storage', icon: 'files', text: 'Photos, videos and files, on any S3-compatible store: Garage on your own machine, your own or your cloud’s live.' },
 ];

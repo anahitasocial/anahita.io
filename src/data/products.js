@@ -9,7 +9,7 @@ export const server = {
     'A collection of small services written in Go, each doing one thing, behind one gateway',
     'One open API, described in OpenAPI 3.1 made from the code',
     'Docker Compose on your own machine; Kubernetes when you go live, on any cloud',
-    'MySQL, Redis, RabbitMQ and any S3-compatible object storage',
+    'MySQL, Valkey, RabbitMQ and any S3-compatible object storage',
     'Open source under the GNU AGPL-3.0; the definitions for talking to it under Apache 2.0',
   ],
 };
