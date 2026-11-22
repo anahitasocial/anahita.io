@@ -13,7 +13,7 @@ const KEY = 'anahita-palette';
 const CORNERS_KEY = 'anahita-corners';
 
 // The palette and the corners chosen, and choosing them, for the colour
-// picker in the header. Undefined is the site's own: Peacock + copper, and
+// picker in the header. Undefined is the site's own: Forest + terracotta, and
 // sm, or md on a mobile (theme.js, and below).
 export const PaletteContext = createContext({
   palette: undefined, choose: () => {}, corners: undefined, chooseCorners: () => {},

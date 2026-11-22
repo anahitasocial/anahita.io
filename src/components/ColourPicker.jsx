@@ -30,7 +30,7 @@ const STEP_NAMES = Object.keys(CORNER_RADII);
 // shows what each does. The one chosen is the site's colours at once, in
 // light mode and dark, kept in this browser. Under them, how round the
 // corners are, on a slider over Material UI's names. Until somebody chooses,
-// the site's own are shown chosen: Peacock + copper, and sm, or md on a
+// the site's own are shown chosen: Forest + terracotta, and sm, or md on a
 // mobile. Reset, at the top once something is chosen, goes back to them.
 
 // The palettes under their groups (Bauhaus, Mid-Century…), in the order of

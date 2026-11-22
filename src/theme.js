@@ -4,14 +4,15 @@ import { createTheme } from '@mui/material/styles';
 import palettes from './data/palettes';
 import { CORNER_RADII, DEFAULT_CORNERS } from './lib/corners';
 
-// The site's colours: Peacock + copper, from the picker's palettes, chosen
-// by the user on 2026-11-21 for anahita.io (anahita-web keeps ink and signal
-// red, chosen 2026-10-25). Light or dark is a class on <html>: set from the
+// The site's colours: Forest + terracotta, from the picker's palettes, chosen
+// by the user on 2026-11-22 for anahita.io, after Peacock + copper the day
+// before (anahita-web keeps ink and signal red, chosen 2026-10-25). Light
+// or dark is a class on <html>: set from the
 // operating system before the page paints (InitColorSchemeScript), then by
 // the toggle in the header. A palette from the colour picker takes the place
 // of the site's own, in this browser (components/SiteTheme.jsx), and so do
 // the corners chosen there: sm, Material UI's own 4 pixels, unless chosen.
-export const DEFAULT_PALETTE = palettes.find((each) => each.id === 'peacock-copper');
+export const DEFAULT_PALETTE = palettes.find((each) => each.id === 'forest-terracotta');
 
 export const makeTheme = (palette = DEFAULT_PALETTE, corners = CORNER_RADII[DEFAULT_CORNERS]) => createTheme({
   cssVariables: { colorSchemeSelector: 'class' },
