@@ -13,6 +13,8 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { changelogToHtml } from './docs';
+import { blueskyLength, BLUESKY_MAX } from './bluesky';
+import { site } from '../data/site';
 
 const folder = path.join(process.cwd(), '.docs-src', 'changelogs');
 
@@ -134,11 +136,19 @@ export function getReleaseDays({ all = false } = {}) {
       const works = entries
         .flatMap(({ releases }) => releases.slice(0, 1).map((r) => r.lead.match(/^Works with .+$/m)?.[0].trim()))
         .filter(Boolean);
-      const summary = [
-        upgrading && 'Read the upgrading notes before upgrading.',
-        `${title} ${entries.length > 1 || entries[0].releases.length > 1 ? 'are' : 'is'} out.`,
-        ...works.map((line) => `Anahita Web ${line.charAt(0).toLowerCase()}${line.slice(1)}`),
-      ].filter(Boolean).join(' ');
+      // What the summary says, in order. It fits on Bluesky with the title,
+      // the address and the hashtags (lib/bluesky.js): when it would not, the
+      // sentence that says the title again goes first, then what Anahita Web
+      // works with. The upgrading notes stay.
+      const parts = [
+        { text: upgrading && 'Read the upgrading notes before upgrading.', keep: 3 },
+        { text: `${title} ${entries.length > 1 || entries[0].releases.length > 1 ? 'are' : 'is'} out.`, keep: 1 },
+        ...works.map((line) => ({ text: `Anahita Web ${line.charAt(0).toLowerCase()}${line.slice(1)}`, keep: 2 })),
+      ].filter((part) => part.text);
+      const address = `${site.url}/releases/${date}/`;
+      const said = (kept) => parts.filter((part) => part.keep >= kept).map((part) => part.text).join(' ');
+      const fits = (text) => blueskyLength({ title, summary: text, address, tags: releaseTags }) <= BLUESKY_MAX;
+      const summary = [1, 2, 3].map(said).find(fits) ?? said(3);
       return {
         date,
         title,

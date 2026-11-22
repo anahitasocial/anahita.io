@@ -17,6 +17,11 @@ Write in Markdown. While `draft: true` is above, the post shows under
 Set `date:` to the moment you publish, as `date -Iseconds` prints it: the
 feed carries it, and a channel that follows the feed dates its post by it.
 
+The title, the summary, the post's address and its hashtags must fit in one
+post on Bluesky, 300 letters, as the Anahita channel posts them there; the
+address counts as 23 at most. A post that does not stops the build, saying
+by how much (`src/lib/bluesky.js`).
+
 ## A heading
 
 Links: [the FAQ](/faq/), or [another site](https://example.org), which opens

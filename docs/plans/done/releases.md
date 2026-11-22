@@ -82,7 +82,10 @@ order and the one alone when only one was released. Its summary, which the
 channel posts as its words (300 characters at most): the title's versions in
 a sentence, and, on a day with an Upgrading section, "Read the upgrading
 notes before upgrading." first, so that operators see it; then what the
-web release works with.
+web release works with. With the title, the address and the hashtags it
+fits in one Bluesky post (`src/lib/bluesky.js`; the user, 2026-11-22): when
+it would not, the sentence that says the title again goes first, then what
+the web release works with; the upgrading notes stay.
 
 ## The pages
 

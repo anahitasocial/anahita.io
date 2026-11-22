@@ -10,8 +10,16 @@ import fs from 'node:fs';
 import path from 'node:path';
 import matter from 'gray-matter';
 import { toHtml } from './markdown';
+import { blueskyLength, BLUESKY_MAX } from './bluesky';
+import { site } from '../data/site';
 
 const folder = path.join(process.cwd(), 'content/blog');
+
+// From this day on, a post published must fit on Bluesky whole: its title,
+// summary, address and hashtags, as the Anahita channel posts them there
+// (lib/bluesky.js; the user, 2026-11-22). The posts before it stay as they
+// went out.
+const FITS_FROM = '2026-11-22';
 
 function read(file) {
   const text = fs.readFileSync(path.join(folder, file), 'utf8');
@@ -23,8 +31,18 @@ function read(file) {
     throw new Error(`content/blog/${file}: date needs its time and offset, as 2026-11-18T06:19:05-07:00`);
   }
   const day = written[1];
+  const slug = file.replace(/^\d{4}-\d{2}-\d{2}-/, '').replace(/\.md$/, '');
+  if (!data.draft && day >= FITS_FROM) {
+    const length = blueskyLength({
+      title: data.title, summary: data.summary, address: `${site.url}/blog/${slug}/`, tags: data.tags ?? [],
+    });
+    if (length > BLUESKY_MAX) {
+      throw new Error(`content/blog/${file}: on Bluesky its title, summary, address and hashtags take ${length} letters, `
+        + `${length - BLUESKY_MAX} more than the ${BLUESKY_MAX} there are: shorten the summary or the title, or take a hashtag out`);
+    }
+  }
   return {
-    slug: file.replace(/^\d{4}-\d{2}-\d{2}-/, '').replace(/\.md$/, ''),
+    slug,
     title: data.title,
     date: day,
     // The moment it was published, in UTC (2026-11-18T13:19:05.000Z).
