@@ -31,7 +31,7 @@ const STEP_NAMES = Object.keys(CORNER_RADII);
 // light mode and dark, kept in this browser. Under them, how round the
 // corners are, on a slider over Material UI's names. Until somebody chooses,
 // the site's own are shown chosen: Peacock + copper, and sm, or md on a
-// mobile. Reset goes back to them.
+// mobile. Reset, at the top once something is chosen, goes back to them.
 
 // The palettes under their groups (Bauhaus, Mid-Century…), in the order of
 // the list.
@@ -76,6 +76,20 @@ function Palettes({ current, choose, corners, chooseCorners, onClose, mobile }) 
         <Typography variant="subtitle1" noWrap sx={{ flexGrow: 1, minWidth: 0, fontWeight: 500 }}>
           {shown.name}
         </Typography>
+        {/* Reset at the top, beside close, once something is chosen, as
+            anahita-web has it: at the foot it was out of sight, and in the
+            home-screen app under the home bar (the user, 2026-11-21). */}
+        {(current || corners) && (
+          <Button
+            size="small"
+            onClick={() => {
+              choose(undefined);
+              chooseCorners(undefined);
+            }}
+          >
+            Reset
+          </Button>
+        )}
         <IconButton aria-label="Close" onClick={onClose}>
           <CloseIcon fontSize="small" />
         </IconButton>
@@ -154,18 +168,8 @@ function Palettes({ current, choose, corners, chooseCorners, onClose, mobile }) 
           />
         </Box>
       </Box>
-      <Box sx={{ display: 'flex', justifyContent: 'flex-end', px: 1, py: 1 }}>
-        <Button
-          size="small"
-          onClick={() => {
-            choose(undefined);
-            chooseCorners(undefined);
-          }}
-          disabled={!current && !corners}
-        >
-          Reset
-        </Button>
-      </Box>
+      {/* Room at the foot, and above the phone's home bar on a mobile. */}
+      <Box sx={{ pb: mobile ? 'calc(16px + env(safe-area-inset-bottom))' : 2 }} />
     </Box>
   );
 }

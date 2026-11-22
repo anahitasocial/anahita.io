@@ -18,6 +18,11 @@ const roboto = Roboto({
   display: 'swap',
 });
 
+// iOS tells the page how much room its home bar takes (env(safe-area-inset-
+// bottom)) only when the page covers the whole screen: the colour picker's
+// sheet keeps clear of it.
+export const viewport = { width: 'device-width', initialScale: 1, viewportFit: 'cover' };
+
 export const metadata = {
   metadataBase: new URL(site.url),
   title: { default: 'Anahita', template: '%s · Anahita' },
