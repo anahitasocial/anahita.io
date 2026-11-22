@@ -10,7 +10,10 @@ export const CORNER_RADII = {
   xl: 24,
 };
 
+// The site's own: sm on a wider screen, md below 600 pixels (the user,
+// 2026-11-21), unless somebody chooses.
 export const DEFAULT_CORNERS = 'sm';
+export const DEFAULT_CORNERS_MOBILE = 'md';
 
 // The most a corner is rounded, in pixels: xl.
 export const MAX_CORNER = CORNER_RADII.xl;

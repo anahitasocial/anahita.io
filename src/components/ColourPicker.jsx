@@ -18,7 +18,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import palettes from '../data/palettes';
 import { usePalette } from './SiteTheme';
 import { DEFAULT_PALETTE } from '../theme';
-import rounder, { CORNER_RADII, DEFAULT_CORNERS } from '../lib/corners';
+import rounder, { CORNER_RADII, DEFAULT_CORNERS, DEFAULT_CORNERS_MOBILE } from '../lib/corners';
 
 const STEP_NAMES = Object.keys(CORNER_RADII);
 
@@ -30,8 +30,8 @@ const STEP_NAMES = Object.keys(CORNER_RADII);
 // shows what each does. The one chosen is the site's colours at once, in
 // light mode and dark, kept in this browser. Under them, how round the
 // corners are, on a slider over Material UI's names. Until somebody chooses,
-// the site's own are shown chosen: Peacock + copper, and sm. Reset goes back
-// to them.
+// the site's own are shown chosen: Peacock + copper, and sm, or md on a
+// mobile. Reset goes back to them.
 
 // The palettes under their groups (Bauhaus, Mid-Century…), in the order of
 // the list.
@@ -63,7 +63,7 @@ function Swatch({ palette, size }) {
 
 function Palettes({ current, choose, corners, chooseCorners, onClose, mobile }) {
   const shown = current || DEFAULT_PALETTE;
-  const shownCorners = corners || DEFAULT_CORNERS;
+  const shownCorners = corners || (mobile ? DEFAULT_CORNERS_MOBILE : DEFAULT_CORNERS);
   const size = mobile ? 40 : 32;
   // The swatch whose name is shown, on a pointer over it. Closed when it is
   // pressed: left open while the site takes on the new colours, the name

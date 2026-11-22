@@ -1,10 +1,11 @@
 'use client';
 
 import { createContext, useContext, useEffect, useMemo, useState } from 'react';
+import GlobalStyles from '@mui/material/GlobalStyles';
 import { ThemeProvider } from '@mui/material/styles';
 import { makeTheme } from '../theme';
 import palettes from '../data/palettes';
-import { CORNER_RADII } from '../lib/corners';
+import { CORNER_RADII, DEFAULT_CORNERS_MOBILE } from '../lib/corners';
 
 // The same keys as anahita-web's, though the two are on different sites and
 // each browser keeps its own.
@@ -13,7 +14,7 @@ const CORNERS_KEY = 'anahita-corners';
 
 // The palette and the corners chosen, and choosing them, for the colour
 // picker in the header. Undefined is the site's own: Peacock + copper, and
-// sm (theme.js).
+// sm, or md on a mobile (theme.js, and below).
 export const PaletteContext = createContext({
   palette: undefined, choose: () => {}, corners: undefined, chooseCorners: () => {},
 });
@@ -68,6 +69,19 @@ export default function SiteTheme({ children }) {
     // Nothing of the light or dark mode is stored: every visit starts from
     // the system's setting.
     <ThemeProvider theme={theme} storageManager={null} disableTransitionOnChange>
+      {/* The site's own corners are rounder on a mobile, md below 600
+          pixels: the theme's corner variable, set again there, in CSS so
+          that nothing changes after the page is drawn. Not once somebody
+          has chosen their own, which are for every screen. */}
+      {corners === undefined && (
+        <GlobalStyles
+          styles={{
+            '@media (max-width: 599.95px)': {
+              ':root:root': { '--mui-shape-borderRadius': `${CORNER_RADII[DEFAULT_CORNERS_MOBILE]}px` },
+            },
+          }}
+        />
+      )}
       <PaletteContext.Provider value={value}>{children}</PaletteContext.Provider>
     </ThemeProvider>
   );
