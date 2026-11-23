@@ -40,7 +40,7 @@ That said, Mastodon and Pixelfed are great projects maintained by hard-working v
   {
     id: 'refusing',
     question: 'Can an instance keep out a server, or one account?',
-    answer: `Yes, both. Super administrators can refuse a whole server, a domain and everything under it, on the fediverse or on Bluesky: nothing is taken from it, nothing is sent to it, and nobody on it can be looked up. Administrators can refuse one account, on either network, for the whole instance: it is kept out by what does not change, its address or its Bluesky DID, and what was here of it is removed. Both lists are in Site settings, under Fediverse, and an account can also be refused from its profile or from a report about it. Each person can still block whoever they like, for themselves. See [Servers that are refused](/docs/services/federation/#servers-that-are-refused) and [Accounts that are refused](/docs/services/federation/#accounts-that-are-refused).`,
+    answer: `Yes, both. Super administrators can refuse a whole server, a domain and everything under it, on the fediverse or on Bluesky: nothing is taken from it, nothing is sent to it, and nobody on it can be looked up. Administrators can refuse one account, on either network, for the whole instance: it is kept out by what does not change, its address or its Bluesky DID, and what was here of it is removed. Both lists are in Site settings, under Federated, and an account can also be refused from its profile or from a report about it. Each person can still block whoever they like, for themselves. See [Servers that are refused](/docs/services/federation/#servers-that-are-refused) and [Accounts that are refused](/docs/services/federation/#accounts-that-are-refused).`,
   },
   {
     id: 'graph',
