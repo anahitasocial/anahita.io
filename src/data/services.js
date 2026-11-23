@@ -91,7 +91,7 @@ export const groups = [
         text: 'Notes, articles and topics.',
         doc: 'post-language',
         details: [
-          ['Short posts', '500 characters, as on Mastodon and Threads, a link counted as 23; longer writing is a thread, an article or a topic.'],
+          ['Short posts', '500 characters, as on Mastodon and Threads, a link counted as 23, and 300, Bluesky’s own, for one that goes there; longer writing is a thread, an article or a topic.'],
           ['Drafts', 'articles and topics can be kept as drafts and published when ready.'],
           ['Embeds and citations', 'an address on a line of its own shows the post or a card for the page; the posts that cite or quote a post are listed under it as “Cited by”.'],
           ['Quotes by consent', 'authors choose who may quote them, and can take their post out of any quote.'],
@@ -183,6 +183,8 @@ export const groups = [
           ['Never wider', 'a shared feed shows each reader only what they could already see.'],
           ['Share, copy, pin', 'feeds can be shared, found, copied and kept on the home page.'],
           ['Every feed to browse', 'the Feeds page lists every feed a reader may see, newest first and never ranked.'],
+          ['This instance’s timeline', 'a feed of everyone, posted on this instance, needs nothing else; shared, it is its public timeline.'],
+          ['Readable addresses', 'a feed is at /feeds/12-arts-design, its name after its number.'],
           ['Threads in lists', 'a post its writer went on under shows the next note and how many there are.'],
         ],
       },
@@ -242,6 +244,7 @@ export const groups = [
           ['Refusing servers', 'super administrators can refuse a domain and everything under it, on the fediverse and on Bluesky.'],
           ['Refusing accounts', 'administrators can refuse one account on the fediverse or Bluesky for the whole instance; what was here of it is removed, and nothing more is taken from it or sent to it.'],
           ['Moving', 'somebody followed from here who moves is followed at their new account; a person here moves in from another account, or away after proving who they are, their followers going with them and the old profile pointing the way, as on Mastodon.'],
+          ['From their own server', 'a page on Mastodon or Pixelfed sends somebody from here to follow or answer it here; a visitor from another server is sent to their own to follow a profile or answer a post here.'],
         ],
       },
       {
@@ -370,6 +373,7 @@ export const groups = [
           ['The same for all', 'crawlers and people are sent the same page; nobody is told apart.'],
           ['Public only', 'a page is described only if its post and profile are public.'],
           ['Handles on your domain', 'the fediverse finds @name@your-domain at the main address.'],
+          ['Search engines', 'each profile chooses whether search engines may index it and its posts; nothing is hidden.'],
         ],
       },
       {
